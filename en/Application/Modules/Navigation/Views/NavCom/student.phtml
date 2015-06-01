@@ -1,0 +1,32 @@
+<?php
+$currentUrl = $this->url->getCurrentUrl();
+?>
+<ul id="main_menu" class="main_menu">
+    <?php $i = 0;?>
+    <?php
+	foreach ($navList as $nav):
+        $url = empty($nav->url) ? $this->url->action($nav->action, $nav->controller, $nav->module) : $nav->url;
+    ?>
+        <li class="limenu <?php if(strpos($currentUrl, $url) !== false){?>select<?php }?>">
+            <a href="<?php echo $url?>">
+                <span class="ico gray shadow <?php echo $nav->class?>"></span><b><?php echo $nav->title?></b>
+            </a>
+            <?php if(isset($nav->subs)):?>
+            <ul>
+                <?php
+                foreach ($nav->subs as $sub):
+                    $subUrl = empty($sub->url) ? $this->url->action($sub->action, $sub->controller, $sub->module) : $sub->url;
+                    ?>
+                    <li>
+                        <a href="<?php echo $subUrl?>">
+                            <?php echo $sub->title?>
+                        </a>
+                    </li>
+                    <?php endforeach;?>
+            </ul>
+            <?php endif;?>
+        </li>
+    <?php
+        $i++;
+    endforeach;?>
+</ul>

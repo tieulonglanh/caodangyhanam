@@ -1,0 +1,83 @@
+<?php $this->content->begin() ?>
+<div class="content contactContent memberContent">
+    <div class="firstContent">
+        <div class="blockTitle">
+            <span><a href="<?php echo $this->url->action('index','Index','Page') ?>">Giới thiệu</a> - Cán Bộ</span>
+        </div>
+        <div class="blockContent">
+            <div class="blockContentImage">
+                <img src="<?php echo $this->url->content('Content/VNCPC/images/contents/image-gallery.png') ;?>" />
+            </div>
+            <?php foreach($groups as $g): ?>
+            <div class="memberList">
+                <div class="memberListTitle">
+                    <span><?php echo $g->title ?></span>
+                </div>
+                <?php $i=1; $length = count($goupUsers); 
+                foreach($groupUsers[$g->user_group_id] as $gu): ?>
+                <div class="memberListItem <?php if($i==1): ?> first <?php endif; ?> <?php if($i==$length): ?> last <?php endif; ?>">
+                    <div class="memberImage"><img src="<?php if(empty($userInfos[$gu->user_id]['avatar'])): ?>/Thumb/phpThumb.php?src=/Content/VNCPC/images/contents/news1.png&w=300&h=300&zc=1<?php else: ?> <?php echo  $userInfos[$gu->user_id]['avatar']; ?> <?php endif; ?>" /></div>
+                    <div class="memberInfo">
+                        <div class="name">
+                            <?php echo $userInfos[$gu->user_id]['hovaten'] ?>
+                        </div>
+                        <div class="info">
+                            <span> <?php echo $userInfos[$gu->user_id]['bangcap'] ?></span><br />
+                            <span><?php echo $userInfos[$gu->user_id]['dienthoai'] ?></span><br />
+                            <span><?php echo $gu->email ?></span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <?php $i++; 
+                endforeach; ?>
+                <div class="clearfix"></div>
+            </div><!-- memberList -->
+            <?php endforeach; ?>
+            <div class="moreInformation">
+                <div class="information">
+                    <span>Để Biết thêm thông tin chi tiết. Xin quý khách vui lòng liên hệ theo:</span>
+                </div>
+                <div class="information">
+                    <div class="location">
+                        <b><span>Trung Tâm Sản Xuất Sạch Việt Nam (VNCPC)</span></b><br />
+                        <span>Tel: (844) 3 868 4849</span><br />
+                        <span>Fax: (844) 3 868 1618</span>
+                    </div>
+                    <div class="location last">
+                        <b><span>Trung Tâm Sản Xuất Sạch Việt Nam (VNCPC)</span></b><br />
+                        <span>Tel: (844) 3 868 4849</span><br />
+                        <span>Fax: (844) 3 868 1618</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="information">
+                    <span>Hay số máy lẻ tương ứng.</span><br />
+                    <span>Do tình trạng thư rác, chúng tôi xin được thay đổi ký tự @ bằng # trong phần địa chỉ email liên hệ</span><br />
+                    <span>Thành thật xin lỗi vì sự bất tiện này</span>
+                </div>
+            </div>
+        </div><!-- blockContent -->
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="partnerLink hidePhone">
+        <div class="contentPartnerLink">
+            <div class="partnerLinkTitle">
+                <span>Liên kết đối tác</span>
+            </div>
+            <div class="linkList">
+                <a href="#"><img src="<?php echo $this->url->content('Content/VNCPC/images/contents/partner-link1.png');?>"/></a>
+                <a href="#"><img src="<?php echo $this->url->content('Content/VNCPC/images/contents/partner-link2.png');?>"/></a>
+                <a href="#"><img src="<?php echo $this->url->content('Content/VNCPC/images/contents/partner-link3.png');?>"/></a>
+                <a href="#"><img src="<?php echo $this->url->content('Content/VNCPC/images/contents/partner-link4.png');?>"/></a>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<?php $this->content->end() ?>

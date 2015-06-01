@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><?php if(isset($titleTag)): ?> <?php echo $titleTag ?> <?php else: ?> VNCPC <?php endif; ?></title>
+	<meta id="extViewportMeta" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="keywords" content="<?php if(isset($seoKeyWord)): ?> <?php echo $seoKeyWord ?> <?php else: ?> VNCPC.VN <?php endif; ?>" />
+        <meta name="description" content="<?php if(isset($seoDescription)): ?> <?php echo $seoDescription ?> <?php else: ?>VNCPC.VN <?php endif; ?>" />
+
+	<!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
+	<!-- For iPhone 4 with high-resolution Retina display: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $this->url->content("Content/VNCPC/images/icon.png") ?>" />
+	<!-- For first-generation iPad: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/icon.png" />
+	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+	<link rel="apple-touch-icon-precomposed" href="images/icon.png" />
+	<!-- For nokia devices: -->
+	<link rel="shortcut icon" href="images/icon.png" />
+    <?php $this->html->loadCss(array(
+            'Content/VNCPC/css/reset.css',
+            'Content/VNCPC/css/style.css',
+    ))?>
+
+    <?php $this->html->loadJs(array(
+            'Content/VNCPC/js/respond.min.js',
+            'Content/VNCPC/js/jquery-1.7.2.min.js',
+            'Content/VNCPC/js/jquery.easing-1.3.min.js',
+            'Content/VNCPC/js/custom.js',
+    ))?>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('search', '1');
+  google.setOnLoadCallback(function() {
+    google.search.CustomSearchControl.attachAutoCompletion(
+      '006745075231195812344:9oawwqxf4hy',
+      document.getElementById('q'),
+      'cse-search-box');
+  });
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+
+<body>
+	<?php echo $this->html->renderAction('index','BlockCom','Block',array('socialNetwork')) ?>
+	<div id="pageContainer" class="clearfix">
+
+		<div id="header">
+			<div class="headerTop">
+				<div class="logo"><img src="<?php echo $this->url->content("Content/VNCPC/images/logo.png") ?>" /></div>
+				<div class="slogan"><a href="<?php echo $this->url->action('index','Index','') ?>"><img src="<?php echo $this->url->content("Content/VNCPC/images/slogan.png")?>" /></a></div>
+				<div class="styleChooser">
+					<a href="#"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/style-blue.png")?>" /></a>
+					<a href="#"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/style-green.png")?>" /></a>
+				</div>
+				<div class="langChooser">
+					<a href="/">Tiếng Việt - </a>
+					<a href="/en">English</a>
+				</div>
+			</div><!-- headerTop -->
+                        
+                                
+			<div class="headerBottom">
+				<div class="navPrimary">
+					<h3><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/menu-small-icon.png")?>" />Menu Cuộn</h3>
+					<ul class="topNav">
+                                            <?php $this->html->renderAction('header', 'NavComponent', 'Navigation')?>
+					</ul>
+				</div>
+                                <div class="searchBox">
+                                    <form method="GET" action="<?php echo $this->url->action('search','Index','') ?>">
+                                        <input type="hidden" name="cx" value="006745075231195812344:9oawwqxf4hy" />
+                                        <input type="hidden" name="cof" value="FORID:11" />
+                                        <input type="hidden" name="ie" value="UTF-8" />
+                                        <input type="text" name="q" id="q" value="" class="searchKeyword" />
+					<input type="submit" value="search" class="searchSubmit" />
+					<div class="clearfix"></div>
+                                    </form>                                    
+                                    <!-- Google CSE Search Box Ends -->
+				</div>
+				
+			</div><!-- headerBottom -->
+		</div><!-- header -->
+		<div id="wrapper">
+			<script>
+			$(function() {
+				$('.innerSliderTop a:gt(0)').hide();
+				setInterval(function(){
+				  $('.innerSliderTop a:first-child').fadeOut(1000)
+					 .next('a').fadeIn(1000)
+					 .end().appendTo('.innerSliderTop');},
+				  10000);
+			})
+		</script>
+            <?php $this->html->renderAction('index', 'BlockCom', 'Block', array('slider'))?>
+            <?php echo $this->content ?>
+		</div><!-- wrapper -->
+		<div id="footer">
+			<div class="partnerFooter">
+				<a href="#"><img src="<?php echo $this->url->content("Content/VNCPC/images/contents/partner1.png") ?>" /></a>
+				<a href="#"><img src="<?php echo $this->url->content("Content/VNCPC/images/contents/partner2.png") ?>" /></a>
+				<a href="#"><img src="<?php echo $this->url->content("Content/VNCPC/images/contents/partner3.png") ?>"/></a>
+				<a href="#"><img src="<?php echo $this->url->content("Content/VNCPC/images/contents/partner4.png") ?>"/></a>
+			</div>
+			<div class="privacy">
+				<span>Copyright 2013 by VNCPC - Allright reserved</span>
+			</div>
+			<div class="inforFooter">
+				<span>Tầng 4, C10, ĐHBK Hà Nội - Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội<br />
+					ĐT: 844 38684849 - Fax: 844 38681618
+				</span>
+			</div>
+			<div class="clearfix"></div>
+
+		</div><!-- footer -->
+	</div><!-- pageContainer -->
+        <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=vi"></script>
+</body>
+</html>

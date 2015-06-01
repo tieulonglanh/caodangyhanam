@@ -1,0 +1,25 @@
+<?php
+
+    $current = XPHP_Url::getCurrentUrl();
+
+
+?>
+
+
+<?php
+$i = 1;
+$last = count($menu);
+
+
+?>
+
+<?php foreach ($menu as $menuItem):?>
+    <li id="menuHome" class="<?php if($i==1) echo 'first'; elseif($i==$last) echo 'last'; ?>
+        <?php if(strpos($current, $menuItem->value)) echo "active"?>">
+        <a href="<?php echo $menuItem->value?>">
+            <?php echo $menuItem->title?>
+        </a>
+    </li>
+    <?php $i++?>
+<?php endforeach;?>
+

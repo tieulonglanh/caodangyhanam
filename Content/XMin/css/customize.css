@@ -1,0 +1,52 @@
+/******* MORE *****************/
+.cl{
+    clear: both;
+}
+/******* DATATABLE ************/
+.tableToolbar .uibutton-group{
+    position: relative;
+    float: right;
+    margin-right: -3px;
+}
+.tableToolbar .dataTables_wrapper .dataTables_filter {
+    top: -83px !important;
+}
+.dataTable{
+    width: 100% !important;
+}
+.dataTable tr.row_selected td{
+    background-color: #e3f7ff;
+}
+.dataTables_processing{
+    display: none !important;
+}
+.dataTable .aleft{
+    text-align: left;
+}
+/************* FORM ***************/
+.regenerate_seo_url{
+    cursor: pointer;
+}
+.status-filter{
+    position: absolute;
+    top: 2px;
+}
+.radio_line{
+    position: relative;
+}
+.radio_line .radio-col{
+    display: inline-block;
+    width: 120px;
+}
+.radio_line .radio-col label:before{
+    font-size: 11px;
+    width: 80px;
+    min-width: 0;
+    top: -1px;
+}
+.cat_filter_wrp{
+}
+/************* TREE VIEW ***********/
+.treeview li a{
+    color: #363636;
+}

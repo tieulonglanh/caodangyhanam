@@ -1,0 +1,33 @@
+<?php $this->content->begin()?>
+<div class="widget">
+    <div class="header">
+        <span><span class="ico  gray paragraph_justify"></span> <?php echo $heading?> </span>
+    </div><!-- End header -->
+    <div class="content">
+        <?php $this->form->begin('orderList', array('data-delete-url' => $this->url->action('delete'),
+                                                    'data-edit-url'   => $this->url->action('edit')))?>
+        <?php echo $htmlMenuMultiLevel?>
+        <div class="global-form-footer">
+            <input class="uibutton large icon edit" id="submit" type="submit" value="Cập nhật" style="width: 200px;">
+            <a class="uibutton special large icon add" href="/Navigation/Manager/list/<?php echo $navType ?>">Menu tiếng việt</a>
+            <a class="uibutton confirm large icon answer" href="<?php echo $this->url->action("index")?>">Thanh điều hướng</a>
+        </div>
+        <?php $this->form->end()?>
+    </div>
+</div>
+<div id="dialogDelete" style="display: none"></div>
+<?php $this->content->end()?>
+<?php $this->section->begin("scripts")?>
+<?php 
+    //Load js
+    $this->html->loadJs(array('Content/XMin/js/jquery.ui.nestedSortable.js',
+                              'Content/XMin/components/confirm/jquery.confirm.js',
+                              'Application/Modules/Navigation/Assets/js/index_manager.js'));
+?>
+<?php $this->section->end()?>
+<?php $this->section->begin("stylesheets")?>
+<?php 
+    //Load css
+    $this->html->loadCss('Application/Modules/Navigation/Assets/css/index_manager.css');
+?>
+<?php $this->section->end()?>

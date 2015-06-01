@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>XWEB XAdmin - Vinamost.net</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php $this->html->loadCss("Content/XAdmin/css/global.css")?>
+<?php $this->html->loadCss("Content/XAdmin/css/custom.css")?>
+<!--[if IE]>
+<?php $this->html->loadCss("Content/XAdmin/css/iefix.css")?>
+<![endif]-->
+<!--[if IE 7]>
+<?php $this->html->loadCss("Content/XAdmin/css/ie7fix.css")?>
+<![endif]-->
+</head>
+<body>
+<?php $this->html->renderAction("header", "Component", "ControlPanel")?>
+
+<?php $this->html->renderAction("navigation", "Component", "ControlPanel")?>
+<div class="global-shell">
+<?php echo $this->section->breadcrumb?>
+<div class="fclear"></div>
+<?php echo $this->content?>
+</div>
+
+<?php $this->html->renderAction("footer", "Component", "ControlPanel")?>
+
+<!-- ********************************************************************* -->
+<!-- Begin Javascript Files -->
+<?php $this->html->loadJs(
+        array(		"Scripts/jquery-1.6.2.min.js",
+                    "Scripts/jquery-ui-1.8.16.min.js",
+                    "Content/XAdmin/js/jquery.visualize.js",
+                    "Content/XAdmin/js/jquery.visualize.tooltip.js",
+                    "Content/XAdmin/js/jquery.ui.selectmenu.js",
+                    "Content/XAdmin/js/jquery.datatables.min.js",
+                    "Content/XAdmin/js/jquery.potato.menu.min.js",
+                    "Content/XAdmin/js/jquery.masonry.min.js",
+                    "Content/XAdmin/js/jquery.lightbox.min.js",
+                    "Content/XAdmin/js/jquery.ui.totop.js",
+                    "Content/XAdmin/js/jquery.markitup.js",
+                    "Content/XAdmin/js/jquery.markitup.set.js",
+                    "Content/XAdmin/js/jquery.filetree.js",
+                    "Content/XAdmin/js/jquery.minicolors.js",
+                    "Content/XAdmin/js/custom.js",
+                    "Application/Modules/Auth/Assets/js/admin_login.js",		
+                )
+)?>
+<!--[if IE]>
+<?php $this->html->loadJs("Content/XAdmin/js/excanvas.compiled.js")?>
+<![endif]--><!-- needed to make HTML5 charts and graphs (visualize.js) work in IE -->
+
+<!--show password script for registration section in login page-->
+<?php $this->html->loadJs("Content/XAdmin/js/jquery.showpassword.js")?>
+<!-- Style and js for KendoUI -->
+<?php echo $this->asset->name('KendoUI')?>
+<?php echo $this->asset->scriptRegistrar()?>
+<?php echo $this->asset->styleRegistrar()?>
+<?php $this->html->loadCss("Assets/css/kendo.default.css")?>
+<!-- //End Javascript Files -->
+<!-- ********************************************************************* -->
+<!-- Javascript Block -->
+<?php echo $this->section->scripts?>
+<!-- Stylesheets Block -->
+<?php echo $this->section->stylesheets?>
+</body>
+</html>

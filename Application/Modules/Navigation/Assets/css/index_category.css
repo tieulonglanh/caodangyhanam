@@ -1,0 +1,52 @@
+.placeholder {
+	background-color: #cfcfcf;
+}
+.ui-nestedSortable-error {
+	background:#fbe3e4;
+	color:#8a1f11;
+}
+ol {
+	margin: 0;
+	padding: 0;
+	padding-left: 30px;
+}
+ol.sortable, ol.sortable ol {
+	margin: 0 0 0 25px;
+	padding: 0;
+	list-style-type: none;
+}
+ol.sortable {
+	margin: 4em 0;
+}
+.sortable li {
+	margin: 7px 0 0 0;
+	padding: 0;
+    color: #999999;
+    display: block;
+    font-size: 10pt;
+    font-weight: bold;
+    line-height: 25px;
+}
+.sortable li div.title {
+	position: relative;
+	border: 1px solid #bbb;
+	padding: 3px 20px;
+	margin: 0;
+	cursor: move;
+	background: url(/Content/XAdmin/img/draggable.png) no-repeat 0 0;
+}
+.sortable li div.title:hover {
+	background: scroll #C9D8FB url(/Content/XAdmin/img/draggable.png) no-repeat 0 -33px;
+    border-bottom: 1px solid #ACBDE8;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 15px #ACBDE8 inset;
+    color: #336699;
+}
+.sortable li div.title:active {
+	background: url(/Content/XAdmin/img/draggable.png) no-repeat 0 -66px;
+}
+.sortable li div.options {
+	position: absolute;
+	right: 10px;
+	top: 6px;
+}

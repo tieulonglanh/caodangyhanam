@@ -1,0 +1,111 @@
+<?php $this->content->begin()?>
+<?php
+    function getDefaultImage($image) {
+//        $newestNews[0]->image
+//        if(empty($image)) return $this->url->content("Content/VNCPC/images/contents/news1.png");
+//        else return $image;
+    }
+
+function replaceSpace($str) {
+    return str_replace(' ', '-', stripUnicode($str));
+}
+
+function stripUnicode($str){
+    $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+    $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+    $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+    $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+    $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+    $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+    $str = preg_replace("/(đ)/", 'd', $str);
+    $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+    $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+    $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+    $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+    $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+    $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+    $str = preg_replace("/(Đ)/", 'D', $str);
+//$str = str_replace(" ", "-", str_replace("&amp;*#39;","",$str));
+    return $str;
+}
+?>
+<style>
+    .image
+    {
+        width: 192px;
+        height: 160px;
+    }
+</style>
+<div class="firstContent">
+    <div class="blockNews groupThree left">
+        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => 0, "title"=>"tin-moi"))?>">Latest News</a></div>
+        <div class="newsGroup">
+            <div class="newsItem first">
+                <img src="/Thumb/phpThumb.php?src=<?php echo empty($newestNews[0]->image) ? "/Content/VNCPC/images/contents/news1.png" : $newestNews[0]->image;?>&w=320&h=300&zc=1" style="max-width: 192px; max-height: 160px;"/>
+                <div class="newsTitle"><a href="<?php echo $this->url->action("new", "Index", "Artical", array('id'=>$newestNews[0]->id, 'title'=>$newestNews[0]->seo_url))?>"><?php echo $newestNews[0]->title;?></a></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="newsItem">
+                <img src="/Thumb/phpThumb.php?src=<?php echo empty($newestNews[1]->image) ? "/Content/VNCPC/images/contents/news2.png" : $newestNews[1]->image;?>&w=320&h=300&zc=1" style="max-width: 192px; max-height: 160px;"/>
+                <div class="newsTitle"><a href="<?php echo $this->url->action("new", "Index", "Artical", array('id'=>$newestNews[1]->id, 'title'=>$newestNews[1]->seo_url))?>"><?php echo $newestNews[1]->title;?></a></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="newsItem last">
+                <img src="/Thumb/phpThumb.php?src=<?php echo empty($newestNews[2]->image) ? "/Content/VNCPC/images/contents/news1.png" : $newestNews[2]->image;?>&w=320&h=300&zc=1" style="max-width: 192px; max-height: 160px;"/>
+                <div class="newsTitle"><a href="<?php echo $this->url->action("new", "Index", "Artical", array('id'=>$newestNews[2]->id, 'title'=>$newestNews[2]->seo_url))?>"><?php echo $newestNews[2]->title;?></a></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="blockNews">
+        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsCenterId, "title"=>$newsCenterSeo))?>">VNCPC's News</a></div>
+        <div class="newsItem">
+            <img src="/Thumb/phpThumb.php?src=<?php echo empty($newsCenter[0]->image) ? "/Content/VNCPC/images/contents/news3.png" : $newsCenter[0]->image;?>&w=320&h=100&zc=1" style="max-width: 344px;max-height: 160px" />
+            <div class="newsTitle"><a href="<?php echo $this->url->action("detail", "Index", "Artical", array('id'=>$newsCenter[0]->id, 'title'=>$newsCenter[0]->seo_url))?>"><?php echo $newsCenter[0]->title?></a></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="blockNews left">
+        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsFromProjectId, "title"=>$newsFromProjectSeo))?>">News from projects</a></div>
+        <div class="newsItem">
+            <img src="/Thumb/phpThumb.php?src=<?php echo empty($newsFromProject[0]->image) ? "/Content/VNCPC/images/contents/news3.png" : $newsFromProject[0]->image;?>&w=320&h=300&zc=1" style="max-width: 344px;max-height: 160px" />
+            <div class="newsTitle"><a href="<?php echo $this->url->action("detail", "Index", "Artical", array('id'=>$newsFromProject[0]->id,'title'=>$newsFromProject[0]->seo_url))?>"><?php echo $newsFromProject[0]->title?></a></div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="blockNews groupThree">
+        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsAboutProductionId, "title"=>$newsAboutProductionSeo))?>">Production and Sustainable Consumption News</a></div>
+        <div class="newsGroup">
+            <div class="newsItem first">
+                <img src="/Thumb/phpThumb.php?src=<?php echo empty($newsAboutProduction[0]->image) ? "/Content/VNCPC/images/contents/news1.png" : $newsAboutProduction[0]->image;?>&w=320&h=300&zc=1" style="max-width: 192px; max-height: 160px;"/>
+                <div class="newsTitle"><a href="<?php echo $this->url->action("detail", "Index", "Artical", array('id'=>$newsAboutProduction[0]->id,'title'=>$newsAboutProduction[0]->seo_url))?>"><?php echo $newsAboutProduction[0]->title;?></a></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="newsItem">
+                <img src="/Thumb/phpThumb.php?src=<?php echo empty($newsAboutProduction[1]->image) ? "/Content/VNCPC/images/contents/news2.png" : $newsAboutProduction[1]->image;?>&w=320&h=300&zc=1" style="max-width: 192px; max-height: 160px;"/>
+                <div class="newsTitle"><a href="<?php echo $this->url->action("detail", "Index", "Artical", array('id'=>$newsAboutProduction[1]->id,'title'=>$newsAboutProduction[1]->seo_url))?>"><?php echo $newsAboutProduction[1]->title;?></a></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="newsItem last">
+                <img src="/Thumb/phpThumb.php?src=<?php echo empty($newsAboutProduction[2]->image) ? "/Content/VNCPC/images/contents/news1.png" : $newsAboutProduction[2]->image;?>&w=320&h=300&zc=1" style="max-width: 192px; max-height: 160px;"/>
+                <div class="newsTitle"><a href="<?php echo $this->url->action("detail", "Index", "Artical", array('id'=>$newsAboutProduction[2]->id,'title'=>$newsAboutProduction[2]->seo_url))?>"><?php echo $newsAboutProduction[2]->title;?></a></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+</div>
+    <div class="clearfix"></div>
+    <script>
+        $(document).ready(function(){
+            $('#menuTintuc').addClass("active");
+            $('.content').addClass("newsContent");
+        });
+    </script>
+<?php $this->content->end()?>

@@ -1,0 +1,178 @@
+<?php $this->html->loadJs(array('Application/Assets/js/component_header.js'))?>
+            <div class="header">
+                <div class="logo"><img alt="bla.vn" title="bla.vn" src="<?php echo $this->url->content('Content/HiU/images/logo.png')?>" /></div>
+				<div class="navigation-container">
+			    	<?php $currentUrl = $this->url->getCurrentUrl()?>
+			    	<?php if(isset($this->session->member) && !empty($this->session->member->username)):?>
+		    		<ul id="navigation">
+		    	    	<?php 
+		    	        $ttUrl = $this->url->action('index', 'Member', 'User');
+		    	        $tkUrl = $this->url->action('index', 'Search', 'User');
+		    	        $crUrl = $this->url->action('index', 'Daily5', 'User');
+		    	        $prUrl = $this->url->action('index', 'Profile', 'User');
+		    	        $hdUrl = $this->url->action('index', 'Index', 'StaticPage');
+		    	        $skUrl = $this->url->action('index', 'Event', 'StaticPage');
+		    	    	?>
+			    	    <li class="line"></li>
+			    		<li><a class="home <?php if($currentUrl == $ttUrl || strpos($currentUrl, 'ket-noi')) {?>active<?php } else {?>normal<?php }?>" href="<?php echo $ttUrl?>">Trang chủ</a></li>
+			    		<li class="line"></li>
+			    		<li><a class="search <?php if($currentUrl == $tkUrl || strpos($currentUrl, 'tim-kiem')) {?>active<?php } else {?>normal<?php }?>" href="<?php echo $tkUrl?>">Tìm kiếm</a></li>
+			    		<li class="line"></li>
+			    		<li><a class="combine <?php if($currentUrl == $crUrl || strpos($currentUrl, 'ket-hop')) {?>active<?php } else {?>normal<?php }?>" href="<?php echo $crUrl?>">Kết hợp</a></li>
+			    		<li class="line"></li>
+			    		<li><a class="profile <?php if($currentUrl == $prUrl || strpos($currentUrl, 'trang-ca-nhan')) {?>active<?php } else {?>normal<?php }?>" href="<?php echo $prUrl?>">Trang cá nhân</a></li>
+			    		<li class="line"></li>
+			    		<li><a class="chatroom <?php if($currentUrl == $crUrl) {?>active<?php } else {?>normal<?php }?>" href="<?php echo $crUrl?>"><span class="flove-logo"></span>Chat room</a></li>
+			    		<li class="line"></li>
+			    		<li><a class="forum <?php if($currentUrl == $hdUrl) {?>active<?php } else {?>normal<?php }?>" href="<?php echo $hdUrl?>">Trà đá quán</a></li>
+			    		<li class="line"></li>
+			    	</ul>
+			    	<div class="user-notice">
+						<div class="function" id="user-function">
+				    		<ul class="notif-icon">
+				    			<li>
+				    			    <a class="wink open-tipsy" rel="wink-notif" title="Nháy mắt" data-url="<?php echo $this->url->action('notification', 'Winkcomponent', 'User')?>">
+				    			        <?php $this->html->renderAction('noticewink', 'WinkComponent', 'Wink') ?>
+				    			    </a>
+				    			</li>
+				    			<li>
+				    			    <a class="email open-tipsy" rel="email-notif" title="Email" data-url="<?php echo $this->url->action('notification', 'Index', 'Message')?>">
+				    			        <?php $this->html->renderAction('countNew', 'MessageComponent', 'Message')?>
+				    			    </a>
+				    			</li>
+				    			<li>
+				    			    <a class="message open-tipsy" rel="message-notif" title="Tin nhắn" data-url="<?php echo $this->url->action('unreadMessage', 'Index', 'Chat')?>">
+				    			        <?php $this->html->renderAction('countUnread', 'ChatComponent', 'Chat')?>
+				    			    </a>
+				    			</li>
+				    			<li>
+				    			    <a class="gift open-tipsy" rel="gift-notif" title="Quà tặng" data-url="<?php echo $this->url->action('notification', 'Index', 'Store')?>">
+				    			        <?php $this->html->renderAction('countNew', 'SComponent', 'Store')?>
+				    			    </a>
+				    			</li>
+				    		</ul>
+				    		<div class="cl"></div>
+				    		<div class="notification wink-notif">
+                    		    <div class="n-wrapper">
+                    		        <div class="muiten"></div>
+                    		        <div class="n-title">
+                    		            <a class="t-h" href="#">Nháy mắt</a>
+                    		            <a class="see-more" href="#">xem tất cả</a>
+                    		        </div>
+                    		        <div class="loading"><img src="<?php echo $this->url->content('Content/4lovev2/images/ajax-load.gif')?>" /></div>
+                    		        <div class="scrolling-list nano">
+                    		            <ul class="content"></ul>
+                    		        </div>
+                    		    </div>
+                    		</div>
+                    		<div class="notification email-notif">
+                    		    <div class="n-wrapper">
+                    		        <div class="muiten"></div>
+                    		        <div class="n-title">
+                    		            <a class="t-h" href="#">Hộp thư đến</a>
+                    		            <a class="see-more" href="#">xem tất cả</a>
+                    		        </div>
+                    		        <div class="loading"><img src="<?php echo $this->url->content('Content/4lovev2/images/ajax-load.gif')?>" /></div>
+                    		        <div class="scrolling-list nano">
+                    		            <ul class="content"></ul>
+                    		        </div>
+                    		    </div>
+                    		</div>
+                    		<div class="notification message-notif">
+                    		    <div class="n-wrapper">
+                    		        <div class="muiten"></div>
+                    		        <div class="n-title">
+                    		            <a class="t-h" href="#">Tin nhắn</a>
+                    		            <a class="see-more" href="#">xem tất cả</a>
+                    		        </div>
+                    		        <div class="loading"><img src="<?php echo $this->url->content('Content/4lovev2/images/ajax-load.gif')?>" /></div>
+                    		        <div class="scrolling-list nano">
+                    		            <ul class="content"></ul>
+                    		        </div>
+                    		    </div>
+                    		</div>
+                    		<div class="notification gift-notif">
+                    		    <div class="n-wrapper">
+                    		        <div class="muiten"></div>
+                    		        <div class="n-title">
+                    		            <a class="t-h" href="#">Quà tặng</a>
+                    		            <a class="see-more" href="#">xem tất cả</a>
+                    		        </div>
+                    		        <div class="loading"><img src="<?php echo $this->url->content('Content/4lovev2/images/ajax-load.gif')?>" /></div>
+                    		        <div class="scrolling-list nano">
+                    		            <ul class="content"></ul>
+                    		        </div>
+                    		    </div>
+                    		</div>
+			    		</div>
+			    		<div class="uavatar">
+			    			<?php 
+			                    $avatar = $this->session->member->avatar;
+			                    if(empty($avatar))
+			                    {
+			                        if((int)$this->session->member->gender == 1)
+			                            $avatar = 'no-avatar-men.jpg';
+			                        else 
+			                            $avatar = 'no-avatar-women.jpg';
+			                    }
+			                ?>
+			                <div class="avatar-dropdown">
+			                    <div class="avatar" style="background-image: url('<?php echo Bla_Avatar::link($avatar, 35, 35)?>')">
+			    			    </div>
+			    			    <a class="down"></a>
+			    			    <div class="dropdown-list">
+			    			        <div class="avatar-wrapper">
+    			    					<a class="avatar" style="background-image: url('<?php echo Bla_Avatar::link($avatar, 100, 100)?>')"></a>
+			    					</div>
+			    					<ul>
+			    					    <li><a class="changepass"><span class="icon"></span>Đổi mật khẩu</a></li>
+			    					    <li><a class="changeavt"><span class="icon"></span>Thay avatar</a></li>
+			    					    <li><a class="credit"><span class="icon"></span>Nạp credit</a></li>
+			    					    <li><a class="subscribe"><span class="icon"></span>Nâng cấp tài khoản</a></li>
+			    					    <li><a class="logout" href="<?php echo $this->url->action('logout', 'Member', 'Auth')?>"><span class="icon"></span>Đăng xuất</a></li>
+			    					</ul>
+			    					<div class="cl"></div>
+			    					<div class="current-stt">
+			    					    <div class="credit open-tipsy" title="Trong tài khoản của bạn có 41500 credit">
+    			    					    <span class="icon"></span>
+    			    					    <span class="tk">41500</span>
+    			    					    <a class="credit">credit</a>
+    			    					</div>
+    			    					<div class="cl"></div>
+    			    					<div class="subscribe open-tipsy" title="Tài khoản của bạn bị giới hạn">
+    			    					    <span class="icon"></span>
+    			    					    <a class="limit">Chuyển sang không giới hạn</a>
+    			    					</div>
+    			    					<div class="cl"></div>
+			    					</div>
+			    				</div>
+			                </div>
+			    			<div class="cl"></div>
+			    		</div>
+			    	</div>
+		    		<?php else: /*?>
+		    		<ul id="navigation">
+		    	    	<?php 
+		    	        $ttUrl = $this->url->action('index', 'Member', 'User');
+		    	        $tkUrl = $this->url->action('index', 'Search', 'User');
+		    	        $dnUrl = $this->url->action('login', 'Member', 'Auth');
+		    	        $dkUrl = $this->url->action('register', 'Member', 'Auth');
+		    	        $hdUrl = $this->url->action('index', 'Index', 'StaticPage');
+		    	        $skUrl = $this->url->action('index', 'Event', 'StaticPage');
+		    	    	?>
+			    	    <li class="line"></li>
+			    		<li><a <?php if($currentUrl == $ttUrl) {?>class="active"<?php } else {?>class="normal"<?php }?> href="<?php echo $ttUrl?>">Trang chủ</a></li>
+			    		<li class="line"></li>
+			    		<li><a <?php if($currentUrl == $tkUrl || strpos($currentUrl, 'tim-kiem')) {?>class="active"<?php } else {?>class="normal"<?php }?> href="<?php echo $tkUrl?>">Tìm kiếm</a></li>
+			    		<li class="line"></li>
+			    		<li><a <?php if($currentUrl == $dnUrl || strpos($currentUrl, '/Auth/Member/login')) {?>class="active"<?php } else {?>class="normal"<?php }?> href="<?php echo $dnUrl?>">Đăng nhập</a></li>
+			    		<li class="line"></li>
+			    		<li><a <?php if($currentUrl == $dkUrl) {?>class="active"<?php } else {?>class="normal"<?php }?> href="<?php echo $dkUrl?>">Đăng ký</a></li>
+			    		<li class="line"></li>
+			    		<li><a <?php if($currentUrl == $hdUrl) {?>class="active"<?php } else {?>class="normal"<?php }?> href="<?php echo $hdUrl?>">Trà đá quán</a></li>
+			    		<li class="line"></li>
+		    		</ul>
+		    		<?php  */ endif;?>
+		    		<div class="cl"></div>
+		    	</div>
+            </div>

@@ -1,0 +1,78 @@
+<?php $this->content->begin() ?>
+<?php $this->html->loadJs('Assets/jquery-tools/jquery.tools.min.js')?>
+<script type="text/javascript">
+    $(function(){
+        $("ul.tabs").tabs("div.panes > div", {effect: 'fade'});
+    });
+</script>
+<div class="left main-content">
+    <div class="title">Video mới<a class="bullet"></a></div>
+    <div class="l-content video">
+        <ul>
+            <?php $i = 1; foreach ($lastestVideos as $video): ?>
+            <?php if(empty($video->avatar)) $video->avatar = $this->url->content('Content/LNGuitar/images/no-avatar.png')?>
+            <li <?php if ($i % 4 == 0) { ?>class="last"<?php }?>>
+                <a href="<?php echo $this->url->action('detail', array('seo_url' => $video->seo_url, 'id' => $video->id))?>" title="<?php echo $video->title ?>"><img src="<?php echo $video->avatar ?>"/></a>
+                <a class="tit" href="<?php echo $this->url->action('detail', array('seo_url' => $video->seo_url, 'id' => $video->id))?>" title="<?php echo $video->title ?>"><?php echo XPHP_String::shortenText($video->title, 50) ?></a>
+                <p class="vd">Lượt xem: <?php echo $video->hit ?></p>
+            </li>
+            <?php $i++; endforeach; ?>
+        </ul>
+        <div class="cl"></div>
+    </div>
+    <div class="title">
+        <ul class="tabs">
+            <li><a>Xem nhiều nhất</a></li>
+            <li class="last"><a>Bình chọn nhiều nhất</a></li>
+        </ul>
+        <div class="cl"></div>
+    </div>
+    <div class="panes">
+        <div class="l-content video last">
+            <ul>
+                <?php $i = 1; foreach ($mostViewVideos as $video): ?>
+                <?php if(empty($video->avatar)) $video->avatar = $this->url->content('Content/LNGuitar/images/no-avatar.png')?>
+                <li <?php if ($i % 4 == 0) {?>class="last"<?php }?>>
+                    <a href="<?php echo $this->url->action('detail', 'Index', 'Video', array('seo_url' => $video->seo_url, 'id' => $video->id))?>" title="<?php echo $video->title ?>"><img src="<?php echo $video->avatar ?>"/></a>
+                    <a class="tit" href="<?php echo $this->url->action('detail', 'Index', 'Video', array('seo_url' => $video->seo_url, 'id' => $video->id))?>" title="<?php echo $video->title ?>"><?php echo XPHP_String::shortenText($video->title, 50) ?></a>
+                    <p class="vd">Lượt xem: <?php echo $video->hit ?></p>
+                </li>
+                <?php $i++; endforeach; ?>
+            </ul>
+            <div class="cl"></div>
+        </div>
+        <div class="l-content video last">
+            <ul>
+                <?php $i = 1; foreach ($mostFavVideo as $video): ?>
+                <?php if(empty($video->avatar)) $video->avatar = $this->url->content('Content/LNGuitar/images/no-avatar.png')?>
+                <li <?php if ($i % 4 == 0) {?>class="last"<?php }?>>
+                    <a href="<?php echo $this->url->action('detail', 'Index', 'Video', array('seo_url' => $video->seo_url, 'id' => $video->id))?>" title="<?php echo $video->title ?>"><img src="<?php echo $video->avatar ?>"/></a>
+                    <a class="tit" href="<?php echo $this->url->action('detail', 'Index', 'Video', array('seo_url' => $video->seo_url, 'id' => $video->id))?>" title="<?php echo $video->title ?>"><?php echo XPHP_String::shortenText($video->title, 50) ?></a>
+                    <p class="vd">Lượt xem: <?php echo $video->hit ?></p>
+                </li>
+                <?php $i++; endforeach; ?>
+            </ul>
+            <div class="cl"></div>
+        </div>
+    </div>
+</div>
+<div class="left sidebar">
+    <div class="leftmenu">
+        <ul>
+            <li class="current"><a href="javascript:void();">Tất cả video</a></li>
+            <li><a href="<?php echo $this->url->action('last')?>">Video mới</a></li>
+            <li><a href="<?php echo $this->url->action('mostView')?>">Xem nhiều nhất</a></li>
+            <li><a href="<?php echo $this->url->action('mostRate')?>">Bình chọn nhiều nhất</a></li>
+        </ul>
+    </div>
+    <a class="sidebox-title" style="margin-top: 26px;">Danh mục</a>
+    <div class="leftmenu">
+        <ul>
+            <?php foreach($categories as $c):?>
+            <li><a href="<?php echo $this->url->action('category', array('seo_url' => $c->seo_url, 'id' => $c->id))?>"><?php echo $c->name?></a></li>
+            <?php endforeach?>
+        </ul>
+    </div>
+</div>
+<div class="cl"></div>
+<?php $this->content->end() ?>

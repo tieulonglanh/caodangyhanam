@@ -1,0 +1,29 @@
+<?php $this->content->begin()?>
+<div id="cse-search-results"></div>
+<script type="text/javascript">
+    var googleSearchIframeName = "cse-search-results";
+    var googleSearchFormName = "cse-search-box";
+    if ($(window).width() >= 1024) {
+      var googleSearchFrameWidth = 930;
+    } 
+    else if($(window).width() > 750 && $(window).width() < 1024){
+        var googleSearchFrameWidth = 590;
+    }
+    else{
+        var googleSearchFrameWidth = "auto";
+    }
+
+    var googleSearchDomain = "www.google.com";
+    var googleSearchPath = "/cse";
+    var googleSearchFrameHeight = 200;
+</script>
+<script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
+<script>
+$(window).resize(function() {
+    window.location.href=window.location.href;
+});
+</script>
+<script type="text/javascript">
+try{document.getElementsByName('googleSearchFrame')[0].height=1360;}catch(e){}
+</script>
+<?php $this->content->end()?>

@@ -1,0 +1,11 @@
+<label for="value">Bài viết</label>
+<div>
+    <select id="value" name="value">
+        <?php foreach($articals as $a):
+        $url = $this->url->action('index', 'Index', 'Artical', array('seo_url' => $a->seo_url, 'id' => $a->id));
+        ?>
+        <option data-url="<?php echo $url?>" value="<?php echo $a->id?>" <?php if($value == $a->id){?>selected="selected"<?php }?>><?php echo $a->title?></option>
+        <?php endforeach?>
+    </select>
+    <label class="red" for="value">*</label>
+</div>

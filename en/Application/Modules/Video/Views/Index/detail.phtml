@@ -1,0 +1,116 @@
+<?php $this->content->begin() ?>
+<div class="left main-content">
+    <div class="title-none-bg"><?php echo $video->title?></div>
+    <div class="video-detail">
+        <div id="video-content" data-file="<?php echo $video->url?>" data-image="<?php echo $video->avatar?>"></div>
+    </div>
+    <div class="video_info clearfix" style="width: 660px;margin-top: 12px;">
+        <div class="fan">
+            <input class="fan_like" name="yt0" type="button" data-id="<?php echo $video->id ?>" id="yt0" onclick="plusFav(this);" data-url="<?php echo $this->url->action('plusFav')?>"/>
+            <input class="fan_share" name="yt1" type="button" value="" onclick="openShareBox();" />
+            <input class="fan_alert" name="yt2" type="button" value="" id="yt2" />
+        </div>
+        <div class="video_count">
+            <div class="c"><?php echo $video->hit?></div>
+            <div class="l"><b id="fav_count"><?php echo $video->fav_count?></b> yêu thích</div>
+        </div>
+        <div class="cl"></div>
+    </div>
+    <div id="share_box" class="share_box view" style="">
+        <ul>
+            <li>
+                <span>Link nhạc:</span>
+                <input value="<?php echo XPHP_Url::getCurrentUrl()?>" class="text">
+            </li>
+            <li>
+                <span>Copy vào blog:</span>
+                <input value="<?php echo $video->url?>" class="text">
+            </li>
+        </ul>
+        <div class="cl"></div>
+    </div>
+    <div class="cl"></div>
+    <div class="user_info">
+        <div class="up">Người gửi: <a href="#"><?php echo $video->author_fullname?></a></div>
+        <div>Người hướng dẫn: <a href="<?php echo $this->url->action("teacherList", 'Index', 'Center', array("id" => $video->leader_id)) ?>"><?php echo $video->leader_fullname?></a></div>
+        <div>Tags:</div>
+    </div>
+    <div class="title-none-bg lr">Lời bài hát</div>
+    <div class="lyric">
+        <div class="cntl">
+            <?php echo $video->lyric?>
+        </div>
+        <a class="see-more"><span class="txt">Xem thêm</span><span class="icon"></span><div class="cl"></div></a>
+    </div>
+    <div class="title">Bình luận</div>
+    <div class="comment-cnt">
+        <?php
+        $facebook = new XPHP_Facebook_Plugin('556091384416552');
+        $options = array('width' => 662,
+                         'href'  => XPHP_Url::getCurrentUrl());
+        echo $facebook->getComments($options);
+        ?>
+    </div>
+    <div class="title" style="margin-top: 30px">Video tuơng tự</div>
+    <div class="l-content video last">
+        <ul>
+            <?php $i = 1; foreach($relativeVideo as $video):?>
+            <?php if(empty($video->avatar)) $video->avatar = $this->url->content('Content/LNGuitar/images/no-avatar.png')?>
+            <li <?php if($i % 4 == 0){?>class="last"<?php }?>>
+                <img src="<?php echo $video->avatar ?>"/>
+                <a class="tit" href="<?php echo $this->url->action('detail', 'Index', 'Video', array('seo_url' => $video->seo_url, 'id' => $video->id))?>"><?php echo $video->title ?></a>
+                <p class="vd">Lượt xem: <?php echo $video->hit ?></p>
+            </li>
+            <?php $i++; endforeach;?>
+        </ul>
+        <div class="cl"></div>
+    </div>
+</div>
+<div class="left sidebar">
+    <div class="leftmenu">
+        <ul>
+            <li><a href="<?php echo $this->url->action('index')?>">Tất cả video</a></li>
+            <li><a href="<?php echo $this->url->action('last')?>">Video mới</a></li>
+            <li><a href="<?php echo $this->url->action('mostView')?>">Xem nhiều nhất</a></li>
+            <li><a href="<?php echo $this->url->action('mostRate')?>">Bình chọn nhiều nhất</a></li>
+        </ul>
+    </div>
+    <a class="sidebox-title" style="margin-top: 26px;">Danh mục</a>
+    <div class="leftmenu">
+        <ul>
+            <?php foreach($categories as $c):?>
+            <li <?php if($category->id == $c->id){?>class="current"<?php }?>><a href="<?php echo $this->url->action('category', array('seo_url' => $c->seo_url, 'id' => $c->id))?>"><?php echo $c->name?></a></li>
+            <?php endforeach?>
+        </ul>
+    </div>
+</div>
+<div class="cl"></div>
+<?php $this->html->loadJs('Assets/jwplayer/jwplayer.js')?>
+<script type="text/javascript">
+    jwplayer("video-content").setup({
+        file: $("#video-content").data('file'),
+        image: $("#video-content").data('image'),
+        width: 642,
+        height: 368
+    });
+    function openShareBox()
+    {
+        $('#share_box').slideToggle();
+    }
+    function plusFav(e){
+        e = $(e);
+        $.ajax({
+            url:    e.data('url'),
+            data: {
+                id: e.data('id')
+            },
+            type: 'post',
+            dataType: 'json',
+            success: function(res){
+                $('#fav_count').html(res.count);
+                alert(res.message);
+            }
+        });
+    }
+</script>
+<?php $this->content->end()?>

@@ -1,0 +1,29 @@
+<?php $this->content->begin()?>
+<div class="widget">
+    <div class="header">
+        <span><span class="ico  gray paragraph_justify"></span> Danh sách các loại slide </span>
+    </div><!-- End header -->
+    <div class="content">
+        <ol class="rounded-list">
+            <?php foreach ($slides as $type => $name):?>
+            <li><a href="<?php echo $this->url->action("list", array($type))?>"><?php echo $name?></a></li>
+            <?php endforeach;?>
+        </ol>
+    </div>
+</div>
+<?php $this->content->end()?>
+<?php $this->section->begin('style')?>
+<style type="text/css">
+    .nav-type a{
+        font-weight: bold;
+        display: block;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ACBDE8;
+        text-decoration: none;
+        border-radius: 2px 2px 2px 2px;
+        box-shadow: 0 0 15px #ACBDE8 inset;
+        color: #369;
+    }
+</style>
+<?php $this->section->end()?>

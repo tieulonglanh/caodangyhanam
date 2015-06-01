@@ -1,0 +1,40 @@
+<style type="text/css">
+    .hd{
+        width: 150px;
+        font-weight: bold;
+    }
+</style>
+<table cellpadding="0" cellspacing="15" border="0">
+    <tr>
+        <td class="hd">Họ và tên</td>
+        <td><?php echo $contact->name?></td>
+    </tr>
+    <tr>
+        <td class="hd">Email</td>
+        <td><?php echo $contact->email?></td>
+    </tr>
+    <tr>
+        <td class="hd">Số điện thoại</td>
+        <td><?php echo $contact->phone?></td>
+    </tr>
+    <tr>
+        <td class="hd">Thông tin thêm</td>
+        <td><?php echo $contact->more_infor?></td>
+    </tr>
+    <tr>
+        <td class="hd">Địa chỉ</td>
+        <td><?php echo $contact->address?></td>
+    </tr>
+    <tr>
+        <td class="hd">Chủ đề</td>
+        <td><?php echo $contact->title?></td>
+    </tr>
+    <tr>
+        <td class="hd">Ngày gửi</td>
+        <td><?php echo date('d-m-Y H:i:s', strtotime($contact->created_date))?></td>
+    </tr>
+    <tr>
+        <td class="hd">Nội dung</td>
+        <td><?php echo $contact->message?></td>
+    </tr>
+</table>

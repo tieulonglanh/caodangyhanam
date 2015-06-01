@@ -1,0 +1,113 @@
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<?php
+    function getClass ($count) {
+        if($count==0) return 'blockProject left first left-tablet';
+        elseif($count == 1) return 'blockProject left';
+        elseif($count == 2) return 'blockProject left left-tablet';
+        elseif($count == 3) return 'blockProject';
+        elseif($count == 4) return 'blockProject left left-tablet';
+        elseif($count == 5) return 'blockProject left';
+        elseif($count == 6) return 'blockProject left left-tablet';
+        elseif($count == 7) return 'blockProject';
+    }
+
+    function replaceSpace($str) {
+        return str_replace(' ', '-', stripUnicode($str));
+    }
+
+    function stripUnicode($str){
+        $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+        $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+        $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+        $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+        $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+        $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+        $str = preg_replace("/(đ)/", 'd', $str);
+        $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+        $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+        $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+        $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+        $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+        $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+        $str = preg_replace("/(Đ)/", 'D', $str);
+//$str = str_replace(" ", "-", str_replace("&amp;*#39;","",$str));
+        return $str;
+    }
+
+    $countResult = count($result_pag_data);
+
+
+?>
+<div class="listProjects" id="listProjects" style="display: <?php if($type=='blog') echo 'block'; else echo 'none'?>">
+    <?php for ($i = 0; $i < $countResult; $i++) : ?>
+        <div class="<?php echo getClass($i)?>">
+            <div class="blockImage"><a style="max-width: 104px; max-height: 69px;" href="#"><img src="<?php echo empty($result_pag_data[$i]->image) ? $this->url->content("Content/VNCPC/images/contents/project1.png") : $result_pag_data[$i]->image;?>" /></a></div>
+            <div class="blockContent">
+                <div class="projectTitle">
+                    <a href="<?php echo $this->url->action("detail", "Index", "Project", array("id" => $result_pag_data[$i]->id, "seo_url" => $result_pag_data[$i]->seo_url)); ?>"><?php echo $result_pag_data[$i]->title;?></a>
+                </div>
+                <div class="projectInfo">
+                    <?php echo $result_pag_data[$i]->description; ?>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    <?php endfor;?>
+    <div class="clearfix"></div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+<div id="blockContent" class="blockContent" style="display: <?php if($type=='list') echo 'block'; else echo 'none'?>">
+    <table class="responsive">
+        <thead>
+            <tr>
+                <th>Mã Dự Án</th>
+                <th class="left">Tên Dự Án</th>
+                <th>Cơ quan tài trợ</th>
+                <th>Vùng dự án</th>
+                <th>Năm thực hiện</th>
+<!--                <th>Tải xuống</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($result_pag_data as $data):?>
+            <tr>
+                <td class="left"><?php echo $data->id?></td>
+                <td class="left title"><a href="<?php echo $this->url->action("detail", "Index", "Project", array("id" => $data->id,  "title" => replaceSpace($data->title))); ?>"><?php echo $data->title?></a></td>
+                <td><?php echo $data->sponsor?></td>
+                <td><?php echo $data->region?></td>
+                <td><?php echo $data->date_start?></td>
+<!--                <td><a href="--><?php //echo $data->file?><!--"><img src="--><?php //echo $this->url->content("Content/VNCPC/images/icons/pdf.png")?><!--"/></a></td>-->
+            </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+
+    <div class="clearfix"></div>
+</div>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+
+<div class="pageNav">
+
+    <?php if ($first_btn):?>
+        <a href="javascript:void (0)" p="1" class="prev"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/prev.png")?>" /></a>
+    <?php endif;?>
+
+
+    <?php for ($i = $start_loop; $i <= $end_loop; $i++) :?>
+
+        <?php if ($cur_page == $i) :?>
+            <a href="javascript:void (0)" p='<?php echo $i?>' class='current'><?php echo $i?></a>
+        <?php else:?>
+            <a href="javascript:void (0)" p='<?php echo $i?>'><?php echo $i?></a>
+        <?php endif;?>
+    <?php endfor;?>
+    <?php if ($last_btn):?>
+        <a href="javascript:void (0)" p='<?php echo $no_of_paginations?>' class='next'><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/next.png")?>"/></a>
+    <?php endif;?>
+</div>
+
+<div class="clearfix"></div>

@@ -1,0 +1,1914 @@
+body {
+	margin:0;
+	padding:0;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:#ffffff;
+}
+a {
+	color:#252525;
+	text-decoration:none;
+}
+a:hover {
+	color:#3c9001;
+}
+a img {
+	border:0;
+}
+
+#pageContainer{
+	width:933px;
+	margin:auto;
+}
+
+.hidePc{
+	display:none;
+}
+
+#socialNetwork{
+	position:absolute;
+	left:8px;
+	top:155px;
+	width:40px;
+	z-index:999;
+}
+	#socialNetwork a{
+		width:40px;
+		height:40px;
+		display:block;
+		margin-bottom:11px;
+	}
+
+
+/*============= Header ============*/
+#header{
+	
+}
+	.headerTop{
+		height:103px;
+		position:relative;
+		z-index:1;
+	}
+		.headerTop .logo{
+			height:78px;
+			width:46px;
+			position:absolute;
+			z-index:2;
+			left:68px;
+			top:23px;
+		}
+			.headerTop .logo img{
+				height:78px;
+				width:46px;
+			}
+			
+		.headerTop .slogan{
+			height:78px;
+			width:46px;
+			position:absolute;
+			z-index:2;
+			left:191px;
+			top:47px;
+		}
+		.headerTop .styleChooser{
+			position:absolute;
+			z-index:2;
+			top:7px;
+			right:7px;
+		}
+			.headerTop .styleChooser a{
+				display:inline-block;
+				height:11px;
+				width:11px;
+				margin:0px 3px;
+			}
+
+		.headerTop .langChooser{
+			position:absolute;
+			z-index:2;
+			right:-3px;
+			top:47px;
+		}
+			.headerTop .langChooser a{
+				display:inline-block;
+				color:#999999;
+			}
+
+			
+			
+	.headerBottom{
+		height:44px;
+		background:url(../images/menu-bg.png) no-repeat center top;
+		position:relative;
+		z-index:5;
+	}
+		.headerBottom .navPrimary ul.topNav{
+			margin-left:8px;
+			position:absolute;
+			z-index:6;
+			top:0;
+			left:0;
+		}
+		.headerBottom .navPrimary h3{
+			font-weight:normal;
+			display:none;
+			text-align:center;
+			height:44px;
+			line-height:44px;
+			text-transform:uppercase;
+			color:#fff;
+			font-size:13px;
+			
+			line-height:44px;
+			cursor:pointer;
+		}
+			.headerBottom .navPrimary h3 img{
+				margin-right:10px;
+			}
+			.headerBottom .navPrimary  ul.topNav li {
+				float:left;
+				margin:1px 0px;
+				padding:0px 20px;
+				height:42px;
+				
+			}
+			.headerBottom .navPrimary  ul.topNav > li.active {
+				background:url(../images/menu-bg-active.png) no-repeat center top;
+			}
+			/*
+			.headerBottom ul.topNav > li {
+				background:url(images/li-border.png) no-repeat right;
+				position:relative;
+				z-index:3;
+			}
+			*/
+				.headerBottom .navPrimary  ul.topNav > li > a {
+					font-size:12px;
+					color:#fff;
+					display:inline-block;
+					height:42px;
+					line-height:42px;
+					text-transform:uppercase;
+				}
+				.headerBottom .navPrimary  ul.topNav > li.active > a{
+					font-weight:bold;
+					color:#ccff00;
+				}
+				.headerBottom .navPrimary  ul.topNav > li:hover > a {
+					text-decoration:underline;
+				}
+		
+		.searchBox {
+			width:168px;
+			height:33px;
+			position:absolute;
+			z-index:6;
+			top:5px;
+                        background:url(../images/search-form-bg.png) no-repeat center;
+			right:6px;
+			z-index:999;
+		}
+                
+		.searchBox .searchKeyword {
+			float:left;
+			height:25px;
+			line-height:15px;
+			margin-top:3px;
+			margin-left:10px;
+			width:123px;
+			border:0;
+			background:none;
+			color:#000;
+			font-size:11px;
+			outline:none;
+		}
+		.searchBox .searchSubmit {
+			background:url(../images/search-button.png) no-repeat center;
+			float:left;
+			margin-right:7px;
+			width:25px;
+			height:21px;
+			margin-top:6px;
+			font-size:0;
+			border:0;
+		}
+		
+		
+	
+	
+	
+/*============= Wrapper ============*/	
+#wrapper{
+	margin-top:6px;
+	
+}
+	.sliderTop{
+		padding:10px 9px;
+		background:url(../images/slider-bg.png) no-repeat left top;
+		margin-bottom:7px;
+	}
+		.sliderTop .sliderItem{
+			display:block;
+			width: 100%;
+		}
+	.innerSliderTop {position:relative; width:913px; height:314px;  z-index:3}
+	.innerSliderTop img {position:absolute;left:0;top:0; width:913px; height:314px;}	
+	.content{
+		
+	}
+	
+		.content .firstContent{
+			float:left;
+			width:592px;
+		}
+				.content .firstContent .block{
+					
+					width:292px;
+					height:162px;
+					float:left;
+				}
+					.content .firstContent .block .blockIcon{
+						margin:28px 12px 0px 28px;
+						float:left;
+					}
+						.content .firstContent .block .blockIcon img{
+							width:105px;
+							height:105px;
+						}
+					.content .firstContent .block .blockTitle{
+						margin-top:72px;
+						float:left;
+					}
+						.content .firstContent .block .blockTitle a{
+							color:#ffffff;
+							font-size:20px;
+							text-transform:uppercase;
+							font-weight:lighter;
+						}
+		
+			.content .firstContent .blockTop{
+				padding-bottom:7px;
+				float:left;
+			}
+				.content .firstContent .blockTop .block{
+					background:url(../images/block-center-top-bg.png) no-repeat left top;
+				}
+				.content .firstContent .blockTop .block.first{
+					margin-right:8px;
+				}
+			.content .firstContent .blockBottom{
+				float:left;
+				background:url(../images/block-center-bottom-bg.png) no-repeat left top;
+			}
+				.content .firstContent .blockBottom .block{
+					width:296px;
+				}
+				.content .firstContent .blockBottom .block.first{
+					border-right:1px solid #ffffff;
+					width:295px;
+				}
+		
+		
+		
+		.content .secondContent{
+			float:left;
+			margin-left:8px;
+			width:332px;
+		}
+			.content .secondContent .block{
+				background:url(../images/second-block-bg.png) no-repeat left top;
+				width:162px;
+				height:162px;
+				float:left;
+			}
+			.indexContent .secondContent .block{
+				overflow:hidden;
+			}
+			.content .secondContent .block.first{
+				margin-right:8px;
+			}
+			.content .secondContent .block.top{
+				margin-bottom:8px;
+			}
+			.content .secondContent .block.last{
+				margin-left:8px;
+			}
+				.content .secondContent .block .blockIcon{
+					background:url(../images/icons/news-icon.png) no-repeat left top;
+					line-height:28px;
+					text-align:center;
+					font-size:16px;
+					font-weight:bold;
+					width:46px;
+					height:37px;
+					color:#ffffff;
+					margin-left:104px;
+					margin-top:10px;
+				}
+				.content .secondContent .block .blockTitle{
+					padding:0px 18px;
+					margin-top:16px;
+					height:261px;
+				}
+					.content .secondContent .block .blockTitle a{
+						color:#ffffff;
+					}
+					.indexContent .secondContent .block .blockTitle a{
+						color:#ffffff;
+						height:99px;
+						display:block;
+						padding-bottom:63px;
+					}
+/*-------------- pageNav -------------------*/
+	.pageNav{
+		float:right;
+	}
+		
+		.pageNav a{
+			display:inline-block;
+			width:18px;
+			height:24px;
+			line-height:24px;
+			text-align:center;
+			font-weight:bold;
+			font-size:13px;
+		}
+		.pageNav .next,
+		.pageNav .prev{
+			width:24px;
+			margin:0 3px;
+		}
+		.pageNav .current{
+			color:#8ac53d;
+		}
+		.documentContent .pageNav{
+			margin-top:11px;
+		}
+		.partnerContent .pageNav{
+			float:left;
+		}
+		.projectContent .pageNav{
+			margin-right:28px;
+			margin-top:11px;
+			margin-bottom:22px;
+		}                
+/*-------------- pageControl -------------------*/
+	.pageControl{
+		border-top:2px dotted #000000;
+		padding-top:16px;
+	}
+		.pageControl .topControl,
+		.pageControl .bottomControl{
+			float:right;
+		}
+		.pageControl .bottomControl{
+			margin-top:9px;
+			padding-bottom:18px;
+		}
+			.pageControl .bottomControl a{
+				display:inline-block;
+			}
+				.pageControl .bottomControl a img{
+					margin:0 3px;
+				}
+	.fb-like{
+		float:left;
+	}
+	/*-------------- Video -------------------*/
+	.content.videoContent{
+		margin-top:15px;
+		padding-top:19px;
+		border-top:1px solid #47670a;
+		
+	}
+				.videoContent .firstContent{
+					width:592px;
+					float:left;
+					
+				}
+					.videoContent .firstContent .videoPirmary{
+						width:100%;
+						height:328px;
+						float:left;
+					}
+						.videoContent .firstContent .videoPirmary img{
+							width:100%;
+						}
+					.videoContent .firstContent .blockTitle{
+						margin-top:0;
+						float:left;
+						margin-bottom:10px;
+						margin-left:0;
+					}
+						.videoContent .firstContent .blockTitle a{
+							color:#666666;
+							font-size:13px;
+							font-weight:bold;
+							text-transform: none;
+							margin:0;
+						}
+
+		.videoContent .secondContent{
+			float:left;
+			margin-left:9px;
+			width:329px;
+			
+		}
+			.videoContent .secondContent .contentTitle{
+				width:100%;
+				margin-bottom:12px;
+				float:left;
+				color:#666666;
+				font-size:13px;
+				font-weight:bold;
+			}
+			.videoContent .secondContent .readMore{
+				width:100%;
+				margin-bottom:14px;
+				float:left;
+			}
+				.videoContent .secondContent .readMore a{
+					background:url(../images/btn1.png) no-repeat left top;
+					width:88px;
+					height:32px;
+					text-align:center;
+					line-height:32px;
+					color:#ffffff;
+					display:block;
+					float:right;
+				}
+			.videoContent .secondContent .blockVideo{
+				width:158px;
+				height:155px;
+				float:left;
+			}
+			
+			.videoContent .secondContent .blockVideo.first{
+				margin-right:13px;
+			}
+			.videoContent .secondContent .blockVideo.top{
+				margin-bottom:18px;
+			}
+			.videoContent .secondContent .blockVideo.last{
+				margin-left:13px;
+			}
+				.videoContent .secondContent .blockVideo .videoPirmary{
+					width:158px;
+					height:107px;
+					float:left;
+				}
+				.videoContent .secondContent .blockVideo .blockTitle{
+					float:left;
+					margin-top:7px;
+				}
+					.videoContent .secondContent .blockVideo .blockTitle a{
+						color:#666666;
+						font-size:13px;
+						font-weight:bold;
+					}
+		
+	.partnerLink{
+		height:92px;
+		background:url(../images/partner-link-bg.png) no-repeat left top;
+		padding:7px 6px 7px 12px;
+	}
+		.videoContent .partnerLink{
+			border-top:1px solid #47670a;
+			padding-top:22px;
+			padding-right:10px;
+			float:left;
+			background:url(../images/partner-link-bg.png) no-repeat left bottom;
+		}
+		.partnerLink .contentPartnerLink{
+			background:#ffffff;
+			border-top:1px solid #d0d8c1;
+			border-bottom:1px solid #d0d8c1;
+		}
+			.partnerLink .contentPartnerLink .partnerLinkTitle{
+				float:left;
+				line-height:90px;
+				font-size:13px;
+				text-transform:uppercase;
+				color:#336600;
+				margin:0px 58px;
+			}
+			.partnerLink .contentPartnerLink .linkList{
+				float:left;
+			}
+			.partnerLink .contentPartnerLink  .linkList a{
+				display:inline-block;
+				line-height:90px;
+				margin:0px 47px;
+			}
+
+
+	/*-------------- About -------------------*/
+	.aboutContent{
+		margin-top:11px;
+	}
+		.aboutContent .firstContent{
+			background: #edecec;
+			padding-top:22px;
+			width:692px;
+			float:left;
+		}
+
+			.firstContent .blockTitle{
+				margin-top:0;
+				margin-left:25px;
+				margin-bottom:9px;
+				color:#000000;
+				font-size:13px;
+				text-transform:uppercase;
+				font-weight:bold;
+			}
+				.firstContent .blockTitle a{
+					color:#000000;
+					font-size:13px;
+					text-transform:uppercase;
+					font-weight:bold;
+				}
+			.aboutContent .firstContent .blockContent{
+				padding:0px 40px;
+				text-align:justify;
+				padding-bottom:20px;
+			}
+			.aboutContent .firstContent .blockContent .blockContentImage img{
+				width:100%;
+			}
+		.aboutContent .secondContent{
+			margin-left:9px;
+			width:232px;
+			float:right;
+		}
+			.secondContent .blockNav{
+				width:111px;
+				height:111px;
+				float:right;
+				background:url(../images/block-nav-bg.png) no-repeat left top;
+				margin-bottom:11px;
+			}
+			
+			.secondContent .blockNav.left{
+				margin-right:10px;
+			}
+				.secondContent .blockNav .blockIcon{
+					margin-right:20px;
+					float:right;
+				}
+				.secondContent .blockNav .blockTitle{
+					float:right;
+					text-align:right;
+					margin:22px 22px 12px 0;
+					display:block;
+				}
+					.secondContent .blockNav .blockTitle a{
+						font-size:13px;
+						font-weight:bold;
+						text-transform:uppercase;
+						color:#ffffff;
+						display:block;
+					}
+	
+	/*-------------- News -------------------*/
+	.newsContent{
+		margin-top:9px;
+	}		
+		.newsContent .firstContent{
+			width:100%;
+		}
+			.newsContent .firstContent .blockNews{
+				width:343px;
+				height:294px;
+				float:left;
+				margin-bottom:11px;
+				background:#edecec;
+			}
+			
+			.newsContent .firstContent .blockNews.left{
+				margin-right:10px;
+			}
+				.newsContent .firstContent .blockNews .blockIcon{
+					margin-right:20px;
+					float:right;
+				}
+				.newsContent .firstContent .blockNews .blockTitle{
+					height:34px;
+					margin-bottom:2px;
+					margin-left: 0;
+				}
+					.newsContent .firstContent .blockNews .blockTitle a{
+						line-height:34px;
+						background:#99cc00;
+						color:#ffffff;
+						font-size:13px;
+						text-transform:uppercase;
+						display:block;
+						padding-left:11px;
+					}
+					.newsContent .firstContent .blockNews .newsItem{
+						width:100%;
+					}
+					.newsContent .firstContent .blockNews .newsItem img{
+						width:100%;
+						height:160px;
+					}
+					.newsContent .firstContent .blockNews .newsItem .newsTitle{
+						margin-top:16px;
+						padding:0px 19px;
+					}
+						.newsContent .firstContent .blockNews .newsItem .newsTitle a{
+							color:#000000;
+						}
+						
+						
+			.newsContent .firstContent .blockNews.groupThree{
+				width:580px;
+			}
+			.newsContent .firstContent .blockContent.groupThree{
+				width:580px;
+			}
+				.newsContent .firstContent .blockNews.groupThree .newsGroup{
+					width:100%;
+				}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem{
+						width:192px;
+						float:left;
+						margin-right:2px;
+					}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem.last{
+						margin-right:0;
+					}
+						.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem img{
+							width:192px;
+						}
+			
+			.newsContent .firstContent .blockNews.groupThree{
+				width:580px;
+			}
+			.newsContent .firstContent .blockContent.groupThree{
+				width:580px;
+			}
+				.newsContent .firstContent .blockNews.groupThree .newsGroup{
+					width:100%;
+				}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem{
+						width:192px;
+                                                height: 210px;
+						float:left;
+						margin-right:2px;
+					}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem.last{
+						margin-right:0;
+					}
+						.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem img{
+							width:192px;
+						}
+			
+			.newsClickContent .firstContent{
+				width:580px;
+			}
+			.newsClickContent .secondContent{
+				width:343px;
+			}
+				.newsClickContent .firstContent .blockNews.groupThree {
+					height:auto;
+				}
+					.newsClickContent .firstContent .blockNews.groupThree .newsGroup .newsItem{
+						margin-bottom:41px;
+					}
+					
+					
+					.otherNews .otherNewsTitle{
+						height:34px;
+						margin-bottom:2px;
+						margin-left: 0;
+						background:#edecec;
+					}
+						.otherNews .otherNewsTitle a{
+							line-height:34px;
+							background:#99cc00;
+							color:#ffffff;
+							font-size:13px;
+							text-transform:uppercase;
+							display:block;
+							padding-left:11px;
+						}
+						.otherNews .newsList{
+							padding:20px 18px 10px 17px;
+							background:#edecec;
+						}
+							.otherNews .newsList .linkList{
+								float:left;
+							}
+								.otherNews .newsList .linkList a{
+									float:left;
+									margin:8px 0;
+									width: 100%;
+								}
+							.otherNews .newsList .readMore{
+								float:right;
+								margin:5px 0;
+								text-align:right;
+							}
+			.newsDetail .firstContent{
+				width:693px;
+			}
+			.newsDetail .secondContent{
+				width:230px;
+			}
+					
+	/*-------------- Project -------------------*/
+	.projectContent{
+		margin-top:13px;
+	}		
+		.projectContent .firstContent{
+			width:100%;
+			background:#cccccc;
+		}
+			.projectContent .firstContent .listProjects{
+				padding:9px 10px;
+				
+			}
+				.projectContent .firstContent .listProjects .blockProject{
+					width:200px;
+					height:165px;
+					float:left;
+					padding:10px 10px 5px 10px;
+					background:#d3d2d2;
+					margin-bottom:12px;
+					position:relative;
+					z-index:2;
+				}
+				
+				.projectContent .firstContent .listProjects .blockProject.left{
+					margin-right:10px;
+				}
+				.projectContent .firstContent .listProjects .blockProject.right-pc{
+					margin-right:0;
+				}
+					.projectContent .firstContent .listProjects .blockProject .blockImage{
+						display:table-cell;
+						vertical-align:middle;
+						width:200px;
+						height:165px;
+						background:#edecec;
+						text-align:center;
+					}                                        
+						.projectContent .firstContent .listProjects .blockProject .blockImage img{
+							
+						}
+					.projectContent .firstContent .listProjects .blockProject .blockContent{
+						background:url(../images/project-content-bg.png) repeat;
+						padding: 11px 12px 0 17px;
+						position:absolute;
+						z-index:5;
+						width:171px;
+						bottom:5px;
+						height:30px;
+						overflow:hidden;
+						
+					}
+					.projectContent .firstContent .listProjects .blockProject:hover .blockContent{
+						height:117px;
+						-webkit-transition: all 0.5s ease-in-out;
+						-moz-transition: all 0.5s ease-in-out;
+						-o-transition: all 0.5s ease-in-out;
+						transition: all 0.5s ease-in-out;
+					}
+						.projectContent .firstContent .listProjects .blockProject  .blockContent .projectTitle {
+							margin-bottom:8px;
+						}
+						.projectContent .firstContent .listProjects .blockProject  .blockContent .projectTitle a{
+							color:#003300;
+							text-transform:uppercase;
+							display:block;
+						}
+						.projectContent .firstContent .listProjects .blockProject .blockContent .projectInfo{
+							color:#000000;
+							display:none;
+						}
+						.projectContent .firstContent .listProjects .blockProject:hover .blockContent .projectInfo{
+							display:block;
+						}
+                                                .projectContent .firstContent .listProjects .blockProject .blockImage{
+                                                        display:block;
+                                                        vertical-align:top;
+                                                        width:200px;
+                                                        height:170px;
+                                                        background:#edecec;
+                                                        text-align:center;
+                                                }
+                                                        .projectContent .firstContent .listProjects .blockProject .blockImage img{
+                                                                width:100%;
+                                                                height:100%;
+                                                        }
+				.blockTitle .titleControl{
+					float:right;
+				}
+				.projectContent .blockTitle{
+					margin-top:17px;
+				}
+					.blockTitle .titleControl a{
+						margin:0 10px;
+					}
+						.blockTitle .titleControl a img{
+							width:30px;
+							height:30px;
+						}
+                .projectContent .controlBlock{
+			float:right;
+			margin-right:28px;
+			margin-top:11px;
+			margin-bottom:22px;
+		}
+			.projectContent .controlBlock a{
+				float:left;
+				margin-left:20px;
+			}
+			
+			
+		/*-------------- Gallery -------------------*/
+		
+		.gallryContent .firstContent .listProjects .blockProject .blockContent{
+			padding: 9px 12px 0 17px;
+			height: 22px;
+			background:#fbfbfb;
+		}
+		.gallryContent .firstContent .listProjects .blockProject:hover .blockContent{
+			height:22px;
+			-webkit-transition:none;
+			-moz-transition:none;
+			-o-transition:none;
+			transition: none;
+		}
+		.gallryContent .firstContent .listProjects .blockProject .blockImage{
+			display:block;
+			vertical-align:top;
+			width:200px;
+			height:134px;
+			background:#edecec;
+			text-align:center;
+		}
+			.gallryContent .firstContent .listProjects .blockProject .blockImage img{
+				width:100%;
+				height:100%;
+			}
+		/*-------------- Partner -------------------*/
+		.partnerContent{
+			margin-top:13px;
+		}		
+		.partnerContent .firstContent{
+			width:100%;
+			background:#cccccc;
+		}		
+			.partnerContent .firstContent .listProjects .blockProject .blockImage img{
+				width:auto;
+				height:auto;
+			}
+			.partnerContent .firstContent .listTitle{
+				padding:25px 28px;
+				margin-bottom:36px;
+				height:12px;
+				
+			}
+			.partnerContent .firstContent .listTitle a{
+				color:#666666;
+				text-transform:uppercase;
+				font-weight:bold;
+			}
+			.partnerContent .firstContent .listProjects{
+				margin-bottom:92px;
+			}
+		/*-------------- Contact -------------------*/
+	.contactContent{
+		margin-top:11px;
+	}
+		.contactContent .firstContent{
+			background: #edecec;
+			padding-top:14px;
+			width:692px;
+			float:left;
+			margin-right:9px;
+		}
+			.contactContent .firstContent .blockContent{
+			}
+				.contactContent .firstContent .blockContent .contactMaps{
+					width:620px;
+					height:282px;
+					margin:auto;
+					margin-bottom:27px;
+				}
+				.contactContent .firstContent .blockContent .contactContentEx{
+					margin-left:40px;
+				}
+				
+					.contactContent .firstContent .blockContent .contactMaps img{
+						width:100%;
+						height:100%;
+					}
+				.contactContent .firstContent .blockContent .contactInfo{
+					margin-bottom:27px;
+				}
+					.contactContent .firstContent .blockContent .contactInfo .name{
+						font-size:13px;
+						font-weight:bold;
+						text-transform:uppercase;
+					}
+				.contactContent .firstContent .blockContent .contactUs{
+					margin-bottom:21px;
+				}
+					.contactContent .firstContent .blockContent .contactUs .title{
+						color:#666666;
+						margin-bottom:8px;
+					}
+						.contactContent .firstContent .blockContent .contactUs .textType span{
+							margin-right:27px;
+						}
+				.contactContent .firstContent .blockContent .contactForm{
+					margin-bottom:21px;
+				}
+					.contactContent .firstContent .blockContent .contactForm .title{
+						font-weight:bold;
+						margin-top:6px;
+						margin-bottom:8px;
+					}
+					.contactForm .ctrlUnit{
+						margin-bottom:6px;
+					}
+					.contactForm .ctrlUnit.fullWidth
+					{
+						overflow: visible;
+					}
+
+					.contactForm .ctrlUnit dt
+					{
+						text-align: left;
+						vertical-align: top;
+						width: 111px;
+						float: left;
+					}
+
+					.contactForm .ctrlUnit dt.explain
+					{
+						font-size: 11px;
+						text-align: justify;
+					}
+					.contactForm .ctrlUnit dd{
+						float: left;
+					}
+					
+
+					.contactForm .ctrlUnit dd .required{
+						color:#ff0000;
+						height:18px;
+						line-height:18px;
+						margin-left:4px;
+						font-size:15px;
+						font-weight:bold;
+					}
+
+					.contactForm .ctrlUnit.fullWidth dd
+					{
+						float: none;
+						width: auto;
+						padding-left: 0;
+					}
+					.contactForm .textCtrl {
+						font-size: 13px;
+						border: 1px solid #999999;
+						width:512px;
+						text-indent:5px;
+					}
+					.contactForm input.textCtrl {
+						height:18px;
+						line-height:18px;
+					}
+					
+					.contactForm .textCtrl.short {
+						width:48px;
+					}
+					.contactForm .explain {
+						color:#666666;
+						margin-right:32px;
+					}
+					.contactForm .submitUnit{
+						margin:13px 33px 28px 0;
+					}
+					.contactForm .submitUnit input{
+						float:right;
+						margin-left:12px;
+						padding:0px 11px;
+						height:22px;
+						line-height:22px;
+					}
+	.blockContentImage img{
+		width:100%;
+	}
+	.blockContentImage{
+		margin-bottom:30px;
+	}
+		/*-------------- Member -------------------*/
+	.memberContent{
+		margin-top:11px;
+	}
+		.memberContent .firstContent{
+			padding: 0 38px;
+			width:616px;
+			padding-top: 22px;
+			margin-right: 0px;
+		}
+				.memberContent .firstContent .blockContent .blockContentImage{
+					width:620px;
+					margin-bottom:27px;
+				}
+					.memberContent .firstContent .blockContent .blockContentImage img{
+						width:100%;
+					}
+				
+					.memberContent .firstContent .blockContent .memberList .memberListTitle{
+						background:url(../images/member-title-bg.png) no-repeat left top;
+						height:36px;
+						line-height:36px;
+						display:block;
+						padding-left:180px;
+						color:#fff;
+						text-transform:uppercase;
+						font-weight:bold;
+					}
+					.memberContent .firstContent .blockContent .memberList .memberListItem{
+						background:#dfe8cb;
+						margin-bottom:3px;
+					}
+					.memberContent .firstContent .blockContent .memberList .memberListItem.first{
+						background:#dfe8cb;
+						margin-top:2px;
+					}
+					.memberContent .firstContent .blockContent .memberList .memberListItem.last{
+						margin-bottom:13px;
+					}
+						.memberContent .firstContent .blockContent .memberList .memberListItem .memberImage{
+							height:148px;
+							width:148px;
+							padding:5px;
+							float:left;
+							border-right:3px solid #ffffff;
+						}
+							.memberContent .firstContent .blockContent .memberList .memberListItem .memberImage img{
+								height:100%;
+								width:100%;
+							}
+						.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo{
+							height:136px;
+							width:410px;
+							padding-left:40px;
+							padding-top:22px;
+							float:left;
+						}
+							.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo .name{
+								margin-bottom:24px;
+								text-transform:uppercase;
+								font-weight:bold;
+								font-size:13px;
+								color:#333333;
+							}
+							.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo .info{
+								color:#333333;
+							}
+				.memberContent .firstContent .blockContent .moreInformation{
+					padding:21px 24px;
+					padding-bottom:4px;
+					margin-bottom:42px;
+					background:url(../images/more-information-bg.png) no-repeat left top;
+					color:#ffffff;
+				}
+		
+					.memberContent .firstContent .blockContent .moreInformation .information{
+						margin-bottom:16px;
+					}
+						.memberContent .firstContent .blockContent .moreInformation .location{
+							float:left;
+							padding-right:40px;
+						}
+						.memberContent .firstContent .blockContent .moreInformation .location.last{
+							padding-right:0px;
+						}
+		.memberContent .secondContent{
+			margin-left:9px;
+			width:232px;
+			float:right;
+		}
+		/*-------------- Document -------------------*/
+	.documentContent{
+		margin-top:11px;
+	}
+		.documentContent .firstContent{
+			padding: 0;
+			width:693px;
+			padding-top: 8px;
+			padding-bottom:52px;
+		}
+
+		.documentContent .secondContent{
+			padding: 0;
+			padding-top: 42px;
+			width: 232px;
+		}
+		.documentContent2 .firstContent{
+			padding: 0;
+			width:100%;
+			padding-top: 24px;
+			padding-bottom:52px;
+		}
+		
+			.documentContent .firstContent .blockContent table {
+				width:100%;
+			}
+				.documentContent .firstContent .blockContent table th{
+					background:#99cc00;
+					border-right:1px solid #ffffff;
+					padding:8px 0px;
+					text-align:center;
+				}
+				.documentContent .firstContent .blockContent table thead tr{
+				}
+				.documentContent .firstContent .blockContent table tbody tr{
+					border-bottom:1px solid #cccccc;
+				}
+				.documentContent .firstContent .blockContent table tbody td{
+					text-align:center;
+					padding:11px 0px 7px 0px;
+				}
+				.documentContent .firstContent .blockContent table .left{
+					text-align:left;
+					padding-left:7px;
+				}
+				.documentContent .firstContent .blockContent table .title{
+					width:40%;
+				}
+				
+/*============= Footer ============*/	
+#footer{
+	margin-bottom:30px;
+}
+	.partnerFooter{
+		margin-top:13px;
+		margin-left:20px;
+		float:left;
+	}
+		.partnerFooter a{
+			display:inline-block;
+		}
+	.privacy {
+		margin-top:24px;
+		margin-left:33px;
+		float:left;
+		font-family:"Tahoma",Arial,Serif;
+		color:#666666;
+		font-size:11px;
+	}
+	.inforFooter {
+		float:right;
+		color:#666666;
+		margin-top:25px;
+		font-size:11px;
+		text-align:right;
+	}
+@media only screen and (max-width: 1350px) {
+	
+}
+
+@media screen and (min-width: 1025px){
+	/*-------------- About -------------------*/
+	.aboutContent,
+	.memberContent{
+		float:right;
+	}
+	.aboutPage .partnerLink,
+	.memberContent .partnerLink{
+		height:233px;
+		width:214px;
+		background:url(../images/partner-link-left-bg.png) no-repeat left top;
+		padding:7px 9px;
+		float:right;
+		
+	}
+		.aboutPage .partnerLink .contentPartnerLink {
+			background:none;
+			border-top:none;
+			border-bottom:none;
+		}
+			.aboutPage .partnerLink .contentPartnerLink .linkList{
+				background:#ffffff;
+				border-top:1px solid #d0d8c1;
+				border-bottom:1px solid #d0d8c1;
+				float:left;
+			}
+			.aboutPage .partnerLink .contentPartnerLink .partnerLinkTitle{
+				float:left;
+				line-height:13px;
+				font-size:13px;
+				text-transform:uppercase;
+				color:#ffffff;
+				margin:13px 0px;
+			}
+			.aboutPage .partnerLink .contentPartnerLink .partnerLinkTitle{
+			
+				margin-left:13px;
+			}
+			.aboutPage .partnerLink .contentPartnerLink a{
+				float:left;
+				line-height:12px;
+				margin:0px;
+				width:103px;
+				height:78px;
+				text-align:center;
+			}
+				.memberContent .firstContent .blockTitle {
+					margin-left: -14px;
+				}
+}
+	
+@media  screen and (max-width: 1023px) {
+	
+.hidePc{
+	display:block;
+}
+.hidePhone{
+	display:none;
+}
+
+	#pageContainer{
+		width:592px;
+		margin:auto;
+	}
+	
+		.headerTop .logo{
+			top:11px;
+		}
+		.headerTop .langChooser{
+			right:51px;
+			top:8px;
+		}
+	.headerBottom{
+		background:url(../images/menu-medium-bg.png) no-repeat center top;
+	}
+		.headerBottom .navPrimary{
+			width:405px;
+			position:relative;
+			z-index:10;
+			
+		}
+		.headerBottom .navPrimary h3{
+			display:block;
+		}
+		.headerBottom .navPrimary  ul.topNav{	
+			display:none;
+			position:absolute;
+			z-index:15;
+			top:43px;
+			margin-left: 0;
+			width:100%;
+		}
+		
+		.headerBottom .navPrimary:hover ul.topNav{
+			display:block;
+			-webkit-transition: all 0.5s ease-in-out;
+			-moz-transition: all 0.5s ease-in-out;
+			-o-transition: all 0.5s ease-in-out;
+			transition: all 0.5s ease-in-out;
+		}
+			.headerBottom .navPrimary  ul.topNav li {
+				float:left;
+				margin:0;
+				width:100%;
+				height:41px;
+				border-bottom:1px solid #ffffff;
+				text-align:center;
+				background:url(../images/menu-medium-bg.png) no-repeat center -2px;
+			}
+				.headerBottom .navPrimary  ul.topNav > li > a {
+					padding:0px 8px;
+					font-size:12px;
+					color:#fff;
+					display:block;
+					height:42px;
+					line-height:42px;
+					text-transform:uppercase;
+				}
+				.headerBottom .navPrimary  ul.topNav > li:hover > a {
+					text-decoration:underline;
+				}
+		.innerSliderTop {position:relative; width:574px; height:197px;  z-index:3}
+		.innerSliderTop img {position:absolute;left:0;top:0; width:574px; height:197px;}	
+		.content .firstContent{
+			width:100%;
+		}
+		.content .secondContent{
+			float:left;
+			width:100%;
+			margin-left:0;
+			margin-top:8px;
+		}
+			.content .secondContent .block{
+				background:url(../images/block-center-top-bg.png) no-repeat left top;
+				width:292px;
+				height:162px;
+				float:left;
+			}
+			.content .secondContent .block.first{
+				margin-right:8px;
+			}
+			.content .secondContent .block.left{
+				margin-right:8px;
+			}
+			.content .secondContent .block.top{
+				margin-bottom:8px;
+			}
+			.content .secondContent .block.last{
+				margin-left:0;
+			}
+				.content .secondContent .block .blockIcon{
+					margin-left:225px;
+					margin-top:10px;
+				}
+				
+				
+		/*-------------- Video -------------------*/
+			.videoContent .firstContent{
+				width:100%;
+				float:left;
+				
+			}
+				.videoContent .firstContent .videoPirmary{
+					width:100%;
+					height:328px;
+					float:left;
+				}
+				.videoContent .firstContent .videoPirmary img{
+					width:100%;
+					height:328px;
+					float:left;
+				}
+			.videoContent .secondContent .contentTitle{
+				margin-top:15px;
+			}
+			.videoContent .secondContent .blockVideo{
+			}
+			
+			.videoContent .secondContent .blockVideo.first,
+			.videoContent .secondContent .blockVideo.left
+			{
+				margin-right:58px;
+			}
+			.videoContent .secondContent .blockVideo.top{
+				margin-bottom:18px;
+			}
+			.videoContent .secondContent .blockVideo.last{
+				margin-left:0;
+			}
+				.videoContent .secondContent .blockVideo .videoPirmary{
+					width:158px;
+					height:107px;
+					float:left;
+				}
+				.videoContent .secondContent .blockVideo .blockTitle{
+					float:left;
+					margin-top:7px;
+				}
+					.videoContent .secondContent .blockVideo .blockTitle a{
+						color:#666666;
+						font-size:13px;
+						font-weight:bold;
+					}
+				
+		
+	.partnerLink{
+		background:url(../images/partner-link-medium-bg.png) no-repeat left top;
+		width:574px;
+	}
+			.partnerLink .contentPartnerLink .partnerLinkTitle{
+				margin:0px 18px;
+			}
+			.partnerLink .contentPartnerLink .linkList a{
+				margin:0px 15px;
+			}
+		/*-------------- About -------------------*/
+	.aboutContent{
+		margin-top:0px;
+	}
+		.aboutContent .firstContent{
+			float:right;
+		}
+		.aboutContent .secondContent{
+			float:right;
+			margin-top:0px;
+		}
+		
+		.aboutPage .partnerLink{
+			float:left;
+			margin-top:8px;
+		}
+			.secondContent .blockNav{
+				width:100px;
+				height:100px;
+				background:url(../images/block-nav-small-bg.png) no-repeat left top;
+				margin-bottom:11px;
+			}
+			.secondContent .blockNav,
+			.secondContent .blockNav.left{
+				margin-right:8px;
+				float:left;
+			}
+			
+			.secondContent .blockNav.last{
+				margin-right:0px;
+			}
+				.secondContent .blockNav .blockTitle {
+					margin: 13px 11px 12px 0;
+				}
+					.secondContent .blockNav .blockTitle a{
+						font-size:12px;
+					}
+					.aboutContent .firstContent .blockContent .blockContentImage img{
+						max-width:512px;
+					}
+			
+			/*-------------- News -------------------*/
+	.newsContent{
+		margin-top:9px;
+	}		
+		.newsContent .firstContent{
+		}
+			.newsContent .firstContent .blockNews{
+				width:100%;
+			}
+			
+			.newsContent .firstContent .blockNews.left{
+				margin-right:0;
+			}
+			.newsContent .firstContent .blockNews.groupThree{
+				width:592px;
+			}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem{
+						width:196px;
+					}
+						.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem img{
+							width:196px;
+						}
+			
+			
+			
+			/*-------------- News -------------------*/
+	.newsContent{
+		margin-top:9px;
+	}		
+		.newsContent .firstContent{
+		}
+			.newsContent .firstContent .blockNews{
+				width:100%;
+			}
+			
+			.newsContent .firstContent .blockNews.left{
+				margin-right:0;
+			}
+			.newsContent .firstContent .blockNews.groupThree{
+				width:592px;
+			}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem{
+						width:196px;
+					}
+						.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem img{
+							width:196px;
+						}
+			
+			
+			
+	/*-------------- Project -------------------*/
+				.projectContent .firstContent .listProjects .blockProject{
+					width:261px;
+				}
+				
+				.projectContent .firstContent .listProjects .blockProject.left{
+					margin-right:0;
+				}
+				.projectContent .firstContent .listProjects .blockProject.left-tablet{
+					margin-right:10px;
+				}
+					.projectContent .firstContent .listProjects .blockProject .blockImage{
+						width:261px;
+					}
+					.projectContent .firstContent .listProjects .blockProject .blockContent{
+						width:232px;
+					}
+				/*-------------- Contact -------------------*/
+				.contactContent .firstContent .blockContent .contactMaps{
+					width:512px;
+					height:233px;
+				}
+
+					.contactForm .ctrlUnit dt
+					{
+						width: 111px;
+					}
+					.contactForm .textCtrl {
+						width:400px;
+					}
+	.partnerFooter{
+		margin-top:28px;
+	}
+	.privacy {
+		margin-top:28px;
+		margin-left:0;
+		float:right;
+	}
+	.inforFooter {
+		margin-top:8px;
+	}
+	/*-------------- Member -------------------*/
+	.memberContent{
+		margin-top:11px;
+	}
+		.memberContent .firstContent{
+			padding: 0;
+			padding-top: 22px;
+		}
+			.memberContent .firstContent .blockContent {
+				padding: 0 20px;
+			}
+				.memberContent .firstContent .blockContent .blockContentImage{
+					width:100%;
+				}
+				.memberContent .firstContent .blockContent .memberList{
+					
+				}
+					.memberContent .firstContent .blockContent .memberList .memberListTitle{
+						background:url(../images/member-title-medium-bg.png) no-repeat left top;
+						padding-left: 30px;
+					}
+					
+					.memberContent .firstContent .blockContent .memberList .memberListItem.last{
+						margin-bottom:13px;
+					}
+						
+						.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo{
+							height: 136px;
+							width: 380px;
+							padding-left: 15px;
+							float: left;
+						}
+							.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo .name{
+								margin-bottom:10px;
+								text-transform:uppercase;
+								font-weight:bold;
+								font-size:13px;
+								color:#333333;
+							}
+							.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo .info{
+								color:#333333;
+							}
+				.memberContent .firstContent .blockContent .moreInformation{
+					padding:21px 24px;
+					padding-bottom:4px;
+					margin-bottom:42px;
+					background:url(../images/more-information-medium-bg.png) no-repeat left top;
+					color:#ffffff;
+				}
+					.memberContent .firstContent .blockContent .moreInformation .information{
+						margin-bottom:16px;
+					}
+						.memberContent .firstContent .blockContent .moreInformation .location{
+							float:left;
+							padding-right:10px;
+							width:246px;
+						}
+						.memberContent .firstContent .blockContent .moreInformation .location.last{
+							padding-right:0px;
+						}
+						
+		.documentContent .secondContent{
+			padding: 0;
+		}	
+						
+						
+}
+
+	
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+
+	
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	
+}
+
+
+/* All Mobile Sizes (devices and browser) */
+@media screen and (max-width: 767px) {
+	#pageContainer{
+		width:320px;
+		margin:auto;
+	}
+		.headerTop .logo{
+			left:19px;
+			top:11px;
+		}
+		.headerTop .slogan{
+			left:90px;
+			top:39px;
+		}
+			.headerTop .slogan img{
+				width:233px;
+			}
+	.headerBottom{
+		background:url(../images/menu-small-bg.png) no-repeat center top;
+	}	
+		.headerBottom .navPrimary{
+			width:135px;
+		}
+		.headerBottom .navPrimary h3{
+			text-align:left;
+			padding-left:16px;
+			width:135px;
+		}
+		.innerSliderTop {position:relative; width:302px; height:104px;  z-index:3}
+		.innerSliderTop img {position:absolute;left:0;top:0; width:302px; height:104px;}	
+				.content .firstContent .block{
+					background:url(../images/block-center-top-small-bg.png) no-repeat left top;
+					width:320px;
+					height:124px;
+					float:left;
+					margin-bottom:4px;
+				}
+					.content .firstContent .block .blockIcon{
+						margin:28px 27px 0px 28px;
+						float:left;
+					}
+						.content .firstContent .block .blockIcon img{
+							width:69px;
+							height:69px;
+						}
+					.content .firstContent .block .blockTitle{
+						margin-top:45px;
+						float:left;
+					}
+						.content .firstContent .block .blockTitle a{
+							color:#ffffff;
+							font-size:20px;
+							text-transform:uppercase;
+							font-weight:lighter;
+						}
+				.content .firstContent .blockTop {
+					padding-bottom: 0;
+				}
+					.content .firstContent .blockTop .block{
+						background:url(../images/block-center-top-small-bg.png) no-repeat left top;
+					}
+				.content .firstContent .blockBottom{
+					float:left;
+					background:none;
+				}
+					.content .firstContent .blockBottom .block{
+						width:320px;
+					}
+					.content .firstContent .blockBottom .block.first{
+						border-right:none;
+						width:320px;
+					}
+				.content .secondContent .block{
+					background:url(../images/second-block-small-bg.png) no-repeat left top;
+					width:156px;
+					height:156px;
+					float:left;
+				}
+					.content .secondContent .block .blockIcon{
+						margin-left:94px;
+						margin-top:10px;
+					}
+					.aboutContent .firstContent .blockContent .blockContentImage img{
+						max-width:280px;
+					}
+	.videoContent .partnerLink{
+		background:url(../images/partner-link-small-bg.png) no-repeat left bottom;
+	}
+	.partnerLink{
+		background:url(../images/partner-link-small-bg.png) no-repeat left top;
+		height:105px;
+		width:302px;
+	}
+			.partnerLink .contentPartnerLink{
+				width:100%;
+			}
+			.partnerLink .contentPartnerLink .partnerLinkTitle{
+				float:left;
+				width:100%;
+				line-height:12px;
+				font-size:13px;
+				text-transform:uppercase;
+				color:#336600;
+				margin:5px 0px 5px 12px;
+			}
+			.partnerLink .contentPartnerLink .linkList a{
+				margin:0px;
+			}
+
+			/*-------------- Video -------------------*/
+			.videoContent .firstContent{
+				width:100%;
+				float:left;
+			}
+				.videoContent .firstContent .videoPirmary{
+					width:100%;
+					height:328px;
+					float:left;
+				}
+				.videoContent .firstContent .videoPirmary img{
+					width:100%;
+					height:328px;
+					float:left;
+				}
+			.videoContent .secondContent .contentTitle{
+				margin-top:15px;
+			}
+			.videoContent .secondContent .blockVideo{
+			}
+			
+			.videoContent .secondContent .blockVideo.first,
+			.videoContent .secondContent .blockVideo.left
+			{
+				margin-right:0;
+			}
+			.videoContent .secondContent .blockVideo.left-phone
+			{
+				margin-right:2px;
+			}
+				.videoContent .secondContent .blockVideo .videoPirmary{
+					width:158px;
+					height:107px;
+					float:left;
+				}
+				.videoContent .secondContent .blockVideo .blockTitle{
+					float:left;
+					margin-top:7px;
+					padding:0px 3px;
+				}
+					.videoContent .secondContent .blockVideo .blockTitle a{
+						color:#666666;
+						font-size:13px;
+						font-weight:bold;
+					}
+		.secondContent .blockNav.left-phone{
+			margin-right:0px;
+		}
+			.aboutContent .firstContent .blockContent{
+				padding:0px 20px;
+			}
+		/*-------------- News -------------------*/
+			.newsContent .firstContent .blockNews{
+				width:100%;
+			}
+			
+			.newsContent .firstContent .blockNews.left{
+				margin-right:0;
+			}
+			.newsContent .firstContent .blockNews.groupThree{
+				width:320px;
+			}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem{
+						width:158px;
+						margin-right:0;
+					}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem.first{
+						margin-right:3px;
+					}
+					.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem.last{
+						display:none;
+					}
+						
+						.newsContent .firstContent .blockNews.groupThree .newsGroup .newsItem img{
+							width:158px;
+						}
+	/*-------------- Project -------------------*/
+				.projectContent .firstContent .listProjects .blockProject{
+					width:280px;
+				}
+				
+				.projectContent .firstContent .listProjects .blockProject.left{
+					margin-right:0;
+				}
+				.projectContent .firstContent .listProjects .blockProject.left-tablet{
+					margin-right:0;
+				}
+					.projectContent .firstContent .listProjects .blockProject .blockImage{
+						width:280px;
+					}
+					.projectContent .firstContent .listProjects .blockProject .blockContent{
+						width:251px;
+					}
+				/*-------------- Contact -------------------*/
+				.contactContent .firstContent .blockContent .contactMaps{
+					width:276px;
+					height:125px;
+				}
+				.contactContent .firstContent .blockContent .contactContentEx{
+					margin-left:20px;
+				}
+					.contactForm .ctrlUnit dt
+					{
+						width: 111px;
+					}
+					.contactForm .textCtrl {
+						width:155px;
+					}
+					
+					/*-------------- Member -------------------*/
+	.memberContent{
+		margin-top:11px;
+	}
+		.memberContent .firstContent{
+			padding: 0;
+			padding-top: 22px;
+		}
+			.memberContent .firstContent .blockContent {
+				padding: 0 10px;
+			}
+				.memberContent .firstContent .blockContent .blockContentImage{
+					width:100%;
+				}
+				.memberContent .firstContent .blockContent .memberList{
+					
+				}
+					.memberContent .firstContent .blockContent .memberList .memberListTitle{
+						background:url(../images/member-title-small-bg.png) no-repeat left top;
+						width:100%;
+						padding-left: 30px;
+					}
+					
+					.memberContent .firstContent .blockContent .memberList .memberListItem.last{
+						margin-bottom:13px;
+					}
+						.memberContent .firstContent .blockContent .memberList .memberListItem .memberImage{
+							height:130px;
+							width:100px;
+							padding:5px;
+							float:left;
+							border-right:3px solid #ffffff;
+						}
+						.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo{
+							height: 118px;
+							width: 180px;
+							padding-left: 5px;
+							padding-top: 15px;
+							float: left;
+						}
+							.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo .name{
+								margin-bottom:10px;
+								text-transform:uppercase;
+								font-weight:bold;
+								font-size:13px;
+								color:#333333;
+							}
+							.memberContent .firstContent .blockContent .memberList .memberListItem .memberInfo .info{
+								color:#333333;
+							}
+				
+				
+				
+				.memberContent .firstContent .blockContent .moreInformation{
+					padding:10px;
+					padding-bottom:4px;
+					margin-bottom:42px;
+					background:url(../images/more-information-small-bg.png) no-repeat left top;
+					color:#ffffff;
+					height:300px;
+				}
+					.memberContent .firstContent .blockContent .moreInformation .information{
+						margin-bottom:16px;
+					}
+						.memberContent .firstContent .blockContent .moreInformation .location{
+							float:left;
+							padding-right:0;
+							margin-bottom:10px;
+						}
+						.memberContent .firstContent .blockContent .moreInformation .location.last{
+							padding-right:0px;
+						}
+				.memberContent .firstContent .blockTitle {
+					margin-left: 10px;
+				}
+						
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+}
+
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	
+}
+	

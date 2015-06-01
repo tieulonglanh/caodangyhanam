@@ -1,0 +1,32 @@
+<table>
+    <tr>
+        <td>Exercise</td><td><?php if(isset($data->exercise)&&$data->exercise!=0) echo $data->exercise ?></td>
+    </tr>
+    <tr>
+        <td>Eating</td><td><?php echo $data->eating ?></td>
+    </tr>
+    <tr>
+        <td>Smoke</td><td><?php if(isset($data->smoke)&&$data->smoke!=0) echo $smoke[$data->smoke] ?></td>
+    </tr>
+    <tr>
+        <td>Drink</td><td><?php if(isset($data->drink)&&$data->drink!=0) echo $drink[$data->drink] ?></td>
+    </tr>
+    <tr>
+        <td>Occupation</td><td><?php if(isset($data->occupation)&&$data->occupation!=0) echo $occupation[$data->occupation] ?></td>
+    </tr>
+    <tr>
+        <td>Job</td><td><?php echo $data->job ?></td>
+    </tr>
+    <tr>
+        <td>Income</td><td><?php if(isset($data->income)&&$data->income!=0) echo $income[$data->income] ?></td>
+    </tr>
+    <tr>
+        <td>Children</td><td><?php if(isset($data->children)&&$data->children!=0) echo  $children[$data->children] ?></td>
+    </tr>
+    <tr>
+        <td>Want children</td><td><?php if(isset($data->wantchildren)&&$data->wantchildren!=0) echo $wantchildren[$data->wantchildren] ?></td>
+    </tr>
+    <tr>
+        <td>Pets</td><td><?php echo $data->pets ?></td>
+    </tr>
+</table>

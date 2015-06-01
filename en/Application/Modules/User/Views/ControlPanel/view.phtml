@@ -1,0 +1,99 @@
+
+<table>
+    <tr>
+        <td>Tên</td><td><?php echo $data->firstname ?></td>
+    </tr>
+    <tr>
+        <td>Họ</td><td><?php echo $data->lastname ?></td>
+    </tr>
+    <tr>
+        <td>Ảnh đại diện</td><td><img src="<?php echo $data->avatar ?>" ></td>
+    </tr>
+    <tr>
+        <td>Chấp nhận ảnh đại diện</td><td><?php if($data->approval==1) echo "Có"; else echo "Không"; ?></td>
+    </tr>
+    <tr>
+        <td>Tài khoản</td><td><?php echo $data->username ?></td>
+    </tr>
+    <tr>
+        <td>Email</td><td><?php echo $data->email ?></td>
+    </tr>
+    <tr>
+        <td>Giới tính</td><td><?php if($data->gender==1) echo "Nam"; else echo "Nữ"; ?></td>
+    </tr>
+    <tr>
+        <td>Ngày sinh</td><td><?php echo $data->birthdate ?></td>
+    </tr>
+    <tr>
+        <td>Nước</td><td><?php echo $data->region ?></td>
+    </tr>
+    <tr>
+        <td>Tỉnh</td><td><?php if(isset($data->province)) echo $provinceOptions[1][$data->province]; ?></td>
+    </tr>
+    <tr>
+        <td>Huyện</td><td><?php echo $data->district ?></td>
+    </tr>
+    <tr>
+        <td>Sống trong khoảng</td><td><?php echo $data->within ?></td>
+    </tr>
+    <tr>
+        <td>Nhận email hệ thống</td><td><?php if($data->sendmail==1) echo "Có"; else echo "Không"; ?></td>
+    </tr>    
+    <tr>
+        <td>Ngày đăng ký</td><td><?php echo $data->register ?></td>
+    </tr>
+    <tr>
+        <td>Đang online</td><td><?php if($data->online==1) echo "Có"; else echo "Không"; ?></td>
+    </tr> 
+    <tr>
+        <td>Ngày trả tiền</td><td><?php echo $data->subscribetime ?></td>
+    </tr> 
+    <tr>
+        <td>Ngày hết hạn</td><td><?php echo $data->expiretime ?></td>
+    </tr> 
+    <tr>
+        <td>Là thành viên VIP</td><td><?php if($data->vip==1) echo "Có"; else echo "Không"; ?></td>
+    </tr> 
+    <tr>
+        <td>Trạng thái</td><td><?php if(isset($data->status)) echo $status[$data->status] ?></td>
+    </tr> 
+    <tr>
+        <td>Gói cước</td><td><?php if($data->package_id!=''){ echo $package[$data->package_id-1]->name; } ?></td>
+    </tr> 
+    <tr>
+        <td>Vai trò</td><td><?php if($data->role_id!='') echo $roles[$data->role_id-1]->name; ?></td>
+    </tr> 
+</table>
+<div class="" style="float:left">
+	<a href='<?php echo $this->url->action("background")?>' data='<?php echo $data->id; ?>' onclick='background(this); return false;' class="button">
+        	<span class="ico-text ico-text-brainstorm"></span>Thông tin cơ bản
+	</a>
+</div>
+<div class="" style="float:left">
+	<a href="<?php echo $this->url->action("date")?> " data='<?php echo $data->id; ?>' onclick='date(this); return false;' class="button">
+        	<span class="ico-text ico-text-brainstorm"></span> Thông tin so sánh
+	</a>
+</div>
+<div class="" style="float:left">
+	<a href="<?php echo $this->url->action("interest")?> " data='<?php echo $data->id; ?>' onclick='interest(this); return false;' class="button">
+        	<span class="ico-text ico-text-brainstorm"></span>Sở thích
+	</a>
+</div>
+<div class="" style="float:left">
+	<a href="<?php echo $this->url->action("life")?>" data='<?php echo $data->id; ?>' onclick='life(this); return false;' class="button">
+        	<span class="ico-text ico-text-brainstorm"></span>Cuộc sống
+	</a>
+</div>
+<div class="" style="float:left">
+	<a href="<?php echo $this->url->action("profile")?>" data='<?php echo $data->id; ?>' onclick='profile(this); return false;' class="button">
+        	<span class="ico-text ico-text-brainstorm"></span>Thông tin chung
+	</a>
+</div>
+
+<div title="Back ground" id="background"></div>
+<div title="Dating" id="dating"></div>
+<div title="Interest" id="interest"></div>
+<div title="Life" id="life"></div>
+<div title="Profile" id="profile"></div>
+
+<?php $this->html->loadJs("Application/Modules/User/Assets/js/index_controlpanel.js")?>

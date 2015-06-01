@@ -1,0 +1,91 @@
+<?php $this->content->begin() ?>
+<?php
+
+function getClass($first, $last) {
+    if ($first == 1)
+        return "first";
+    elseif ($first == $last)
+        return "last";
+    elseif ($first % 2 == 0)
+        return "left";
+    else
+        return "left-phone";
+}
+?>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#menuDocument').addClass("active");
+        $('.content').addClass("documentContent");
+        $('.partnerLink').remove();
+        //var type = $('input[type=hidden]').val();
+        loadData(1);
+        $('.newList .pageNav a').live('click',function(){
+            //var type = $('input[type=hidden]').val();
+            var page = $(this).attr('p');
+            loadData(page);
+        });
+        
+        $('.titleControl a.blog').live('click',function(){
+            $('.secondContent').show();
+            $('.content').removeClass('documentContent2');
+        });
+
+        $('.titleControl a.list').live('click',function(){
+            //$('input[type=hidden]').val('list');
+            $('.secondContent').hide();
+            $('.content').addClass('documentContent2');
+        });
+
+        function loadData(page){
+            $.ajax
+            ({
+                type: "POST",
+                url: "<?php echo $this->url->action('moreDocument', 'Index', 'Document') ?>",
+                data: {page:page <?php if(isset($catId)): ?>,catId:<?php echo $catId ?> <?php endif; ?>},
+                success: function(msg)
+                {
+                    $(".newList").ajaxComplete(function(event, request, settings)
+                    {
+                        $(".newList").html(msg);
+                    });
+                }
+            });
+        }
+    });
+
+</script>
+<input type="hidden" id="typeDisplay" value="blog"/>
+<div class="firstContent">
+    <div class="blockTitle">
+        <span><a href="<?php echo $this->url->action('index', 'Index', '') ?>" >Trang chủ </a> - <a href="<?php echo $this->url->action('index', 'Index', 'Document') ?>" >Ấn Phẩm </a></span>
+        <div class="titleControl">
+            <a href="#" class="prev list"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/social-icon1.png") ?>" /></a>
+            <a href="#" class="next blog"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/menu-icon.png") ?>" /></a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="newList"></div>
+
+    <div class="clearfix"></div>
+</div>
+
+<div class="secondContent">
+    <?php $i=1; foreach ($result_document_cat as $rc): ?>
+    <div class="blockNav <?php if($i==1): ?>first <?php elseif($i==2): ?> left <?php elseif($i > 2 && $i%2==1): ?> left-phone <?php elseif($i > 2 && $i%2==0): ?> left <?php endif; ?>">
+        <div class="blockTitle"><a href="<?php echo $this->url->action('index','Index','Document', array('id' => $rc->resource_category_id)) ?>"><?php echo $rc->category_title ?></a></div><div class="clearfix"></div>
+        <div class="blockIcon"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/block-nav-icon1.png")  ?>"/></div>
+        <div class="clearfix"></div>
+    </div>
+    <?php $i++; endforeach; ?>
+    <div class="blockNav last">
+        <div class="blockTitle"><a href="<?php echo $this->url->action('index', 'Index', 'Video') ?>">Ấn phẩm<br>Video</a></div>
+        <div class="clearfix"></div>
+        <div class="blockIcon"><img src="Content/VNCPC/images/icons/block-nav-icon1.png"></div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<?php
+$this->content->end()?>

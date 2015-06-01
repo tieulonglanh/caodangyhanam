@@ -1,0 +1,29 @@
+<div class="video-link">
+	<div class="video-cat">
+		<ul>
+			<li class="title">
+			    <a href="<?php echo $this->url->action("index", "Index", "Video")?>" <?php if($currentCat === null){?>class="active"<?php }?>>Tất cả</a>
+			</li>
+			<?php $k = 1;?>
+			<?php foreach($categories as $cat):?>
+			<li class="title <?php if($k == count($categories)){?> last <?php }?>"><a href="<?php echo $this->url->action("index", "Index", "Video", array($cat->id))?>" <?php if($currentCat == $cat->id){?>class="active"<?php }?>><?php echo $cat->name?></a></li>
+			<?php $k++;?>
+			<?php endforeach;?>
+		</ul>
+	</div>
+	<div class="cl"></div>
+	<div class="video-list"   style="background: url('/Content/CayCoVang/images/line2.png') top center no-repeat; padding: 15px 0">
+		<ul>
+			<?php foreach ($videoList as $video):?>
+			<li class="video-list-item">
+				<div>
+					<a class="CRV_Image" href="<?php echo $this->url->action('detail', 'Index', 'Video', array($video->id))?>">
+					<img src="<?php echo $video->avatar?>" title="<?php echo $video->title?>" alt="<?php echo $video->title?>"></a>
+					<div class="title"><a href="<?php echo $this->url->action('detail', 'Index', 'Video', array($video->id))?>"><?php echo $video->title?></a></div>	
+				</div>
+			</li>
+			<?php endforeach;?>
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>

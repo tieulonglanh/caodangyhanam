@@ -1,0 +1,122 @@
+<?php $this->content->begin()?>
+
+    <div class="firstContent">
+        <div class="blockContent">
+            <div class="contactMaps">
+                <img src="<?php echo $this->url->content("Content/VNCPC/images/contents/maps.png")?>" />
+            </div>
+            <div class="contactInfo contactContentEx">
+                <div class="name">Trung tâm sản xuất sạch hơn việt nam</div>
+                <div class="infor">
+                    Tầng 4, C10, Đại Học Bách Khoa Hà Nội<br />
+                    Điện Thoại	:04 3868 4849<br />
+                    Fax			:04 3868 1618<br />
+                    Email			:vncpc@vncpc.vn<br />
+                    Website		:www.vncpc.vn<br />
+                </div>
+            </div>
+            <div class="contactUs contactContentEx">
+                <div class="title">Please feel free to contact us</div>
+                <div class="textType">
+                    <span><i>Press F8 to choose typing style</i></span>
+                </div>
+            </div>
+            <div class="contactForm contactContentEx">
+                <?php $this->form->begin('contactForm', array('action' => $this->url->action('index')))?>
+                    <div class="title">Your infomation</div>
+                    <fieldset>
+                        <dl class="ctrlUnit">
+                            <dt><label for="ctrl_name"><?php $this->form->labelFor('name')?></label></dt>
+                            <dd><?php $this->form->textboxFor('name', array('class' => 'textCtrl', 'id' => 'ctrl_name'))?><span class="required">*</span></dd>
+                            <div class="clearfix"></div>
+                        </dl>
+                        <dl class="ctrlUnit">
+                            <dt><label for="ctrl_email"><?php $this->form->labelFor('email')?></label></dt>
+                            <dd><?php $this->form->textboxFor('email', array('class' => 'textCtrl', 'id' => 'ctrl_email'))?><span class="required">*</span></dd>
+                            <div class="clearfix"></div>
+                        </dl>
+                        <dl class="ctrlUnit">
+                            <dt><label for="ctrl_address"><?php $this->form->labelFor('address')?></label></dt>
+                            <dd><?php $this->form->textboxFor('address', array('class' => 'textCtrl', 'id' => 'ctrl_address'))?><span class="required">*</span></dd>
+                            <div class="clearfix"></div>
+                        </dl>
+                        <dl class="ctrlUnit">
+                            <dt><label for="ctrl_phone"><?php $this->form->labelFor('phone')?></label></dt>
+                            <dd><?php $this->form->textboxFor('phone', array('class' => 'textCtrl', 'id' => 'ctrl_phone'))?><span class="required">*</span></dd>
+                            <div class="clearfix"></div>
+                        </dl>
+                        <dl class="ctrlUnit">
+                            <dt><label for="ctrl_more"><?php $this->form->labelFor('more_infor')?></label></dt>
+                            <dd>
+                                <?php $this->form->textareaFor('more_infor', array('class' => 'textCtrl', 'id' => 'ctrl_mores', 'rows'=>4))?>
+                            </dd>
+                            <div class="clearfix"></div>
+                        </dl>
+                    </fieldset>
+                    <div class="title">Content</div>
+                    <fieldset>
+                        <dl class="ctrlUnit">
+                            <dt><label for="ctrl_title"><?php $this->form->labelFor('title')?></label></dt>
+                            <dd><?php $this->form->textboxFor('title', array('class' => 'textCtrl', 'id' => 'ctrl_title'))?></dd>
+                            <div class="clearfix"></div>
+                        </dl>
+                        <dl class="ctrlUnit">
+                            <dt><label for="ctrl_more"><?php $this->form->labelFor('message')?></label></dt>
+                            <dd>
+                                <?php $this->form->textareaFor('message', array('class' => 'textCtrl', 'id' => 'ctrl_mores', 'rows'=>4))?><span class="required">*</span>
+                            </dd>
+                            <div class="clearfix"></div>
+                        </dl>
+
+
+                        <dl class="ctrlUnit">
+                            <dt><label for="ctrl_code">Please input this:</label></dt>
+                            <dd>
+                                <input type="text" name="captcha" value="" id="ctrl_code" class="textCtrl short">
+                                <br />
+                                <br />
+                                <img src="<?php echo $this->url->action('captcha', 'Assets', '')?>" alt="captcha" >
+                            </dd>
+                        <div class="clearfix"></div>
+                    </fieldset>
+                    <p class="error" style="color: red; font-size: 12px; margin-top: 15px; display: none"></p>
+                    <div class="submitUnit">
+                        <input type="reset" value="Back" />
+                        <input type="submit" name="save" value="Send" />
+                        <div class="clearfix"></div>
+                    </div>
+                <?php $this->form->end()?>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.content').addClass("contactContent");
+        $('#wrapper').addClass("aboutPage");
+        });
+
+        $(function(){
+            $('#contactForm').submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: $('#contactForm').attr('action'),
+                    data: $('#contactForm').serialize(),
+                    type: "POST",
+                    success: function(res){
+                        if(res.success)
+                            window.location.href = res.url;
+                        else
+                        {
+                            $('.error').html(res.message).show();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+<?php $this->content->end()?>

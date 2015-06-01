@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US"> 
+<head>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="xweb" />
+		<!--========= STYLES =========-->
+		<?php $this->html->loadCss(array(
+				"Content/XSystemAdmin/css/reset.css",
+				"Content/XSystemAdmin/css/grid.css",
+				"Content/XSystemAdmin/css/uniform.default.css",
+				"Content/XSystemAdmin/css/chosen.css",
+				"Content/XSystemAdmin/css/style.css",
+				"Content/XSystemAdmin/css/jquery.ui.all.css",
+				"Content/XSystemAdmin/css/boxy.css",
+				"Content/XSystemAdmin/css/config.css"
+		))?>
+		<?php $this->html->loadJs("Scripts/jquery-1.6.2.min.js")?>
+		<title>XWEB XAdmin - <?php echo $title?></title>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<section class="sidebar">
+		<?php $this->html->renderAction('sidebar', 'Component', 'ControlPanel')?>
+	</section><!-- End of .sidebar -->
+		
+	<section class="container">
+		<section class="container_12">
+			<section id="page_content" class="page_content">				
+				<section class="grid_12 top_panel">
+					<div class="box">
+						<?php $this->html->renderAction('header', 'Component', 'ControlPanel')?>
+					</div>
+				</section>
+				<?php echo $this->content?>
+				<div class="clear"></div>
+				
+			</section>
+			<!-- end of #page_content -->
+		</section>
+		<!-- end of #container_12 -->
+	</section>
+	<!-- end of #container -->
+	<!--============ JQUERY =============-->
+	<?php $this->html->loadJs(array(
+		"Application/Modules/Auth/Assets/js/admin_login.js",
+		"Scripts/jquery-ui-1.8.16.min.js",
+		"Content/XSystemAdmin/js/jquery.uniform.js",
+		"Content/XSystemAdmin/js/chosen.jquery.js",
+		"Content/XSystemAdmin/js/jquery.placeholder.js",
+		"Content/XSystemAdmin/js/scripts.js",
+		"Content/XSystemAdmin/js/jquery.boxy.js",
+		"Content/XSystemAdmin/js/ui_calls.js"
+	))?>
+	<!-- Javascript Block -->
+	<?php echo $this->section->scripts?>
+	<!-- Stylesheets Block -->
+	<?php echo $this->section->stylesheets?>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<?php $this->content->begin()?>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $('#menuTintuc').addClass("active");
+            $('.content').addClass("newsContent aboutContent newsDetail");
+            $('.partnerLink').remove();
+
+
+            function loadData(page){
+                var url = "<?php echo $this->url->action('moreNews', 'Index', 'Artical'); ?>";
+                $.ajax
+                ({
+                    type: "POST",
+                    url: url,
+
+                    data: "page="+page+"&cat_id="+<?php echo $cat_id;?>,
+                    success: function(msg)
+                    {
+                        $(".newsList").ajaxComplete(function(event, request, settings)
+                        {
+                            $(".newsList").html(msg);
+                        });
+                    }
+                });
+            }
+
+            loadData(1);  // For first time page load default results
+            $('.newsList .pageNav a').live('click',function(){
+                var page = $(this).attr('p');
+                loadData(page);
+
+            });
+        });
+
+//        function loadArtical(id) {
+//            $(".firstContent").load("/Artical/Index/load/"+id);
+//            return false;
+//        }
+
+    </script>
+<div class="firstContent">
+    <div class="blockTitle"><a href="<?php echo $this->url->action("index", "Index", "Artical")?>">News</a> > </a><a href="#"><?php echo $detail->title?></a></div>
+    <div class="blockContent">
+        <div class="blockContentImage" id="print">
+            <?php echo $detail->content?>
+
+        </div>
+        <div class="pageControl">
+            <div class="fb-like" data-href="http://localhost/vnc/" data-send="false" data-layout="button_count" data-width="44" data-show-faces="false" data-font="arial"></div>
+            <div class="topControl">
+                View Number: <strong><?php echo $detail->view_count +1;?></strong> - Last time updated: <strong><?php echo date('h:i:s d/m/Y',strtotime($detail->created_date))?></strong>
+            </div>
+            <div class="bottomControl">
+                <a href="javascript:history.go(-1)"><img src="<?php echo $this->url->content("/template/images/icons/back.png")?>">Back to previous page</a>
+                <a href="#" onClick="printF('print')"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/print.png")?>">Print</a>
+                <a href="<?php echo $this->url->action("index", "Index", "Contact")?>"><img src="<?php echo $this->url->content("/template/images/icons/mail.png")?>">Email us</a>
+                <a href="#"><img src="<?php echo $this->url->content("/template/images/icons/totop.png")?>">Top</a>
+            </div>
+            <div class="fb-comments" data-href="http://example.com" data-width="613" data-num-posts="5"></div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="secondContent">
+    <div class="otherNews">
+        <div class="otherNewsTitle">
+            <a href="#">Related News</a>
+        </div>
+        <div class="newsList"></div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<?php $this->content->end()?>

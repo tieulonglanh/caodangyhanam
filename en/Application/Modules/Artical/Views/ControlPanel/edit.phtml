@@ -1,0 +1,117 @@
+<?php $this->content->begin()?>
+<div class="widget">
+    <div class="header">
+        <span><span class="ico  gray notepad"></span> Sửa bài viết </span>
+    </div><!-- End header -->
+    <div class="content">
+        <div class="formEl_b">
+            <?php
+            $ajaxOption['begin'] = "begin";
+            $ajaxOption['success'] = "success";
+            $this->form->beginAjax($ajaxOption);
+            ?>
+            <?php $this->form->hiddenFor("id")?>
+            <?php $this->form->hiddenFor("view_count")?>
+            <fieldset>
+                <legend>Thông tin bài viết</legend>
+                <div class="section">
+                    <?php $this->form->labelFor("category_id")?>
+                    <div>
+                        <?php $this->form->selectFor("category_id", $catOptions , null, null, array('data-placeholder' => "Lựa chọn danh mục..."))?>
+                        <label class="red">*</label>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("title")?>
+                    <div>
+                        <?php $this->form->textboxFor("title", array('class' => "large validate[required,maxSize[250]]",
+                                                                     'onkeyup' => "updateSeoUrl(this, '#seo_url')"))?>
+                        <label class="red">*</label>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("seo_url")?>
+                    <div>
+                        <?php $this->form->textboxFor("seo_url", array('class' => 'large'))?>
+                        <a style="cursor: pointer" onclick="updateSeoUrl('#name', '#seo_url')">
+                            <span class="ico color reload"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("image")?>
+                    <div>
+                        <?php $this->form->textboxFor("image", array('class' => "medium"))?>
+                        <a id="open_icon" class="file-manager" data-type="image" title="Quản lý ảnh"  rel="image" >open</a>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("sort")?>
+                    <div>
+                        <?php $this->form->textboxFor("sort", array('class' => "small"))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("description")?>
+                    <div>
+                        <?php $this->form->textareaFor("description", array('class' => "editor", 'cols' => "", 'rows' => ""))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("content")?>
+                    <div>
+                        <?php $this->form->textAreaFor("content", array('id' => 'content-editor'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("seo_keyword")?>
+                    <div>
+                        <?php $this->form->textboxFor("seo_keyword", array('class' => 'large'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("seo_description")?>
+                    <div>
+                        <?php $this->form->textAreaFor("seo_description", array('class' => 'large'))?>
+                    </div>
+                </div>
+                <div class="section last">
+                    <div>
+                        <input class="uibutton icon add" id="submit" type="submit" value="Cập nhật">
+                        <input class="uibutton special icon edit" type="reset" value="Nhập lại">
+                        <a class="uibutton confirm icon answer" href="<?php echo $this->url->action("index")?>">Danh mục bài viết</a>
+                    </div>
+                </div>
+            </fieldset>
+            <?php $this->form->end()?>
+        </div>
+    </div>
+</div>
+<?php $this->content->end()?>
+<?php $this->section->begin('stylesheets')?>
+<style type="text/css">
+    .cleditorMain{
+        height: 180px !important;
+    }
+</style>
+<?php $this->section->end()?>
+<?php $this->section->begin("scripts")?>
+<?php
+//Load js
+$this->html->loadJs(array('Content/XMin/components/validationEngine/jquery.validationEngine.js',
+                          'Content/XMin/components/validationEngine/jquery.validationEngine-en.js',
+                          'Content/XMin/components/editor/jquery.cleditor.js',
+                          'Content/XMin/components/elfinder/js/elfinder.full.js',
+                          'Scripts/jquery.unobtrusive-ajax.min.js',
+                          'Assets/tiny_mce/tiny_mce.js',
+                          'Assets/tiny_mce/plugins/imagemanager/js/mcimagemanager.js',
+                          'Application/Modules/Page/Assets/js/tinymce.js',
+                          'Application/Modules/ControlPanel/Assets/js/controlpanel.js'));
+?>
+<script type="text/javascript">
+    $(function(){
+        // Select boxes
+        $("select").not("select.chzn-select").selectBox();
+    });
+</script>
+<?php $this->section->end()?>

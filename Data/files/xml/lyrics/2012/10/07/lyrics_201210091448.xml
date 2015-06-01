@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Song>
+<ID>-1</ID>
+<Name>Hoa Dại</Name>
+<Singer>Mai Khôi</Singer>
+<Composer>
+<Music />
+<Lyric />
+</Composer>
+<ChordWriter>Vũ Hà</ChordWriter>
+<ChordChecker />
+<Transposes>
+<Transpose>
+<Name>G Major</Name>
+<Keys>
+<Key>
+<Name>G Major</Name>
+<Chords>
+<Chord>
+<Name>G</Name>
+<Apps>
+<App>
+<Chord>G</Chord>
+<AppID>2</AppID>
+<Locs>
+<Loc>
+<Row>2</Row>
+<Col>3</Col></Loc>
+<Loc>
+<Row>6</Row>
+<Col>3</Col></Loc>
+</Locs>
+<Backup>
+<Fret>3</Fret>
+<Capo>
+<Fret>0</Fret>
+<Length>0</Length>
+</Capo>
+<F1>
+<Str>6</Str>
+<Pos>1</Pos>
+<Length>6</Length>
+</F1>
+<F2>
+<Str>3</Str>
+<Pos>2</Pos>
+<Length>0</Length>
+</F2>
+<F3>
+<Str>5</Str>
+<Pos>3</Pos>
+<Length>0</Length>
+</F3>
+<F4>
+<Str>4</Str>
+<Pos>3</Pos>
+<Length>0</Length>
+</F4>
+<S1>0</S1>
+<S2>0</S2>
+<S3>0</S3>
+<S4>0</S4>
+<S5>0</S5>
+<S6>0</S6>
+</Backup>
+</App>
+<App>
+<Chord>G</Chord>
+<AppID>3</AppID>
+<Locs>
+<Loc>
+<Row>4</Row>
+<Col>5</Col></Loc>
+</Locs>
+<Backup>
+<Fret>1</Fret>
+<Capo>
+<Fret>0</Fret>
+<Length>0</Length>
+</Capo>
+<F1>
+<Str>5</Str>
+<Pos>2</Pos>
+<Length>0</Length>
+</F1>
+<F2>
+<Str>6</Str>
+<Pos>3</Pos>
+<Length>0</Length>
+</F2>
+<F3>
+<Str>2</Str>
+<Pos>3</Pos>
+<Length>0</Length>
+</F3>
+<F4>
+<Str>1</Str>
+<Pos>3</Pos>
+<Length>0</Length>
+</F4>
+<S1>0</S1>
+<S2>0</S2>
+<S3>1</S3>
+<S4>1</S4>
+<S5>0</S5>
+<S6>0</S6>
+</Backup>
+</App>
+</Apps>
+</Chord>
+<Chord>
+<Name>Em</Name>
+<Apps>
+<App>
+<Chord>Em</Chord>
+<AppID>1</AppID>
+<Locs>
+<Loc>
+<Row>8</Row>
+<Col>2</Col></Loc>
+</Locs>
+<Backup>
+<Fret>1</Fret>
+<Capo>
+<Fret>0</Fret>
+<Length>0</Length>
+</Capo>
+<F1>
+<Str>0</Str>
+<Pos>0</Pos>
+<Length>0</Length>
+</F1>
+<F2>
+<Str>5</Str>
+<Pos>2</Pos>
+<Length>0</Length>
+</F2>
+<F3>
+<Str>4</Str>
+<Pos>2</Pos>
+<Length>0</Length>
+</F3>
+<F4>
+<Str>0</Str>
+<Pos>0</Pos>
+<Length>0</Length>
+</F4>
+<S1>1</S1>
+<S2>1</S2>
+<S3>1</S3>
+<S4>0</S4>
+<S5>0</S5>
+<S6>1</S6>
+</Backup>
+</App>
+</Apps>
+</Chord>
+</Chords>
+</Key>
+</Keys>
+</Transpose>
+</Transposes>
+<Links>
+<GPs>
+</GPs>
+<Clips>
+</Clips>
+<Tutorials>
+</Tutorials>
+</Links>
+<Embeds>
+<Embed>
+<Name>NhacCuaTui</Name>
+<Code>&lt;object width="300" height="300"&gt;  &lt;param name="movie" value="http://www.nhaccuatui.com/m/PzVWbv8_ft" /&gt;  &lt;param name="quality" value="high" /&gt;  &lt;param name="wmode" value="transparent" /&gt;  &lt;param name="allowscriptaccess" value="always" /&gt;  &lt;param name="flashvars" value="&amp;autostart=false" /&gt;  &lt;embed src="http://www.nhaccuatui.com/m/PzVWbv8_ft" flashvars="target=blank&amp;autostart=false" allowscriptaccess="always" quality="high" wmode="transparent" type="application/x-shockwave-flash" width="300" height="300"&gt;&lt;/embed&gt;&lt;/object&gt;</Code>
+</Embed>
+</Embeds>
+<Tags>
+<Tag>Hoa Dại</Tag>
+<Tag>Mai Khôi</Tag>
+<Tag>Vũ Hà</Tag>
+</Tags>
+<TagSigs>
+<TagSig>4/4</TagSig>
+</TagSigs>
+<TagGammes>
+<TagGamme>G Major</TagGamme>
+</TagGammes>
+<DataRows>
+<DataRow>LỜI BÀI HÁT: Hoa dại</DataRow>
+<DataRow>4/4 +++++</DataRow>
+<DataRow>Ngày ấy | anh tặng em nhành | hoa dại,</DataRow>
+<DataRow>mình nói hoa đẹp như một đóa hồng.</DataRow>
+<DataRow>chỉ có anh và | em nhìn thấy</DataRow>
+<DataRow>hương sắc hoa nơi bên đường.</DataRow>
+<DataRow>Ngày ấy ta đùa vui tình thơ dại</DataRow>
+<DataRow>, ngày ấy ta mặc bao lời chê cười.</DataRow>
+<DataRow>Ngày ấy em chỉ yêu mình anh chỉ có anh thôi.</DataRow>
+<DataRow>Đến một ngày vội vàng nhận thấy,</DataRow>
+<DataRow>tình yêu giữa xa khuất chân trời.</DataRow>
+<DataRow>Nụ hoa ấy héo úa trên cây</DataRow>
+<DataRow>, để em cô đơn ngồi đây đợi chờ bóng ai.</DataRow>
+<DataRow>Nụ hoa ấy không phải nụ hồng,</DataRow>
+<DataRow>ngày không em anh có nát tan cõi lòng, anh ra đi thật sao lời yêu nhất không...</DataRow>
+<DataRow>Người ta nói anh đã vội tin</DataRow>
+<DataRow>, lòng em đau thương cho những hoa bên đường,</DataRow>
+<DataRow>dù xa anh nhưng sau không thể quên anh.</DataRow>
+</DataRows>
+</Song>

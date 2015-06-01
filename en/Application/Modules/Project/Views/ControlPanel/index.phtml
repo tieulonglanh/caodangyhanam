@@ -1,0 +1,53 @@
+<?php $this->content->begin()?>
+<div class="widget">
+    <div class="header"><span><span class="ico  gray document"></span>Trang nội dung</span> </div>
+    <div class="content">
+        <div class="load_page tableToolbar">
+            <ul class="uibutton-group">
+                <li><a class="uibutton icon add" title="Add Product" href="<?php echo $this->url->action('create')?>">Thêm trang mới</a></li>
+                <li><a class="uibutton icon add" title="Add Product" href="/Project/ControlPanel/create">Thêm trang mới tiếng việt</a></li>
+                <li><a class="uibutton special deleteAll" href="/Project/ControlPanel/index">Danh sách tiếng việt</a></li>
+            </ul>
+            <div class="tableName toolbar">
+                <h3>Danh sách trang nội dung</h3>
+                <form id="tblForm" method="post" data-delete-url="<?php echo $this->url->action('delete')?>"
+                                                 data-edit-url="<?php echo $this->url->action('edit')?>"
+                                                 data-change-status-url="<?php echo $this->url->action('changeStatus')?>">
+                    <table class="display" id="data_table" data-ajax-url="<?php echo $this->url->action('index')?>">
+                        <thead>
+                        <tr>
+                            <th width="35">
+                                <div class="checksquared"><input type="checkbox" id="checkAll1" class="checkAll" /><label for="checkAll1"></label></div>
+                            </th>
+                            <th width="150">Ảnh</th>
+                            <th width="300" align="left">Tiêu đề</th>
+                            <th width="100">Ngày đăng</th>
+                            <th>Ngày đăng ẩn</th>
+                            <th width="200" align="left">Đường dẫn</th>
+                            <th width="100">Lượt xem</th>
+                            <th width="100">Quản lý</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $this->content->end()?>
+<?php $this->section->begin("scripts")?>
+<?php $this->html->loadJs(array('Scripts/functions.js',
+                                'Content/XMin/components/datatables/dataTables.min.js',
+                                'Content/XMin/components/datatables/ColVis.js',
+                                'Content/XMin/components/confirm/jquery.confirm.js',
+                                'Application/Modules/Project/Assets/js/index_controlpanel.js'))?>
+<?php $this->section->end()?>
+<?php $this->section->begin("stylesheets")?>
+    <style type="text/css">
+        .aleft{
+            text-align: left;
+        }
+    </style>
+<?php $this->section->end()?>

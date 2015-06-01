@@ -1,0 +1,65 @@
+<html>
+<head>
+<style type="text/css">
+body {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+}
+a {
+text-decoration: none;
+color: #000;
+}
+a:HOVER{
+text-decoration: underline;
+}
+.blContent-title{
+padding: 5px;
+}
+.blContent-title a{
+color: #0B4897;
+font-weight: bold;
+}
+.blContent-content {
+padding: 0px 5px 5px 5px;
+}
+.blContent-relative ul li {
+padding: 3px 0px 3px 0px;
+}
+.blContent-relative ul {
+list-style-image: url(<?php echo $this->url->content('Content/DanToc/images/red-list-style.png')?>);
+list-style-position: inside;
+padding: 0px;
+margin: 0px;
+}
+.blContent-relative {
+padding: 5px 5px 5px 10px;
+}
+</style>
+</head>
+<body style="padding: 0; margin: 0;">
+<div class="blContent-title">
+<a><?php echo $videoPlay->title?></a>
+</div>
+<div class="blContent-content">
+	<div id="video-container"></div>
+</div>
+<div class="blContent-relative">
+	<ul>
+		<?php foreach($videos as $k => $v):?>
+		<li><a target="_self" href="<?php echo $this->url->action('indexFrame', array($k))?>"><?php echo $v->title?></a></li>
+		<?php endforeach;?>
+	</ul>
+</div>
+<?php $this->html->loadJs('Content/DanToc/js/jwplayer.js')?>
+<script type="text/javascript">
+jwplayer("video-container").setup({
+	flashplayer: "<?php echo $this->url->content("Content/DanToc/flash/jwplayer.swf")?>",
+	image: "<?php echo $videoPlay->avatar?>",
+	file: "<?php echo $videoPlay->url?>",	
+	controlbar: "bottom",
+	width: 288,
+	height: 250,
+});
+</script>
+</body>
+</html>
