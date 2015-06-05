@@ -1,25 +1,12 @@
 <?php
-
     $current = XPHP_Url::getCurrentUrl();
-
-
 ?>
 
-
-<?php
-$i = 1;
-$last = count($menu);
-
-
-?>
-
-<?php foreach ($menu as $menuItem):?>
-    <li id="menuHome" class="<?php if($i==1) echo 'first'; elseif($i==$last) echo 'last'; ?>
-        <?php if(strpos($current, $menuItem->value)) echo "active"?>">
-        <a href="<?php echo $menuItem->value?>">
-            <?php echo $menuItem->title?>
-        </a>
-    </li>
-    <?php $i++?>
-<?php endforeach;?>
-
+<ul class="menu rs cf">
+        <li class="fll"><a href="<?php echo $this->url->action("index","Index",'') ?>" class="icon-home"><img src="<?php echo $this->url->content("Content/default/images/unnamed.png") ?>"/></a></li>
+    <?php foreach ($menu as $menuItem):?>
+        <li class="fll <?php if(strpos($current, $menuItem->value)) echo " active"; ?>">
+            <a href="<?php echo $menuItem->value?>"><?php echo $menuItem->title?></a>
+        </li>                        
+    <?php endforeach;?>
+</ul>

@@ -2,15 +2,15 @@
 <div class="fll left-content">
                 <div class="box-daotao">
                     <ul class="lstTab spr pRel">
-                        <li class="fll"><span><?php echo $category->name ?></span></li>
-                        <span class="pAbs navi-dt"><a href="<?php echo $this->url->action('index','Index',""); ?>">Trang chủ</a> <a href="<?php echo $this->url->action('list','Index',"Artical", array('id'=>$category->id, 'title'=>$category->seo_url))?>"><?php echo $category->name ?></a></span>
+                        <li class="fll"><span>Giới thiệu</span></li>
+                        <span class="pAbs navi-dt"><a href="<?php echo $this->url->action('index','Index',""); ?>">Trang chủ</a> Giới thiệu </span>
                     </ul>
                     <div class="box-daotaox">
                         <div class="tuyensinh-content">
                             <h1>
                                 <?php echo $detail->title; ?>
                             </h1>
-                            <p style="font-weight: bold; margin-bottom: 20px; margin-top: 20px;"><?php echo $detail->description; ?></p>
+                            <p style="font-weight: bold; margin-bottom: 20px; margin-top: 20px;"><?php echo $detail->headline; ?></p>
                             <?php echo $detail->content; ?>
                         </div>
                     </div>

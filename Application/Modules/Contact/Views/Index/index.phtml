@@ -1,129 +1,35 @@
-<?php $this->content->begin()?>
-
-    <div class="firstContent">
-        <div class="blockContent">
-            <div class="contactMaps">
-                <img src="<?php echo $this->url->content("Content/VNCPC/images/contents/maps.png")?>" />
-            </div>
-            <div class="contactInfo contactContentEx">
-                <div class="name">Trung tâm sản xuất sạch hơn việt nam</div>
-                <div class="infor">
-                    Tầng 4, C10, Đại Học Bách Khoa Hà Nội<br />
-                    Điện Thoại	:04 3868 4849<br />
-                    Fax			:04 3868 1618<br />
-                    Email			:vncpc@vncpc.vn<br />
-                    Website		:www.vncpc.vn<br />
-                </div>
-            </div>
-            <div class="contactUs contactContentEx">
-                <div class="title">Xin vui lòng liên hệ với chúng tôi</div>
-                <div class="textType">
-                    <span><i>Ấn F8 để chọn kiểu gõ</i></span>
-                    <!--<span>Gõ tiếng Việt:</span>
-                    <label for="ctrl_off"><input type="radio" id="ctrl_off" name="text_type" value="0"/>&nbsp;Off&nbsp;</label>
-                    <label for="ctrl_telex"><input type="radio" id="ctrl_telex" name="text_type" value="0"/>&nbsp;Telex&nbsp;</label>
-                    <label for="ctrl_vni"><input type="radio" id="ctrl_vni" name="text_type" value="0"/>&nbsp;VNI&nbsp;</label>
-                    <label for="ctrl_viqr"><input type="radio" id="ctrl_viqr" name="text_type" value="0"/>&nbsp;VIQR&nbsp;</label>-->
-                </div>
-            </div>
-            <div class="contactForm contactContentEx">
-                <?php $this->form->begin('contactForm', array('action' => $this->url->action('index')))?>
-                    <div class="title">Thông tin cá nhân</div>
-                    <fieldset>
-                        <dl class="ctrlUnit">
-                            <dt><label for="ctrl_name"><?php $this->form->labelFor('name')?></label></dt>
-                            <dd><?php $this->form->textboxFor('name', array('class' => 'textCtrl', 'id' => 'ctrl_name'))?><span class="required">*</span></dd>
-                            <div class="clearfix"></div>
-                        </dl>
-                        <dl class="ctrlUnit">
-                            <dt><label for="ctrl_email"><?php $this->form->labelFor('email')?></label></dt>
-                            <dd><?php $this->form->textboxFor('email', array('class' => 'textCtrl', 'id' => 'ctrl_email'))?><span class="required">*</span></dd>
-                            <div class="clearfix"></div>
-                        </dl>
-                        <dl class="ctrlUnit">
-                            <dt><label for="ctrl_address"><?php $this->form->labelFor('address')?></label></dt>
-                            <dd><?php $this->form->textboxFor('address', array('class' => 'textCtrl', 'id' => 'ctrl_address'))?><span class="required">*</span></dd>
-                            <div class="clearfix"></div>
-                        </dl>
-                        <dl class="ctrlUnit">
-                            <dt><label for="ctrl_phone"><?php $this->form->labelFor('phone')?></label></dt>
-                            <dd><?php $this->form->textboxFor('phone', array('class' => 'textCtrl', 'id' => 'ctrl_phone'))?><span class="required">*</span></dd>
-                            <div class="clearfix"></div>
-                        </dl>
-                        <dl class="ctrlUnit">
-                            <dt><label for="ctrl_more"><?php $this->form->labelFor('more_infor')?></label></dt>
-                            <dd>
-                                <?php $this->form->textareaFor('more_infor', array('class' => 'textCtrl', 'id' => 'ctrl_mores', 'rows'=>4))?>
-                            </dd>
-                            <div class="clearfix"></div>
-                        </dl>
-                    </fieldset>
-                    <div class="title">Nội dung</div>
-                    <fieldset>
-                        <dl class="ctrlUnit">
-                            <dt><label for="ctrl_title"><?php $this->form->labelFor('title')?></label></dt>
-                            <dd><?php $this->form->textboxFor('title', array('class' => 'textCtrl', 'id' => 'ctrl_title'))?></dd>
-                            <div class="clearfix"></div>
-                        </dl>
-                        <dl class="ctrlUnit">
-                            <dt><label for="ctrl_more"><?php $this->form->labelFor('message')?></label></dt>
-                            <dd>
-                                <?php $this->form->textareaFor('message', array('class' => 'textCtrl', 'id' => 'ctrl_mores', 'rows'=>4))?><span class="required">*</span>
-                            </dd>
-                            <div class="clearfix"></div>
-                        </dl>
-
-
-                        <dl class="ctrlUnit">
-                            <dt><label for="ctrl_code">Mã kiểm tra:</label></dt>
-                            <dd>
-                                <input type="text" name="captcha" value="" id="ctrl_code" class="textCtrl short">
-                                <br />
-                                <br />
-                                <img src="<?php echo $this->url->action('captcha', 'Assets', '')?>" alt="captcha" >
-                            </dd>
-                        <div class="clearfix"></div>
-                    </fieldset>
-                    <p class="error" style="color: red; font-size: 12px; margin-top: 15px; display: none"></p>
-                    <div class="submitUnit">
-                        <input type="reset" value="Quay về" />
-                        <input type="submit" name="save" value="Gửi" />
-                        <div class="clearfix"></div>
-                    </div>
-                <?php $this->form->end()?>
-            </div>
+<?php $this->content->begin() ?>
+<div class="fll left-content">
+    <div class="box-daotao">
+        <ul class="lstTab spr pRel">
+            <li class="fll"><span>LIÊN HỆ</span></li>
+        </ul>
+        <div class="box-lienhe">
+            <h1>TRƯỜNG CAO ĐẲNG Y HÀ NAM</h1>
+            <img src="/Content/default/images/lienhe.jpg">
+            <p>Địa chỉ: Nguyễn Hữu Tiến - Lê Hồng Phong - TP. Phủ Lý - T. Hà Nam</p>
+            <p>Điện thoại: 03513.851.189</p>
+            <p>Fax: 03513.851.189</p>
+            <p style="color:  <?php if($alert['success']) echo "green"; else echo "red"; ?>; font-weight: bold;">
+                <?php if(isset($alert)): ?>
+                    <?php echo $alert['message']; ?>
+                <?php endif; ?>
+            </p>
+            <?php $this->form->begin('contactForm', array('action' => $this->url->action('index'), "class"=>"form")); ?>
+                <label>Người gửi<i>*</i></label><?php $this->form->textboxFor('name', array('id' => 'ctrl_name')) ?><br>
+                <label>Email gửi<i>*</i></label><?php $this->form->textboxFor('email', array('id' => 'ctrl_email')) ?><br>
+                <label>Địa chỉ</label><?php $this->form->textboxFor('address', array('id' => 'ctrl_address')) ?><br>
+                <label>Điện thoại</label><?php $this->form->textboxFor('phone', array('id' => 'ctrl_phone')) ?><br>
+                <label>Tiêu đề <i>*</i></label><?php $this->form->textboxFor('title', array('id' => 'ctrl_title')) ?><br>
+                <label class="pRel labnd">Nội dung <i>*</i></label><?php $this->form->textareaFor('message') ?><br>
+                <span>Tối đa <b>1000</b> ký tự</span><br />
+                <label>Mã kiểm tra: <i>*</i></label> <input type="text" name="captcha" value="" id="ctrl_code" class="textCtrl short"><br />
+                <img src="<?php echo $this->url->action('captcha', 'Assets', '') ?>" alt="captcha" > <br />
+                    
+                <input type="submit" name="save" value="Gửi" class="submittext" >
+            <?php $this->form->end(); ?>
         </div>
-        <div class="clearfix"></div>
     </div>
-<?php 
-$this->html->loadJs(array(
-            'Content/VNCPC/js/mudim-0.9-r162.js',
-    ))?>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-            $('.content').addClass("contactContent");
-        $('#wrapper').addClass("aboutPage");
-        });
-
-        $(function(){
-            $('#contactForm').submit(function(e){
-                e.preventDefault();
-                $.ajax({
-                    url: $('#contactForm').attr('action'),
-                    data: $('#contactForm').serialize(),
-                    type: "POST",
-                    success: function(res){
-                        if(res.success)
-                            window.location.href = res.url;
-                        else
-                        {
-                            $('.error').html(res.message).show();
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-<?php $this->content->end()?>
+</div>
+<?php
+$this->content->end()?>

@@ -142,7 +142,7 @@ class XPHP_Attribute_Parser
         $attributes = array();
         //Xóa các kí tự comment
         $str = trim(preg_replace('/^[\/\*\# \t]+/m', '', $str));
-        $str = str_replace("\r\n", "\n", $str);
+        $str = str_replace("\r\n", "\n", $str);        
         //Lấy ra các chuỗi nằm trong dấu []
         preg_match_all('/\[(.+)\]/', $str, $matches);
         //Xóa các phần tử trống trong $matches
@@ -195,11 +195,11 @@ class XPHP_Attribute_Parser
                         }
                     }
                 } else { //Nếu gọi attribute không có () và không có tham số truyền vào
-                    $attrName = trim($s);
+                    $attrName = trim($s); 
                 }
+                
                 //Khởi tạo lớp Attribute
-                $attrClass = $this->_adapter->getAttributeClassName(
-                $attrName);
+                $attrClass = $this->_adapter->getAttributeClassName($attrName);
                 //Nếu kết quả trả về là tên lớp Attribute (Nếu không tìm thấy hoặc không có trả về false)
                 if ($attrClass) {
                     $attribute = new $attrClass();

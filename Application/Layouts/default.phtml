@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Trường Cao Đẳng Y Tế Hà Nam</title>
+
+    <link rel="stylesheet" type="text/css" href="<?php echo $this->url->content("Content/default/css/style.css") ?>">
+    <link rel="stylesheet" href="<?php echo $this->url->content("Content/default/css/tinyscrollbar.css") ?>" type="text/css" media="screen"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+<div class="swrapper">
+    <header>
+        <div class="header">
+            <div class="fixCen headerInner">
+                <div class="box-top-header">
+                    <h1 class="rs"><a href="<?php echo $this->url->action('index','Index','') ?>" class="logo"></a></h1>
+                    <span class="tentruong">TRƯỜNG CAO ĐẲNG Y TẾ HÀ NAM</span>
+                    <span class="teneng">Hanam Medical College</span>
+                    <p>Địa chỉ: Đường Nguyễn Hữu Tiến - P. Lê Hồng Phong - TP. Phủ Lý - T. Hà Nam</p>
+                    <p>ĐT: 0351.851.189 - Fax: 0351.851.189</p>
+                    <a href="#" class="flagvn spr pAbs"></a>
+                    <a href="#" class="spr flagmy pAbs"></a>
+                    <form class="pAbs form-search">
+                        <input type="text" name="timkiem" value="" placeholder="Tìm kiếm" >
+                    </form>
+                </div>
+                
+                <nav>
+                    <?php $this->html->renderAction('header', 'NavComponent', 'Navigation'); ?>
+                    
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="main fixCen">
+        <?php $this->html->renderAction('index', 'BlockCom', 'Block', array('slider'))?>
+        
+        <div class="main-content cf">            
+            <?php echo $this->content ?>
+            <div class="fll right-menu">
+                <div class="box-thongbao">
+                    <?php $this->html->renderAction("notify", "ArticalCom", "Artical"); ?>                    
+                </div>
+                <a href="#"><img src="<?php echo $this->url->content("Content/default/images/anhtb.jpg") ?>"></a>
+                <a href="#" class="dkhoc">Đăng ký học tín chỉ</a>
+                <a href="#" class="boder-link">Lịch công tác</a>
+                <a href="#" class="boder-link">Thư điện tử</a>
+                <a href="#" class="boder-link">Trang tin nội bộ</a>
+                <a href="#" class="boder-link">Tài nguyên</a>
+                <a href="#" class="boder-link">Nghiên cứu khoa học</a>
+                <div class="lienket">
+                    <?php $this->html->renderAction('index', 'BlockCom', 'Block', array('rightbar'))?>                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-link">
+            <?php $this->html->renderAction('index', 'BlockCom', 'Block', array('footerlink'))?>            
+        </div>
+        <div class="footer-inner">
+            <?php $this->html->renderAction('index', 'BlockCom', 'Block', array('footerinfo'))?>            
+        </div>
+    </footer>
+    <a href="#" class="support-online"></a>
+</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->url->content("Content/default/js/jquery.bxslider.min.js") ?>"></script>
+<script type="text/javascript" src="<?php echo $this->url->content("Content/default/js/slider.js") ?>"></script>
+<script type="text/javascript" src="<?php echo $this->url->content("Content/default/js/jquery.tinyscrollbar.js") ?>"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        if($("#ulList li a").hasClass("active")){
+            var id = $("#ulList a").data("id");
+            var href = $("#ulList a").attr("href");
+            var title = $("#ulList a").attr("title");
+            $("#"+id).css({display:"block"});
+        }
+        $("#ulList li a").hover(function(){
+            $("#ulList li a").removeClass("active");
+            $(".tab-content").css({display:"none"});
+            var id = $(this).data("id");
+            var href = $(this).attr("href");
+            var title = $(this).attr("title");
+            $(this).addClass("active");
+            $("#"+id).stop().fadeIn("slow");
+        });
+        $('#scrollbar1').tinyscrollbar();
+        $('#slider').slider({width:960,height:344,delay:3000,sDelay:30,effect:'random'});
+    });
+</script>
+</html>

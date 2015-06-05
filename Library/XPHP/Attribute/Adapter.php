@@ -167,15 +167,16 @@ class XPHP_Attribute_Adapter
     public function getAttributeClassName ($name)
     {
         $type = $name;
-        if (@$this->registry[$type] === false) {
+        if (@$this->registry[$type] === false) {            
             return false; // Attribute bị disabled
         }
-        if (isset($this->registry[$type]))
+        if (isset($this->registry[$type])){
             return $this->registry[$type]; // Lớp Attribute đã đăng ký
-        else if(preg_match('/^[a-zA-Z_]+/i', $name) && class_exists($name))
+        }else if(preg_match('/^[a-zA-Z_]+/i', $name) && class_exists($name)){
             return $name; //Lấy tên class là tên Attribute
-        else
+        }else{            
             return false; //Không tìm thấy
+        }
         return $type;
     }
     /**

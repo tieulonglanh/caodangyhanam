@@ -5,10 +5,15 @@
     <router module="Image" controller="Index" action="detail" preg="anh\/([\w-_]+)\.([\d]+)\.([\d]+)\.html">anh/{seo_url}.{id}.{page}.html</router>
     
     <router module="" controller="Index" action="index" preg="trang-chu\.html">trang-chu.html</router>
+    <router module="" controller="Index" action="student" preg="hoc-sinh-sinh-vien\.html">hoc-sinh-sinh-vien.html</router>
+    
     <router module="Page" controller="Index" action="index" preg="gioi-thieu\.html">gioi-thieu.html</router>
+    <router module="Page" controller="Index" action="detail" preg="gioi-thieu\/([\w-_]+)\.(\d+)\.html">gioi-thieu/{title}.{id}.html</router>
+    
     <router module="Service" controller="Index" action="index" preg="dich-vu\.html">dich-vu.html</router>
     <router module="Video" controller="Index" action="index" preg="an-pham-video\.html">an-pham-video.html</router>
-
+    <router module="Video" controller="Index" action="detail" preg="chi-tiet-video\/([\w-_]+)\.(\d+)\.html">chi-tiet-video/{title}.{id}.html</router>
+    
     <router module="Artical" controller="Index" action="index" preg="tin-tuc\.html">tin-tuc.html</router>
     <router module="Artical" controller="Index" action="detail" preg="tin-tuc\/([\w-_]+)\.(\d+)\.html">tin-tuc/{title}.{id}.html</router>
     <router module="Artical" controller="Index" action="new" preg="tin-moi\/([\w-_]+)\.(\d+)\.html">tin-moi/{title}.{id}.html</router>

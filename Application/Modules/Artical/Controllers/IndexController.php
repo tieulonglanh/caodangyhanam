@@ -55,19 +55,34 @@ class IndexController extends XPHP_Controller{
     }
 
     public function listAction() {
-        $this->loadLayout('/VNCPCListNews');
+        $this->loadLayout('/default');
+        if($this->params['page'])
+            $page = $this->params['page'];
+        else
+            $page = 1;
+        $limit = 6;
+        
+        $offset = ($page-1)*$limit;
+        
         $id = $this->params['id'];
-
         $artical = new Artical();
         $articalCategory = new ArticalCategory();
 
-        if($id == 0)
-            $articals = $artical->getArticals(6);
-        else
-            $articals = $artical->getArticalsByCategory(6, $id);
-
+        if($id == 0){
+            return false;
+            $count = 0;
+            //$articals = $artical->getArticals($limit, $offset);
+        }else{
+            $articals = $artical->getArticalsByCategory($limit, $id, $offset);
+            $count = $artical->getCountArtical($id);
+        }
+        
+        $this->view->limit = $limit;
+        $this->view->count = $count;
+        $this->view->page = $page;
         $this->view->articals = $articals;
         $this->view->category = $articalCategory->getCatByid($id);
+        
         return $this->view();
     }
 
@@ -90,13 +105,16 @@ class IndexController extends XPHP_Controller{
     }
 
     public function newAction() {
-        $this->loadLayout('/VNCPCOther');
+        $this->loadLayout('/default');
         $id = $this->params['id'];
         $artical = new Artical();
         $detail = $artical->getArticalById($id);
         $artical->changeViewCount($id, $detail->view_count);
+        
+        $articalCategory = new ArticalCategory();
+        $this->view->category = $articalCategory->getCatByid($detail->category_id);
+        
         $this->view->detail = $detail;
-        $this->view->cat_id = 0;
         return $this->view();
     }
 
@@ -208,6 +226,7 @@ class IndexController extends XPHP_Controller{
         $this->view->detail = $artical->getArticalById($this->params[0]);
         return $this->view();
     }
+    
 }
 
 ?>
