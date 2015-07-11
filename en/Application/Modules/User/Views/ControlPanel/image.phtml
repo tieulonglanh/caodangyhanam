@@ -1,6 +1,0 @@
-<img src="<?php echo $data->avatar ?>" > <br>
-<h3><?php echo $data->username ?></h3> <br>
-Trạng thái ảnh:<?php if($data->approval==1) echo "<span style='color: green'> Cho phép hiển thị"; else echo "<span style='color: red'>Không cho phép"; ?></span>
-<br><br>
-<a href='<?php echo $this->url->action("imageAllow") ?>' onclick='allowImage(this); return false;' class='button ico-btn ico-text-power tool-tip' title='Kiểm duyệt avatar' data='<?php echo $data->id; ?>'></a>
-<div title="Alert dialog" id="successDialog"></div>

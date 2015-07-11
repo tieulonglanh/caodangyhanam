@@ -1,4 +1,0 @@
-<span>Thông báo</span>
-<?php foreach($thongBao as $artical): ?>
-    <a href="<?php echo $this->url->action("new", "Index", "Artical", array('id'=>$artical->id, 'title'=>$artical->seo_url))?>"><?php echo XPHP_String::shortenText($artical->title, 40); ?></a>
-<?php endforeach; ?>

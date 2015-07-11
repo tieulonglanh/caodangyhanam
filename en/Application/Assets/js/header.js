@@ -1,3 +1,0 @@
-$(function(){
-    $('.open-tipsy').tipsy();
-});
