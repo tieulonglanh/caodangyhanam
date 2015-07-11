@@ -16,7 +16,6 @@ class User extends XPHP_Model
     #[Label('Đăng nhập')]
     #[Required(message = 'Đăng nhập là bắt buộc nhập')]
     #[MaxLength(300, message = 'Đăng nhập có tối đa 300 kí tự')]
-    #[Command(update = false)]
     public $username;
     
     #[Label('Mật khẩu')]

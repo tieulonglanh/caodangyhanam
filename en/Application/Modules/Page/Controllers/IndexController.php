@@ -4,21 +4,22 @@ class IndexController extends XPHP_Controller
 
     public function indexAction()
     {
-        $this->loadLayout('/VNCPCOther');
+        $this->loadLayout('/default');
         $page = new Page();
         $articals = $page->getPages();
 
-        $page->changeViewCount($articals[0]->id, $articals[0]->view_count);
 
         $this->view->articals = $articals;
         return $this->view();
     }
 
-    public function loadAction() {
+    public function detailAction() {
+        $this->loadLayout('/default');
         $page = new Page();
-        $artical = $page->getActical($this->params[0]);
+        $artical = $page->getActical($this->params['id']);
+        
         $page->changeViewCount($artical->id, $artical->view_count);
-        $this->view->artical = $artical;
+        $this->view->detail = $artical;
         return $this->view();
     }
 }

@@ -333,14 +333,15 @@ class XPHP_String
      *
      * @return string
      */
-    public static function shortenText($text, $maxlength = 70, $appendix = "...")
+    public static function shortenText($str, $maxlen = 70, $appendix = "...")
     {
-        if (mb_strlen($text) <= $maxlength) {
-            return $text;
-        }
-        $text = mb_substr($text, 0, $maxlength - mb_strlen($appendix));
-        $text .= $appendix;
-        return $text;
+        if (strlen($str) <= $maxlen) return $str;
+
+        $newstr = substr($str, 0, $maxlen);
+        if (substr($newstr, -1, 1) != ' ') $newstr = substr($newstr, 0, strrpos($newstr, " "));
+    
+        $newstr .= $appendix;
+        return $newstr;
     }
     
     public static function maskEmail( $email, $mask_char, $percent=50 ) 

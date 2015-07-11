@@ -8,8 +8,9 @@
                                                     'data-edit-url'   => $this->url->action('edit')))?>
         <?php echo $htmlMenuMultiLevel?>
         <div class="global-form-footer">
+            <a class="uibutton special large icon add" href="/Navigation/Manager/create/<?php echo $navType ?>">Tạo mới Menu</a>
             <input class="uibutton large icon edit" id="submit" type="submit" value="Cập nhật" style="width: 200px;">
-            <a class="uibutton special large icon add" href="/Navigation/Manager/list/<?php echo $navType ?>">Menu tiếng việt</a>
+            <a class="uibutton special large icon add" href="/en/Navigation/Manager/list/<?php echo $navType ?>">Menu tiếng anh</a>
             <a class="uibutton confirm large icon answer" href="<?php echo $this->url->action("index")?>">Thanh điều hướng</a>
         </div>
         <?php $this->form->end()?>

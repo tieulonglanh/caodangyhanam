@@ -55,19 +55,40 @@ class IndexController extends XPHP_Controller{
     }
 
     public function listAction() {
-        $this->loadLayout('/VNCPCListNews');
+        $this->loadLayout('/default');
+        if($this->params['page'])
+            $page = $this->params['page'];
+        else
+            $page = 1;
+        $limit = 6;
+        
+        $offset = ($page-1)*$limit;
+        
         $id = $this->params['id'];
-
         $artical = new Artical();
         $articalCategory = new ArticalCategory();
-
-        if($id == 0)
-            $articals = $artical->getArticals(6);
-        else
-            $articals = $artical->getArticalsByCategory(6, $id);
-
+        $category = $articalCategory->getCatByid($id);
+        
+        if($category->seo_url == 'trang-tin-noi-bo'){
+            if(!isset($_SESSION['role_id'])||$_SESSION['role_id'] != 1){
+                echo "<script>alert('Bạn không có quyền truy cập! Vui lòng đăng nhập để xem.'); window.location.href='/'</script>";
+            }
+        }
+        if($id == 0){
+            return false;
+            $count = 0;
+            //$articals = $artical->getArticals($limit, $offset);
+        }else{
+            $articals = $artical->getArticalsByCategory($limit, $id, $offset);
+            $count = $artical->getCountArtical($id);
+        }
+        
+        $this->view->limit = $limit;
+        $this->view->count = $count;
+        $this->view->page = $page;
         $this->view->articals = $articals;
-        $this->view->category = $articalCategory->getCatByid($id);
+        $this->view->category = $category;
+        
         return $this->view();
     }
 
@@ -90,13 +111,26 @@ class IndexController extends XPHP_Controller{
     }
 
     public function newAction() {
-        $this->loadLayout('/VNCPCOther');
+        $this->loadLayout('/default');
         $id = $this->params['id'];
         $artical = new Artical();
         $detail = $artical->getArticalById($id);
+        if(!isset($detail->title)){
+            echo "<script>alert('Bài viết hiện tại không cho phép xem!');  window.location.href='/'</script>";
+        }
         $artical->changeViewCount($id, $detail->view_count);
+        
+        $articalCategory = new ArticalCategory();
+        $category = $articalCategory->getCatByid($detail->category_id);
+        
+        if($category->seo_url == 'trang-tin-noi-bo'){
+            if(!isset($_SESSION['role_id'])||$_SESSION['role_id'] != 1){
+                echo "<script>alert('Bạn không có quyền truy cập! Vui lòng đăng nhập để xem.'); window.location.href='/'</script>";
+            }
+        }
+        $this->view->category = $category;
+        
         $this->view->detail = $detail;
-        $this->view->cat_id = 0;
         return $this->view();
     }
 
@@ -208,6 +242,7 @@ class IndexController extends XPHP_Controller{
         $this->view->detail = $artical->getArticalById($this->params[0]);
         return $this->view();
     }
+    
 }
 
 ?>

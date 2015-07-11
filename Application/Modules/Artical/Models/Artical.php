@@ -26,7 +26,7 @@ class Artical extends XPHP_Model
     #[Label('Nội dung')]
     public $content;
 
-    #[Label('Sắp xếp')]
+    #[Label('Bật/Tắt')]
     public $sort;
 
     #[Label('Ngày đăng')]
@@ -42,11 +42,15 @@ class Artical extends XPHP_Model
     #[Label('SEO mô tả')]
     public $seo_description;
 
+    #[Required(message = 'Danh mục không được để trống')]
     #[Label('Danh mục bài viết')]
     #[Join(table = 'artical_category')]
     public $category_id;
 
     public $view_count;
+    
+    #[Label('Box tin mới')]
+    public $top_new;
 
     public function getArticals($limit, $offset = NULL)
     {
@@ -63,6 +67,8 @@ class Artical extends XPHP_Model
         if($offset !== NULL)
             $this->db->offset($offset);
         return $this->db->where('category_id',$cat_id)
+                
+                ->where('sort', 1)
                         ->order_by('created_date', 'desc')
                         ->limit($limit)
                         ->get()
@@ -72,12 +78,15 @@ class Artical extends XPHP_Model
     public function getCountArtical($cat_id = NULL) {
         if($cat_id !== NULL)
             $this->db->where('category_id',$cat_id);
+        
+        $this->db->where('sort', 1);
         return $this->db->count_all_results();
     }
     
     public function getArticalById($id)
     {
         return $this->db->where('id',$id)
+                ->where('sort', 1)
                         ->get()
                         ->row();
     }
@@ -85,6 +94,7 @@ class Artical extends XPHP_Model
     public function getLimitArticals($limit, $cat_id)
     {
         return $this->db->where('category_id',$cat_id)
+                ->where('sort', 1)
                         ->order_by('created_date', 'desc')
                         ->limit($limit)
                         ->get()

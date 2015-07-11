@@ -17,29 +17,40 @@ class Document extends XPHP_Model
     #[MaxLength(250, message = 'Tiêu đề có tối đa 250 kí tự')]
     public $title;
 
-    #[Label('Mã dự án')]
-    public $project_id;
 
     #[Label('Ngày đăng')]
     #[Command(update = false)]
     public $created_date;
 
-
+    #[Label('Tập tin')]
     public $file;
-    public $sponsor;
-    public $region;
+    #[Label('Số/Ký hiệu')]
+    public $number;
+    #[Label('Mô tả')]
+    public $description;
+    #[Label('Ngày ban hành')]
     public $date_start;
     public $download;
+    
+    #[Label('Danh mục')]
+    public $category_id;
 
-    public function getCountDocument() {
+    public function getCountDocument($category_id = false) {
+        if($category_id){
+            $this->db->where('category_id', $category_id);
+        }
         return $this->db->count_all_results();
     }
 
-    public function getDocument($limit, $offset = NULL)
+    public function getDocument($limit, $offset = NULL, $category_id)
     {
+        if($category_id){
+            $this->db->where('category_id', $category_id);
+        }
+        
         if($offset !== NULL)
             $this->db->offset($offset);
-
+        
         return $this->db->order_by('created_date', 'desc')
             ->limit($limit)
             ->get()
@@ -59,5 +70,13 @@ class Document extends XPHP_Model
         //Order
         $this->db->order_by('created_date', 'desc');
         return $this->db->get()->result();
+    }
+    
+    public function getDocumentById($id)
+    {
+        $result = $this->db->where('id', $id)
+            ->get()
+            ->result();
+        return isset($result[0])? $result[0]: false;
     }
 }

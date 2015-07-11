@@ -1,12 +1,24 @@
 <?php
-    $current = XPHP_Url::getCurrentUrl();
+$current = XPHP_Url::getCurrentUrl();
 ?>
 
 <ul class="menu rs cf">
-        <li class="fll"><a href="<?php echo $this->url->action("index","Index",'') ?>" class="icon-home"><img src="<?php echo $this->url->content("Content/default/images/unnamed.png") ?>"/></a></li>
-    <?php foreach ($menu as $menuItem):?>
-        <li class="fll <?php if(strpos($current, $menuItem->value)) echo " active"; ?>">
-            <a href="<?php echo $menuItem->value?>"><?php echo $menuItem->title?></a>
+    <li class="fll"><a href="<?php echo $this->url->action("index", "Index", '') ?>" class="icon-home"><img src="<?php echo $this->url->content("Content/default/images/unnamed.png") ?>"/></a></li>
+    <?php foreach ($menu as $menuItem): ?>
+        <li class="fll <?php if (strpos($current, $menuItem->value)) echo " active"; ?>">
+            <a href="<?php echo $menuItem->value ?>"><?php echo $menuItem->title ?></a>
+            
+                <ul class="rs sub-menu1">
+            <?php foreach ($menuItem->subs as $level2): ?>
+                    <li><a href="<?php echo $level2->value ?>"><?php echo $level2->title ?></a>
+                        <ul class="rs sub-menu2">
+                    <?php foreach($level2->subs as $level3): ?>
+                            <li><a href="<?php echo $level3->value ?>"><?php echo $level3->title; ?></a></li>
+                    <?php endforeach; ?>
+                        </ul>
+                    </li>
+            <?php endforeach; ?>
+                </ul>
         </li>                        
-    <?php endforeach;?>
+    <?php endforeach; ?>
 </ul>

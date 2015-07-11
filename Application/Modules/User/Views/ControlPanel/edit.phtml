@@ -21,7 +21,7 @@
                         <div class="avartar">
                             <?php $this->form->textboxFor("avatar", array('class' => "large"))?>
                             <a id="open_icon" class="file-manager" data-type="image" title="Quản lý ảnh"  rel="avatar" >open</a> 
-                            <p align="center"><span> OR </span>Take a picture with <a class="takeWebcam">Webcam</a></p>
+                            
                         </div>
                     </div>
                     <hr>
@@ -57,7 +57,6 @@
                             <?php $this->form->textboxFor("username", array('class' => 'validate[required] large'))?>
                             <?php $this->form->validationMessage("username")?>
                         </div>
-                        <?php if($this->model->id==$this->session->user->id&&!in_array($this->model->role_id, array(2,3,4))):?>
                         <label>
                             <?php $this->form->labelFor("password")?>
                             <small>Vui lòng nhập mật khẩu nếu bạn muốn thay đổi mật khẩu</small>
@@ -65,9 +64,6 @@
                         <div>
                             <?php $this->form->passwordFor("password", array('class' => 'large'))?>
                         </div>
-                        <?php else: ?>
-                            <?php $this->form->hiddenFor("password")?>  
-                        <?php endif; ?>
                     </div>                    
                     <div class="section ">
                         <label>

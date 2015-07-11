@@ -10,24 +10,36 @@ class IndexController extends XPHP_Controller
 		$videos = $video->getLastestVideo(12);
 		$this->view->lastestVideos = $videos;
 
-        //Lay ra 8 video xem nhieu nhat
-        $mostViewVideos = $video->getMostViewVideo(8);
-		$this->view->mostViewVideos = $mostViewVideos;
+            //Lay ra 8 video xem nhieu nhat
+            $mostViewVideos = $video->getMostViewVideo(8);
+                    $this->view->mostViewVideos = $mostViewVideos;
 
-        //Lay ra 8 video binh chon nhieu nhat
-        $mostFavVideo   = $video->getMostFavVideo(8);
-        $this->view->mostFavVideo = $mostFavVideo;
+            //Lay ra 8 video binh chon nhieu nhat
+            $mostFavVideo   = $video->getMostFavVideo(8);
+            $this->view->mostFavVideo = $mostFavVideo;
 
-        //Lay ra danh muc video
-        $category = new Category();
-        $categories = $category->getCategoryMultiLevel();
-        $this->view->categories = $categories;*/
-        $this->loadLayout('/VNCPCOther');
-        $video = new Video();
-        //Lay ra video moi nhat
+            //Lay ra danh muc video
+            $category = new Category();
+            $categories = $category->getCategoryMultiLevel();
+            $this->view->categories = $categories;*/
+            $this->loadLayout('/default');
+            $video = new Video();
+            //Lay ra video moi nhat
+            if($this->params['page'])
+                $page = $this->params['page'];
+            else
+                $page = 1;
+            $limit = 6;
 
-        $lastestVideos = $video->getLastestVideo(4);
-        $this->view->lastestVideos = $lastestVideos;
+            $offset = ($page-1)*$limit;
+
+            $lastestVideos = $video->getLastestVideo($limit, $offset);
+
+            $this->view->limit = $limit;
+            $this->view->count = $count;
+            $this->view->page = $page;
+
+            $this->view->lastestVideos = $lastestVideos;
 		return $this->view();
 	}
 
@@ -156,6 +168,7 @@ class IndexController extends XPHP_Controller
 	
 	public function detailAction()
 	{
+            $this->loadLayout("/default");
 		//Lay ra id cua video
 		$id = isset($this->params['id']) ? $this->params['id'] : (isset($this->params[0]) ? $this->params[0] : null);
 		if($id === null || $id == "")

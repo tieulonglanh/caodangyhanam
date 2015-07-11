@@ -24,7 +24,7 @@
 ?>
 <div class="linkList">
     <?php foreach($result_pag_data as $row):?>
-        <a href="<?php echo $this->url->action("detail", "Index", "Project", array("id" => $row->id, "title" => $row->seo_url)); ?>"><?php echo $row->title?></a>
+        <a href="<?php echo $this->url->action("detail", "Index", "Project", array("id" => $row->id, "seo_url" => $row->seo_url)); ?>"><?php echo $row->title?></a>
     <?php endforeach?>
 </div>
 <div class="pageNav">

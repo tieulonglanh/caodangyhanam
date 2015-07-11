@@ -15,6 +15,13 @@
             <fieldset>
                 <legend><?php echo $this->model->title?></legend>
                 <div class="section">
+                    <?php $this->form->labelFor("category_id")?>
+                    <div>
+                        <?php $this->form->selectFor("category_id", $catOptions , null, null, array('data-placeholder' => "Lựa chọn danh mục..."))?>
+                        <label class="red">*</label>
+                    </div>
+                </div>
+                <div class="section">
                     <?php $this->form->labelFor("title")?>
                     <div>
                         <?php $this->form->textboxFor("title", array('class' => 'large validate[required,maxSize[250]]',
@@ -28,23 +35,17 @@
                         <?php $this->form->textboxFor("file", array('class' => 'medium'))?>
                         <a id="open_icon" class="file-manager" data-type="image" title="Quản lý ảnh"  rel="file" >open</a>
                     </div>
-                </div>
+                </div>                
                 <div class="section">
-                    <?php $this->form->labelFor("project_id")?>
+                    <?php $this->form->labelFor("description")?>
                     <div>
-                        <?php $this->form->textboxFor("project_id", array('class' => 'large'))?>
+                        <?php $this->form->textAreaFor("description", array('class' => 'large'))?>
                     </div>
                 </div>
                 <div class="section">
-                    <?php $this->form->labelFor("sponsor")?>
+                    <?php $this->form->labelFor("number")?>
                     <div>
-                        <?php $this->form->textboxFor("sponsor", array('class' => 'large'))?>
-                    </div>
-                </div>
-                <div class="section">
-                    <?php $this->form->labelFor("region")?>
-                    <div>
-                        <?php $this->form->textboxFor("region", array('class' => 'large'))?>
+                        <?php $this->form->textboxFor("number", array('class' => 'large'))?>
                     </div>
                 </div>
                 <div class="section">

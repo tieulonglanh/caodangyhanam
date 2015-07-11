@@ -38,7 +38,7 @@ function stripUnicode($str){
 </style>
 <div class="firstContent">
     <div class="blockNews groupThree left">
-        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => 0, "title"=>"tin-moi"))?>">Latest News</a></div>
+        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => 0, "title"=>"tin-moi"))?>">Tin Mới Nhất</a></div>
         <div class="newsGroup">
             <div class="newsItem first">
                 <img src="/Thumb/phpThumb.php?src=<?php echo empty($newestNews[0]->image) ? "/Content/VNCPC/images/contents/news1.png" : $newestNews[0]->image;?>&w=320&h=300&zc=1" style="max-width: 192px; max-height: 160px;"/>
@@ -60,7 +60,7 @@ function stripUnicode($str){
         <div class="clearfix"></div>
     </div>
     <div class="blockNews">
-        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsCenterId, "title"=>$newsCenterSeo))?>">VNCPC's News</a></div>
+        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsCenterId, "title"=>$newsCenterSeo))?>">Tin Từ trung tâm</a></div>
         <div class="newsItem">
             <img src="/Thumb/phpThumb.php?src=<?php echo empty($newsCenter[0]->image) ? "/Content/VNCPC/images/contents/news3.png" : $newsCenter[0]->image;?>&w=320&h=100&zc=1" style="max-width: 344px;max-height: 160px" />
             <div class="newsTitle"><a href="<?php echo $this->url->action("detail", "Index", "Artical", array('id'=>$newsCenter[0]->id, 'title'=>$newsCenter[0]->seo_url))?>"><?php echo $newsCenter[0]->title?></a></div>
@@ -69,7 +69,7 @@ function stripUnicode($str){
         <div class="clearfix"></div>
     </div>
     <div class="blockNews left">
-        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsFromProjectId, "title"=>$newsFromProjectSeo))?>">News from projects</a></div>
+        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsFromProjectId, "title"=>$newsFromProjectSeo))?>">Tin từ các dự án</a></div>
         <div class="newsItem">
             <img src="/Thumb/phpThumb.php?src=<?php echo empty($newsFromProject[0]->image) ? "/Content/VNCPC/images/contents/news3.png" : $newsFromProject[0]->image;?>&w=320&h=300&zc=1" style="max-width: 344px;max-height: 160px" />
             <div class="newsTitle"><a href="<?php echo $this->url->action("detail", "Index", "Artical", array('id'=>$newsFromProject[0]->id,'title'=>$newsFromProject[0]->seo_url))?>"><?php echo $newsFromProject[0]->title?></a></div>
@@ -78,7 +78,7 @@ function stripUnicode($str){
         <div class="clearfix"></div>
     </div>
     <div class="blockNews groupThree">
-        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsAboutProductionId, "title"=>$newsAboutProductionSeo))?>">Production and Sustainable Consumption News</a></div>
+        <div class="blockTitle"><a href="<?php echo $this->url->action("list", "Index", "Artical", array("id" => $newsAboutProductionId, "title"=>$newsAboutProductionSeo))?>">tin về sản xuất và tiêu thụ bền vững</a></div>
         <div class="newsGroup">
             <div class="newsItem first">
                 <img src="/Thumb/phpThumb.php?src=<?php echo empty($newsAboutProduction[0]->image) ? "/Content/VNCPC/images/contents/news1.png" : $newsAboutProduction[0]->image;?>&w=320&h=300&zc=1" style="max-width: 192px; max-height: 160px;"/>

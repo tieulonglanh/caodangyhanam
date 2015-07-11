@@ -75,6 +75,12 @@ $(function(){
                          '<a class="edit" title="Sửa" data-type="1" data-id="' + oObj.aData.id + '" data-name="' + oObj.aData.title +'">'+
                          '<img src="/Content/XMin/images/icon/icon_edit.png" />'+
                          '</a>'+
+                         '</span>'+
+                         '&nbsp;&nbsp;&nbsp;&nbsp;'+
+                         '<span class="tip">'+
+                         '<a class="delete" title="Xóa" data-id="' + oObj.aData.id + '" data-name="' + oObj.aData.username +'">'+
+                         '<img src="/Content/XMin/images/icon/icon_delete.png" />'+
+                         '</a>'+
                          '</span>';
               }
             }

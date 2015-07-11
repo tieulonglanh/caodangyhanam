@@ -156,10 +156,9 @@ class ArticalCategoryController extends XPHP_Controller
         foreach ($cats as $cItem) {
             $editUrl = $this->url->action("edit", array($cItem->id));
             $deleteUrl = $this->url->action("delete");
-            $html .= "<li id='list_{$cItem->id}'><a>{$cItem->name}
-                          <span class='edit tip' title='Sửa' data-id='{$cItem->id}' data-name='{$cItem->name}' data-type='1'><img src='/Content/XMin/images/icon/icon_edit.png' /></span>
-                          <span class='delete tip' title='Xóa' data-id='{$cItem->id}' data-name='{$cItem->name}'><img src='/Content/XMin/images/icon/icon_delete.png' /></span>
-                      </a>";
+            $html .= "<li id='list_{$cItem->id}'><a target='blank' href='/trang-tin/{$cItem->seo_url}.{$cItem->id}.html'>{$cItem->name}</a>
+                          <span class='edit tip' style='cursor: pointer;' title='Sửa' data-id='{$cItem->id}' data-name='{$cItem->name}' data-type='1'><img src='/Content/XMin/images/icon/icon_edit.png' /></span>
+                          <span class='delete tip'  style='cursor: pointer;' title='Xóa' data-id='{$cItem->id}' data-name='{$cItem->name}'><img src='/Content/XMin/images/icon/icon_delete.png' /></span>";
             if (!empty($cItem->subs)) {
                 $html .= $this->_recursiveCatMultiLevel($cItem->subs);
             }
@@ -179,10 +178,10 @@ class ArticalCategoryController extends XPHP_Controller
         foreach ($cats as $cItem) {
             $editUrl = $this->url->action("edit", array($cItem->id));
             $deleteUrl = $this->url->action("delete");
-            $html .= "<li id='list_{$cItem->id}'><a>{$cItem->name}
+            $html .= "<li id='list_{$cItem->id}'><a target='blank' href='/trang-tin/{$cItem->seo_url}.{$cItem->id}.html'>{$cItem->name}</a>
                           <span class='edit tip' title='Sửa' data-id='{$cItem->id}' data-name='{$cItem->name}' data-type='1'><img src='/Content/XMin/images/icon/icon_edit.png' /></span>
                           <span class='delete tip' title='Xóa' data-id='{$cItem->id}' data-name='{$cItem->name}'><img src='/Content/XMin/images/icon/icon_delete.png' /></span>
-                      </a>";
+                      ";
             if (!empty($cItem->subs)) {
                 $html .= $this->_recursiveCatMultiLevel($cItem->subs);
             }

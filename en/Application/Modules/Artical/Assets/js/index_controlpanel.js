@@ -53,7 +53,7 @@ $(function(){
               "sClass": "aleft",
               "bUseRendered": false,
               "fnRender": function (oObj){
-                  return '<a target="_blank" href="/Artical/Index/detail/' + oObj.aData.id+'">'+
+                  return '<a target="_blank" href="/tin-moi/'+oObj.aData.seo_url+'.'+ oObj.aData.id +'.html">'+
                          oObj.aData.title+'</a>';
               }
             },

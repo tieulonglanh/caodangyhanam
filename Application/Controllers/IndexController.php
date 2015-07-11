@@ -6,7 +6,7 @@ class IndexController extends XPHP_Controller {
         $this->loadLayout('default');
         
         $artical = new Artical();
-        $newestArtical = $artical->getArtical(8);
+        $newestArtical = $artical->getNewestArtical(8);
         
         $this->view->newestArtical = $newestArtical;
         

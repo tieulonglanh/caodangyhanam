@@ -28,13 +28,44 @@
     </div><!--box tin mới -->
     <div class="box-tab cf">
         <ul class="lstTab spr" id="ulList">
-            <li class="fll"><span>DÀNH CHO HS - SV</span></li>
-            <li class="fll "><a href="#" class="active" data-id="tuyensinh">Tuyển sinh</a></span></li>
-            <li class="fll "><a href="#" data-id="tkb">Thời khóa biểu</a></li>
-            <li class="fll"><a href="#"  data-id="lichthi">Lịch thi</a></li>
-            <li class="fll"><a href="#" data-id="ketqua">Kết quả học tập</a></li>
-            <li class="fll"><a href="#" data-id="diendan">Diễn đàn</a></li>
+            <li data-id="default" class="fll"><span>Học sinh - sinh viên</span></li>
+            <!--<li class="fll "><a href="#" class="active" data-id="tuyensinh">Tuyển sinh</a></span></li>-->
+            <!--<li class="fll "><a href="#" data-id="tkb">Thời khóa biểu</a></li>-->
+            <!--<li class="fll"><a href="#"  data-id="lichthi">Lịch thi</a></li>-->
+            <!--<li class="fll" data-id="ketqua"><a href="javascript:void(0)" >Kết quả học tập</a></li> -->
+            <li class="fll" data-id="diendan"><a target="blank" href="http://diendan.cyh.edu.vn/index.php" >Diễn đàn</a></li>
         </ul>
+        <div class="tab-content box-tracuudiem" style="display: block; opacity: 1; height: 250px;" id="default">
+            <div class="box-tracuu">
+                <img class="pAbs" src="/Content/default/images/img-lichti.jpg">
+                <?php if(!isset($_SESSION['username'])): ?>
+                <h4 class="diemthi">Đăng nhập</h4>
+                
+                <form method="post" action="<?php echo $this->url->action('login','Index',"NormalUser"); ?>">
+                    <label>Tài khoản</label><input type="text" value="" name="username"><br>
+                    <label>Mật khẩu</label><input type="password" value="" name="password"><br>
+                    <?php if(isset($_SESSION['error'])): ?>
+                    <span style="color: red; font-size: 12px;"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+                    </span>
+                    <?php endif; ?> <br />
+                    <a style="font-size: 12px;" href="<?php echo $this->url->action('register', 'Index','NormalUser') ?>">Đăng ký tài khoản</a>
+                    <input style="height: 30px; float: right; margin-right: 19px; width: 150px;" type="submit" value="Đăng nhập" name="login" />
+                </form>
+                <?php else: ?>
+                <h4 class="diemthi">Đăng nhập thành công</h4>
+                <span>Xin chào: <?php echo $_SESSION['fullname']; ?></span> <br />
+                Bạn có quyền xem: <br />
+                <?php if($_SESSION['role_id'] == 1): ?>
+                - <a style="font-size: 12px;" href="/trang-tin/trang-tin-noi-bo.5.html">Trang tin nội bộ</a> <br />
+                - <a style="font-size: 12px;" href="<?php echo $this->url->action('index','Index','Document'); ?>">Tài liệu</a> <br />
+                <?php else: ?>
+                - <a style="font-size: 12px;" href="<?php echo $this->url->action('index','Index','Document'); ?>">Tài liệu</a> <br />
+                <?php endif; ?>
+                <a style="font-size: 12px;" href="<?php echo $this->url->action('logout','Index','NormalUser') ?>">Thoát</a>
+                <?php endif; ?>
+
+            </div>
+        </div>
         <div class="tab-content" id="tuyensinh">
             <div id="scrollbar1">
                 <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
@@ -107,14 +138,14 @@
                 </tr>
             </table>
         </div>
-        <div class="tab-content" id="diendan">
+        <!--<div class="tab-content" id="diendan">
             <a href="#" class="linkdd">Diễn đàn học sinh - sinh viên Cao Đẳng Y Tế Hà Nam</a>
-        </div>
+        </div>-->
     </div><!--box tab-->
     <div class="box-video">
         <ul class="lstTab spr pRel">
-            <li class="fll"><span>VIDEO - HÌNH ẢNH</span></li>
-            <a class="pAbs more-video">Xem thêm</a>
+            <li class="fll"><span>Video - Hình ảnh</span></li>
+            <a href="<?php echo $this->url->action('index','Index',"Video")?>" class="pAbs more-video">Xem thêm</a>
         </ul>
     </div><!--box-video-->
     <div class="tab-video-img cf">

@@ -2,7 +2,7 @@
 <?php $i = 1; $count = count($menu);?>
 <?php foreach ($menu as $menuItem):?>
     <li <?php if($i==$count): ?> class="last" <?php endif; ?>>
-        <a href="<?php echo $menuItem->url?>">
+        <a href="<?php echo $menuItem->value?>">
             <?php echo $menuItem->title?>
         </a>        
     </li>

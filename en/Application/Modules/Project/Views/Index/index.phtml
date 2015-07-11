@@ -5,7 +5,7 @@
             $('#menuProject').addClass("active");
             $('.content').addClass("projectContent");
             $('.partnerLink').remove();
-
+            
 
             function loadData(page, type){
                 $.ajax
@@ -23,7 +23,6 @@
                 });
             }
             loadData(1, $('#typeDisplay').val());  // For first time page load default results
-            
             $('.newsList .pageNav a').live('click',function(){
                 var type = $('input[type=hidden]').val();
                 var page = $(this).attr('p');
@@ -60,7 +59,7 @@
 
     <div class="firstContent">
         <div class="blockTitle">
-            <span><a href="<?php echo $this->url->action('index','Index','') ?>" >Home </a> - <a href="<?php echo $this->url->action('index','Index','Project') ?>" >Project </a></span>
+            <span><a href="<?php echo $this->url->action('index','Index','') ?>" >Trang chủ </a> - <a href="<?php echo $this->url->action('index','Index','Project') ?>" >Các dự án </a></span>
             <div class="titleControl">
                 <a class="list" href="#" class="prev"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/social-icon1.png")?>" /></a>
                 <a class="blog" href="#" class="next"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/menu-icon.png")?>" /></a>

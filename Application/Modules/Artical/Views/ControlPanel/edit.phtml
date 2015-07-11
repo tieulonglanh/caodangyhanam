@@ -45,11 +45,25 @@
                         <a id="open_icon" class="file-manager" data-type="image" title="Quản lý ảnh"  rel="image" >open</a>
                     </div>
                 </div>
-                <div class="section">
-                    <?php $this->form->labelFor("sort")?>
-                    <div>
-                        <?php $this->form->textboxFor("sort", array('class' => "small"))?>
-                    </div>
+                <div class="section ">
+                        <label>
+                            <?php $this->form->labelFor("sort")?>
+                            <small>Vui lòng chọn</small>
+                        </label>
+                        <div>
+                            <?php $this->form->checkboxFor("sort", array("class" => "on_off_checkbox"))?>
+				            <?php $this->form->validationMessage("sort")?>
+                        </div>
+                </div>
+                <div class="section ">
+                        <label>
+                            <?php $this->form->labelFor("top_new")?>
+                            <small>Vui lòng chọn</small>
+                        </label>
+                        <div>
+                            <?php $this->form->checkboxFor("top_new", array("class" => "on_off_checkbox"))?>
+				            <?php $this->form->validationMessage("top_new")?>
+                        </div>
                 </div>
                 <div class="section">
                     <?php $this->form->labelFor("description")?>

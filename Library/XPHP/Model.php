@@ -169,31 +169,34 @@ class XPHP_Model extends XPHP_DB_Table_Model
      * (non-PHPdoc)
      * @see XPHP_DB_Table_Model::insert()
      */
-    public function insert()
+    public function insert($arrData = array())
     {
-        //Kiểm tra read_only của model
-        if ($this->_readOnly) {
-            return false;
-            throw new XPHP_Exception(get_class($this) . " chỉ được phép đọc .");
-        }
-        $arrData = array(); 
-        //Lấy toàn bộ danh sách các thuộc tính của Model
-        $properties = $this->getModelProperties(); 
-        foreach ($properties as $p)
-        {
-            //Đánh dấu thuộc tính được insert hay không ? Mặc định là có
-            $insert = true;
-            $attributes = XPHP_Attribute::ofProperty($this, $p, 'XPHP_Model_Attribute_Binding_Command');
-            //Nếu có attribute command
-            foreach ($attributes as $att)
-            {
-                if (($att->command !== null && $att->command === false) || ($att->insert !== null && $att->insert === false))
-                $insert = false;
+        if(empty($arrData)) {
+            //Kiểm tra read_only của model
+            if ($this->_readOnly) {
+                return false;
+                throw new XPHP_Exception(get_class($this) . " chỉ được phép đọc .");
             }
-            if ($insert)
-                //Lấy tên thuộc tính trong lớp và giá trị của nó đưa vào mảng
-                $arrData[$p] = $this->$p;
+            $arrData = array(); 
+            //Lấy toàn bộ danh sách các thuộc tính của Model
+            $properties = $this->getModelProperties(); 
+            foreach ($properties as $p)
+            {
+                //Đánh dấu thuộc tính được insert hay không ? Mặc định là có
+                $insert = true;
+                $attributes = XPHP_Attribute::ofProperty($this, $p, 'XPHP_Model_Attribute_Binding_Command');
+                //Nếu có attribute command
+                foreach ($attributes as $att)
+                {
+                    if (($att->command !== null && $att->command === false) || ($att->insert !== null && $att->insert === false))
+                    $insert = false;
+                }
+                if ($insert)
+                    //Lấy tên thuộc tính trong lớp và giá trị của nó đưa vào mảng
+                    $arrData[$p] = $this->$p;
+            }
         }
+        
         return parent::insert($arrData);
     }
 

@@ -26,7 +26,7 @@ class Artical extends XPHP_Model
     #[Label('Nội dung')]
     public $content;
 
-    #[Label('Sắp xếp')]
+    #[Label('Bật/Tắt')]
     public $sort;
 
     #[Label('Ngày đăng')]
@@ -42,13 +42,21 @@ class Artical extends XPHP_Model
     #[Label('SEO mô tả')]
     public $seo_description;
 
+    #[Required(message = 'Danh mục không được để trống')]
     #[Label('Danh mục bài viết')]
     #[Join(table = 'artical_category')]
     public $category_id;
 
+    public $view_count;
+    
+    #[Label('Box tin mới')]
+    public $top_new;
+
+
     public function getAllArticals()
     {
-        return $this->db->order_by('created_date', 'desc')
+        return $this->db->where('sort', 1)
+                ->order_by('created_date', 'desc')
                         ->get()
                         ->result();
     }
@@ -56,6 +64,7 @@ class Artical extends XPHP_Model
     public function getLimitArticals($limit, $cat_id)
     {
         return $this->db->where('category_id',$cat_id)
+                ->where('sort', 1)
                         ->order_by('created_date', 'desc')
                         ->limit($limit)
                         ->get()
@@ -67,7 +76,23 @@ class Artical extends XPHP_Model
         if($offset !== NULL)
             $this->db->offset($offset);
 
-        return $this->db->order_by('created_date', 'desc')
+        return $this->db->where('sort', 1)
+                ->order_by('created_date', 'desc')
+                
+            ->limit($limit)
+            ->get()
+            ->result();
+    }
+    
+    public function getNewestArtical($limit, $offset = NULL)
+    {
+        if($offset !== NULL)
+            $this->db->offset($offset);
+
+        return $this->db->where('sort', 1)
+                ->where('top_new', 1)
+                ->order_by('created_date', 'desc')
+                
             ->limit($limit)
             ->get()
             ->result();

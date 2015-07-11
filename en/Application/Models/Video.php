@@ -124,4 +124,11 @@ class Video extends XPHP_Model
 
 		return $this->db->count_all_results();
 	}
+        public function getNewVideos($number)
+	{
+		return $this->db->order_by('created_date', 'desc')
+			->limit($number)
+			->get()
+			->result();
+	}
 }

@@ -2,7 +2,7 @@
 <div class="content contactContent memberContent">
     <div class="firstContent">
         <div class="blockTitle">
-            <span><a href="<?php echo $this->url->action('index','Index','Page') ?>">About Us</a> - Staff</span>
+            <span><a href="<?php echo $this->url->action('index','Index','Page') ?>">Giới thiệu</a> - Cán Bộ</span>
         </div>
         <div class="blockContent">
             <div class="blockContentImage">
@@ -19,11 +19,11 @@
                     <div class="memberImage"><img src="<?php if(empty($userInfos[$gu->user_id]['avatar'])): ?>/Thumb/phpThumb.php?src=/Content/VNCPC/images/contents/news1.png&w=300&h=300&zc=1<?php else: ?> <?php echo  $userInfos[$gu->user_id]['avatar']; ?> <?php endif; ?>" /></div>
                     <div class="memberInfo">
                         <div class="name">
-                            <?php echo $userInfos[$gu->user_id]['fullname'] ?>
+                            <?php echo $userInfos[$gu->user_id]['hovaten'] ?>
                         </div>
                         <div class="info">
-                            <span> <?php echo $userInfos[$gu->user_id]['quailyfication'] ?></span><br />
-                            <span><?php echo $userInfos[$gu->user_id]['phone'] ?></span><br />
+                            <span> <?php echo $userInfos[$gu->user_id]['bangcap'] ?></span><br />
+                            <span><?php echo $userInfos[$gu->user_id]['dienthoai'] ?></span><br />
                             <span><?php echo $gu->email ?></span>
                         </div>
                         <div class="clearfix"></div>
@@ -65,7 +65,7 @@
     <div class="partnerLink hidePhone">
         <div class="contentPartnerLink">
             <div class="partnerLinkTitle">
-                <span>Partner link</span>
+                <span>Liên kết đối tác</span>
             </div>
             <div class="linkList">
                 <a href="#"><img src="<?php echo $this->url->content('Content/VNCPC/images/contents/partner-link1.png');?>"/></a>

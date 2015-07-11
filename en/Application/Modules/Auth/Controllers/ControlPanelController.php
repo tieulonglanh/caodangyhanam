@@ -66,6 +66,8 @@ class ControlPanelController extends XPHP_Controller
                     $this->session->user = $user;
                     $this->session->role = $this->_getUserRole($user);
                     $this->session->permissions = $permissions;
+//                    echo "<pre>";
+//                    var_dump($permissions); die;
                     if(isset($this->params['remember']))
                     {
                         //Gán cookie username, password
@@ -103,7 +105,7 @@ class ControlPanelController extends XPHP_Controller
         unset($this->session->permissions);
         unset($this->cookie->username);
         unset($this->cookie->password);
-        return $this->redirectUrl("/ControlPanel/login");
+        return $this->redirect("login");
     }
 
     public function deniedAction()

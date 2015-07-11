@@ -95,12 +95,8 @@ class ControlPanelController extends XPHP_Controller {
     }
     #[Authorize]
     public function editPost(User $model) {
-        if($model->role_id==4)
-            $url = $this->params['saveType'] == '1' ? $this->url->action('index') : NULL;
-        elseif($model->role_id==3)
-            $url = $this->params['saveType'] == '1' ? $this->url->action('xfList') : NULL;
-        else
-            $url = $this->url->action('index', 'ControlPanel', 'Dashboard');
+        
+        $url = $this->url->action('index');
         if ($model->validate()) {
             $model->lastupdate = date("Y-m-d H:i:s");
             

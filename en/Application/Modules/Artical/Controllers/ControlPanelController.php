@@ -43,7 +43,7 @@ class ControlPanelController extends XPHP_Controller
                                                           'category_id',
                                                           'image',
                                                           'title',
-            'view_count',
+            'view_count','seo_url',
                                                           'created_date'));
         $dataSource->order_by('created_date', 'desc'); //Mặc định sắp xếp theo mới nhất
         return $dataSource;
@@ -74,6 +74,16 @@ class ControlPanelController extends XPHP_Controller
     {
         if ($model->validate())
         {
+            if ($model->sort)
+                $model->sort = 1;
+                else
+                    $model->sort = 0;
+            
+           if ($model->top_new)
+                $model->top_new = 1;
+                else
+                    $model->top_new = 0; 
+                
             if ($model->update())
                 return $this->json(
                     array('success' => true,
@@ -85,8 +95,8 @@ class ControlPanelController extends XPHP_Controller
                           'message' => 'Xảy ra lỗi khi cập nhật bài viết'));
         } else
             return $this->json(
-                array('success' => false,
-                      'message' => 'Thông tin bài viết nhập vào chưa hợp lệ'));
+                array('success' => false,  
+                      'message' => 'Thông tin bài viết nhập vào chưa hợp lệ. Xin hãy kiểm tra lại danh mục và tiêu đề tin!'));
     }
 
     #[Authorize]
@@ -113,6 +123,15 @@ class ControlPanelController extends XPHP_Controller
     {
         if ($model->validate())
         {
+            if ($model->sort)
+                $model->sort = 1;
+            else
+                $model->sort = 0;
+            
+            if ($model->top_new)
+                $model->top_new = 1;
+                else
+                    $model->top_new = 0; 
             $model->created_date = date('Y-m-d H:i:s');
             if ($model->insert())
                 return $this->json(
@@ -126,7 +145,7 @@ class ControlPanelController extends XPHP_Controller
         } else
             return $this->json(
                 array('success' => false,
-                      'message' => 'Thông tin bài viết nhập vào chưa hợp lệ'));
+                      'message' => 'Thông tin bài viết nhập vào chưa hợp lệ. Xin hãy kiểm tra lại danh mục và tiêu đề tin!'));
     }
 
     #[Authorize]

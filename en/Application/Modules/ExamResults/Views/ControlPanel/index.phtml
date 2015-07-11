@@ -1,0 +1,59 @@
+<?php $this->content->begin()?>
+<div class="widget">
+    <div class="header"><span><span class="ico  gray document"></span>Trang nội dung</span> </div>
+    <div class="content">
+        <div class="load_page tableToolbar">
+            <form action="<?php echo $this->url->action('import'); ?>" method="post" enctype="multipart/form-data">
+            <ul class="uibutton-group">
+                <li><input type="file" name="excel_file"></li>
+                <li><input type="submit" name="submit" value="Nhập file điểm" /></li>
+                
+            </ul>
+            </form>
+            <div class="tableName toolbar">
+                <h3>Danh sách trang nội dung</h3>
+                <form id="tblForm" method="post" data-delete-url="<?php echo $this->url->action('delete')?>"
+                                                 data-edit-url="<?php echo $this->url->action('edit')?>"
+                                                 data-change-status-url="<?php echo $this->url->action('changeStatus')?>">
+                    <table class="display" id="data_table" data-ajax-url="<?php echo $this->url->action('index')?>">
+                        <thead>
+                        <tr>
+                            <th  width="35">Mã sinh viên</th>
+                            <th  width="70" align="left">Họ và tên</th>
+                            <th width="35">Ngày sinh</th> 
+                            <th width="15">DQT</th>
+                            <th width="25">Thi lần 1</th>
+                            <th width="15">DTB1</th>
+                            <th width="30">Thi lần 2</th>
+                            <th width="30">DTK</th>
+                            <th width="35">Ghi chú</th>
+                            <th width="30">Mã môn học</th>
+                            <th width="30">Ngày thi</th>
+                            <th width="30">Ngày tạo</th>
+                            <th width="30">Ngày tạo</th>
+                            <th width="35">Hành động</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $this->content->end()?>
+<?php $this->section->begin("scripts")?>
+<?php $this->html->loadJs(array('Scripts/functions.js',
+                                'Content/XMin/components/datatables/dataTables.min.js',
+                                'Content/XMin/components/datatables/ColVis.js',
+                                'Content/XMin/components/confirm/jquery.confirm.js',
+                                'Application/Modules/ExamResults/Assets/js/index_controlpanel.js'))?>
+<?php $this->section->end()?>
+<?php $this->section->begin("stylesheets")?>
+    <style type="text/css">
+        .aleft{
+            text-align: left;
+        }
+    </style>
+<?php $this->section->end()?>

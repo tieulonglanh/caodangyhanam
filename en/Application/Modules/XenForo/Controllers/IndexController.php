@@ -50,6 +50,12 @@ class IndexController extends XPHP_Controller{
         
         return $this->view();
     }
+    
+    public function documentAction(){
+        $resCatObj = new XFResourceCategory();
+        $resCategories = $resCatObj->getCategoryByParent(6);
+        var_dump($resCategories); die;
+    }
 }
 
 ?>

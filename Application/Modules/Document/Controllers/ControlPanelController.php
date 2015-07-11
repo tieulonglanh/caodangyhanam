@@ -28,6 +28,15 @@ class ControlPanelController extends XPHP_Controller
     #[Authorize]
     public function createAction()
     {
+        $cat = new DocumentCategory();
+        $cats = $cat->getCategoryTree(0);
+        $catOptions = array();
+        $catOptions[0] = "Tất cả danh mục";
+        foreach ($cats as $cItem)
+        {
+            $catOptions[$cItem->id] = $cItem->name;
+        }
+        $this->view->catOptions = $catOptions;
         return $this->view(new Document());
     }
 
@@ -62,6 +71,17 @@ class ControlPanelController extends XPHP_Controller
     public function editAction()
     {
         $model = new Document($this->params[0]);
+        
+        $cat = new DocumentCategory();
+        $cats = $cat->getCategoryTree(0);
+        $catOptions = array();
+        $catOptions[0] = "Tất cả danh mục";
+        foreach ($cats as $cItem)
+        {
+            $catOptions[$cItem->id] = $cItem->name;
+        }
+        $this->view->catOptions = $catOptions;
+        
         return $this->view($model);
     }
 

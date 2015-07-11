@@ -24,7 +24,7 @@ class ControlPanelController extends XPHP_Controller
                                                        'seo_url'  =>  'return  XPHP_Url::getActionUrl(array("action"     => "detail",
                                                                                                             "controller" => "Index",
                                                                                                             "module"     => "Project",
-                                                                                                            "args"       => array("title" => $seo_url,
+                                                                                                            "args"       => array("seo_url" => $seo_url,
                                                                                                                                   "id"      => $id)));',
                                                        'view_count'));
         $dataSource->order_by('created_date', 'desc'); //Mặc định sắp xếp theo mới nhất

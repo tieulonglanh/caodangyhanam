@@ -67,7 +67,13 @@ class IndexController extends XPHP_Controller{
         $id = $this->params['id'];
         $artical = new Artical();
         $articalCategory = new ArticalCategory();
-
+        $category = $articalCategory->getCatByid($id);
+        
+        if($category->seo_url == 'trang-tin-noi-bo'){
+            if(!isset($_SESSION['role_id'])||$_SESSION['role_id'] != 1){
+                echo "<script>alert('Bạn không có quyền truy cập! Vui lòng đăng nhập để xem.'); window.location.href='/'</script>";
+            }
+        }
         if($id == 0){
             return false;
             $count = 0;
@@ -81,7 +87,7 @@ class IndexController extends XPHP_Controller{
         $this->view->count = $count;
         $this->view->page = $page;
         $this->view->articals = $articals;
-        $this->view->category = $articalCategory->getCatByid($id);
+        $this->view->category = $category;
         
         return $this->view();
     }
@@ -109,10 +115,20 @@ class IndexController extends XPHP_Controller{
         $id = $this->params['id'];
         $artical = new Artical();
         $detail = $artical->getArticalById($id);
+        if(!isset($detail->title)){
+            echo "<script>alert('Bài viết hiện tại không cho phép xem!');  window.location.href='/'</script>";
+        }
         $artical->changeViewCount($id, $detail->view_count);
         
         $articalCategory = new ArticalCategory();
-        $this->view->category = $articalCategory->getCatByid($detail->category_id);
+        $category = $articalCategory->getCatByid($detail->category_id);
+        
+        if($category->seo_url == 'trang-tin-noi-bo'){
+            if(!isset($_SESSION['role_id'])||$_SESSION['role_id'] != 1){
+                echo "<script>alert('Bạn không có quyền truy cập! Vui lòng đăng nhập để xem.'); window.location.href='/'</script>";
+            }
+        }
+        $this->view->category = $category;
         
         $this->view->detail = $detail;
         return $this->view();

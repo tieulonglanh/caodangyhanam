@@ -1,79 +1,78 @@
-<?php $this->content->begin()?>
+<?php $this->content->begin() ?>
+<?php if (in_array($category->seo_url, array("dao-tao", "to-chuc", 'dang-doan'))): ?>
+    <div class="fll left-content">
+        <div class="box-gioithieu">
+            <ul class="tabgt spr pRel">
+                <li class="fll"><span><?php echo $category->name ?></span></li>
+                <span class="pAbs navi-dt"><a href="<?php echo $this->url->action('index', "Index", "") ?>">Trang chủ</a>  <?php echo $category->name ?></span>
+            </ul>
+            <div class="content-gioithieu">
+                <?php foreach ($articals as $art): ?>
+                    <div class="item-gt pRel">
+                        <a class="pAbs img-thumbgt" href="<?php echo $this->url->action("new", "Index", "Artical", array('id' => $art->id, 'title' => $art->seo_url)) ?>" class="img-tin1"><img src="/Thumb/phpThumb.php?src=<?php echo empty($art->image) ? "/Content/default/images/news1.png" : $art->image; ?>&w=344&h=228&zc=1"></a>
+                        <h4>
+                            <a href="<?php echo $this->url->action("new", "Index", "Artical", array('id' => $art->id, 'title' => $art->seo_url)) ?>"><?php echo XPHP_String::shortenText($art->title); ?></a>
+                        </h4>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="paging">
+                <ul class="box-page rs cf">
+                    <?php if ($page > 2): ?><li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page - 2) ?>" class="active"><?php echo $page - 2; ?></a></li><?php endif; ?>
+                    <?php if ($page > 1): ?><li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page - 1) ?>" class="active"><?php echo $page - 1; ?></a></li><?php endif; ?>
+                    <li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page) ?>"><?php echo $page ?></a></li>
+                    <?php if ($page * $limit <= $count): ?><li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page + 1) ?>"><?php echo $page + 1 ?></a></li> <?php endif; ?>
+                    <?php if (($page + 1) * $limit <= $count): ?><li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page + 2) ?>"><?php echo $page + 2 ?></a></li><?php endif; ?>
+                </ul>
 
-<script type="text/javascript">
+            </div>
+        </div>
+        <?php if (in_array($category->seo_url, array("dao-tao"))): ?>
+        <div class="box-tracuudiem">
+            <div class="box-tracuu">
+                <img src="/Content/default/images/img-lichti.jpg" class="pAbs">
+                <h4 class="diemthi">TRA CỨU ĐIỂM THI</h4>
+                <form action="<?php echo $this->url->action('index','Index',"ExamResults") ?>" method="post">
+                    <label>MÃ SV</label><input type="text" name="masv" value=""><br>
+                    <label>Họ tên</label><input type="text" name="hoten" value=""><br>
+                    <label>Mã môn học</label><input type="text" name="mon" value=""><br>
+                    <input style="width: 100px; height: 40px; float: right; margin-right: 80px;" type="submit" name="submit" value="Tìm kiếm" />
+                </form>
 
-    $(document).ready(function(){
-        $('#menuTintuc').addClass("active");
-        $('.content').addClass("newsContent newsClickContent");
-        $('.partnerLink').remove();
+            </div>
+        </div>
+        <?php endif; ?>
+    </div>
+<?php else: ?>
 
-
-        function loadData(page){
-            var url = "<?php echo $this->url->action('moreNews', 'Index', 'Artical'); ?>";
-            $.ajax
-            ({
-                type: "POST",
-                url: url,
-
-                data: "page="+page+"&cat_id="+<?php echo (empty($category)) ? 0 : $category->id?>,
-                success: function(msg)
-                {
-                    $(".newsList").ajaxComplete(function(event, request, settings)
-                    {
-                        $(".newsList").html(msg);
-                    });
-                }
-            });
-        }
-
-        loadData(1);  // For first time page load default results
-        $('.newsList .pageNav a').live('click',function(){
-            var page = $(this).attr('p');
-            loadData(page);
-
-        });
-    });
-
-    //        function loadArtical(id) {
-    //            $(".firstContent").load("/Artical/Index/load/"+id);
-    //            return false;
-    //        }
-
-</script>
-<?php
-    function getClass($count) {
-        if($count == 1 || $count == 4) return ' first';
-        elseif($count == 2 || $count ==5) return '';
-        else return ' last';
-    }
-?>
-<div class="firstContent">
-    <div class="blockNews groupThree left">
-        <div class="blockTitle"><a href="#"><?php echo (empty($category)) ? 'Latest News' : $category->name?></a></div>
-        <div class="newsGroup">
-            <?php $count = 1;?>
-            <?php foreach ($articals as $artical): ?>                
-                <div class="newsItem<?php echo getClass($count);?>">
-                    <img src="/Thumb/phpThumb.php?src=<?php echo (empty($artical->image)) ?  "/Content/VNCPC/images/contents/news1.png" : $artical->image;?>&w=320&h=300&zc=1" />
-                    <div class="newsTitle"><a href="<?php echo $this->url->action("new", "Index", "Artical", array('id'=>$artical->id, 'title'=>$artical->seo_url))?>"><?php echo substr($artical->title, 0, 50); if(strlen($artical->title) > 50) echo " ..."; ?></a></div>
-                    <div class="clearfix"></div>
+    <div class="fll left-content">
+        <div class="box-daotao">
+            <ul class="lstTab spr pRel">
+                <li class="fll"><span><?php echo strtolower($category->name) ?></span></li>
+                <span class="pAbs navi-dt"><a href="/">Trang chủ</a> <?php echo $category->name ?></span>
+            </ul>
+            <div class="box-daotaox">
+                <div class="tuyensinh-content">
+                    <?php foreach ($articals as $artical): ?>
+                        <div class="item-ts pRel">
+                            <a href="<?php echo $this->url->action('new', 'Index', 'Artical', array('title' => $artical->seo_url, 'id' => $artical->id)) ?>" class="pAbs img-tuyensinh">
+                                <img src="/Thumb/phpThumb.php?src=<?php echo empty($artical->image) ? "/Content/default/images/tuyensinh.jpg" : $artical->image; ?>&w=100&h=107&zc=1">
+                            </a>
+                            <h4 class="rs"><a href="<?php echo $this->url->action("new", "Index", "Artical", array('id' => $artical->id, 'title' => $artical->seo_url)) ?>"><?php echo XPHP_String::shortenText($artical->title); ?></a></h4>
+                            <p><?php echo XPHP_String::shortenText($artical->description, 200) ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                    <ul class="box-page rs cf">
+                        <?php if ($page > 2): ?><li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page - 2) ?>" class="active"><?php echo $page - 2; ?></a></li><?php endif; ?>
+                        <?php if ($page > 1): ?><li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page - 1) ?>" class="active"><?php echo $page - 1; ?></a></li><?php endif; ?>
+                        <li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page) ?>"><?php echo $page ?></a></li>
+                        <?php if (($page + 1) * $limit <= $count || (($page + 1) * $limit > $count && $page * $limit <= $count)): ?><li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page + 1) ?>"><?php echo $page + 1 ?></a></li> <?php endif; ?>
+                        <?php if (($page + 2) * $limit <= $count || (($page + 2) * $limit > $count && ($page + 1) * $limit <= $count)): ?><li class="fll"><a href="<?php echo $this->url->action('list', 'Index', 'Artical', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page + 2) ?>"><?php echo $page + 2 ?></a></li><?php endif; ?>
+                    </ul>
                 </div>
-            <?php $count ++;?>
-            <?php endforeach;?>
-            <div class="clearfix"></div>
+            </div>
         </div>
-        <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
-</div>
-<div class="secondContent">
-    <div class="otherNews">
-        <div class="otherNewsTitle">
-            <a href="#">Related News</a>
-        </div>
-        <div class="newsList"></div>
-        <div class="clearfix"></div>
-    </div>
-</div>
-<div class="clearfix"></div>
-<?php $this->content->end()?>
+<?php endif; ?>
+<?php
+$this->content->end()?>

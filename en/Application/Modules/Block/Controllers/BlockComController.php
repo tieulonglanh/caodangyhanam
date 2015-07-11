@@ -9,5 +9,5 @@ class BlockComController extends XPHP_Controller
 		$block = new Block();
 		$block->getByName($name);
 		echo $block->html;
-	}
+	}        
 }

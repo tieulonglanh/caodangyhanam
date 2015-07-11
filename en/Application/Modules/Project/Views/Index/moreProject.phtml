@@ -42,10 +42,10 @@
 <div class="listProjects" id="listProjects" style="display: <?php if($type=='blog') echo 'block'; else echo 'none'?>">
     <?php for ($i = 0; $i < $countResult; $i++) : ?>
         <div class="<?php echo getClass($i)?>">
-            <div class="blockImage"><a style="max-width: 104px; max-height: 69px;" href="#"><img src="<?php echo empty($result_pag_data[$i]->image) ? $this->url->content("Content/VNCPC/images/contents/project1.png") : $result_pag_data[$i]->title;?>" /></a></div>
+            <div class="blockImage"><a style="max-width: 104px; max-height: 69px;" href="#"><img src="<?php echo empty($result_pag_data[$i]->image) ? $this->url->content("Content/VNCPC/images/contents/project1.png") : $result_pag_data[$i]->image;?>" /></a></div>
             <div class="blockContent">
                 <div class="projectTitle">
-                    <a href="<?php echo $this->url->action("detail", "Index", "Project", array("id" => $result_pag_data[$i]->id, "title" => $result_pag_data[$i]->seo_url)); ?>"><?php echo $result_pag_data[$i]->title;?></a>
+                    <a href="<?php echo $this->url->action("detail", "Index", "Project", array("id" => $result_pag_data[$i]->id, "seo_url" => $result_pag_data[$i]->seo_url)); ?>"><?php echo $result_pag_data[$i]->title;?></a>
                 </div>
                 <div class="projectInfo">
                     <?php echo $result_pag_data[$i]->description; ?>
@@ -63,11 +63,11 @@
     <table class="responsive">
         <thead>
             <tr>
-                <th>Project ID</th>
-                <th class="left">Project Name</th>
-                <th>Sponsor</th>
-                <th>Project Area</th>
-                <th>Year</th>
+                <th>Mã Dự Án</th>
+                <th class="left">Tên Dự Án</th>
+                <th>Cơ quan tài trợ</th>
+                <th>Vùng dự án</th>
+                <th>Năm thực hiện</th>
 <!--                <th>Tải xuống</th>-->
             </tr>
         </thead>

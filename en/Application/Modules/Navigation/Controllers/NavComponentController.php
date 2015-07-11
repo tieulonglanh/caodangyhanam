@@ -26,9 +26,9 @@ class NavComponentController extends XPHP_Controller
     {
         //Lấy ra danh sách các menu
         $model = new Navigation();
-        //$menu = $model->getMenuMultiLevel(0, 1);
-
-        $menu = $model->getAllMenu();
+        $menu = $model->getMenuMultiLevel(0, 1);
+        
+//        $menu = $model->getAllMenu();
 
         $this->view->menu = $menu;
         return $this->view();

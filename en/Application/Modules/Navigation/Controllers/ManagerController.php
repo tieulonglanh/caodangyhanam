@@ -159,6 +159,7 @@ class ManagerController extends XPHP_Controller
         //Neu saveType = 0 thi khong redirect neu saveType = 1 thi redirect
             $url = $this->params['saveType'] == '1' ? $this->url->action('list', array($model->type)) : NULL;
         if ($model->validate()) {
+           // print_r($model); die;
             if ($model->update())
                 return $this->json(
                     array('success' => true,

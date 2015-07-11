@@ -1,100 +1,30 @@
 <?php $this->content->begin() ?>
-    <?php
-        $first = 0;
-        $last = count($lastestVideos);
-        $first_artical = $articals[0];
-    ?>
-
-
-
-        <div class="firstContent">
-            <div id="playVideo">
-                <div class="blockTitle"><a href="#"><?php echo $lastestVideos[0]->title?></a></div>
-                <div class="videoPirmary">
-                    <!--<img src="images/contents/video-big.png" width="100%" />-->
-                    <?php echo getEmbedCode($lastestVideos[0]->url);?>
+   <div class="fll left-content">
+        <div class="box-daotao">
+            <ul class="lstTab spr pRel">
+                <li class="fll"><span>VIDEOS</span></li>
+                <span class="pAbs navi-dt"><a href="/">Trang chủ</a> VIDEOS</span>
+            </ul>
+            <div class="box-daotaox">
+                <div class="tuyensinh-content">
+                    <?php foreach ($lastestVideos as $artical): ?>
+                    <div class="item-ts pRel">
+                        <a href="<?php echo $this->url->action('detail','Index','Video', array('title' => $artical->seo_url, 'id' => $artical->id)) ?>" class="pAbs img-tuyensinh">
+                            <img src="/Thumb/phpThumb.php?src=<?php echo empty($artical->avatar) ? "/Content/default/images/tuyensinh.jpg" : $artical->avatar;?>&w=100&h=107&zc=1">
+                        </a>
+                        <h4 class="rs"><a href="<?php echo $this->url->action("detail", "Index", "Video", array('id'=>$artical->id, 'title'=>$artical->seo_url))?>"><?php echo XPHP_String::shortenText($artical->title); ?></a></h4>
+                        
+                    </div>
+                    <?php endforeach; ?>
+                    <ul class="box-page rs cf">
+                        <?php if ($page > 2): ?><li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page - 2) ?>" class="active"><?php echo $page - 2; ?></a></li><?php endif; ?>
+                        <?php if ($page > 1): ?><li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page - 1) ?>" class="active"><?php echo $page - 1; ?></a></li><?php endif; ?>
+                        <li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page) ?>"><?php echo $page ?></a></li>
+                        <?php if (($page + 1) * $limit <= $count || (($page + 1) * $limit > $count && $page * $limit <= $count)): ?><li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page + 1) ?>"><?php echo $page + 1 ?></a></li> <?php endif; ?>
+                        <?php if (($page + 2) * $limit <= $count || (($page + 2) * $limit > $count && ($page + 1) * $limit <= $count)): ?><li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page + 2) ?>"><?php echo $page + 2 ?></a></li><?php endif; ?>
+                    </ul>
                 </div>
             </div>
-            <div class="clearfix"></div>
         </div>
-
-
-        <div class="secondContent">
-            <div class="contentTitle">
-                <span>Related Video</span>
-            </div>
-            <div id="content">
-                <?php foreach($lastestVideos as $video):?>
-                    <?php $first++;?>
-                    <div class="blockVideo <?php echo getClass($first, $last);?>">
-                        <div class="videoPirmary">
-                            <img style="width: 159px;height: 108px" src="<?php echo $video->avatar ?>" />
-                        </div>
-                        <div class="blockTitle"><a href="javascript:void(0)" onclick="playVideo(<?php echo $video->id?>)"><?php echo $video->title?></a></div>
-                        <div class="clearfix"></div>
-                    </div>
-                <?php endforeach;?>
-            </div>
-
-            <div class="readMore">
-
-                <a href="javascript:void(0);" id="next" onclick="moreVideo(this.id)">
-                    Previous
-                </a>
-                <a href="javascript:void(0);" id="pre" onclick="moreVideo(this.id)" style="display: none;">
-                    Next
-                </a>
-                <input type="hidden" id="page" value="1"/>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
-
-
-
-    <script>
-    function moreVideo(id_click) {
-        var hidden = document.getElementById("page");
-        var num = parseInt(hidden.value);
-
-        if(id_click == "next")
-            num = num +1;
-        else
-            num = num -1;
-
-        $("#content").load("<?php echo $this->url->action('moreVideo', 'Index', 'Video');?>" + '/' +num);
-
-        hidden.value = num;
-        return false;
-    }
-    function playVideo(id_video) {
-        //$("#playVideo").load("/Video/Index/playVideo/"+id_video);
-        $("#playVideo").load("<?php echo $this->url->action('playVideo', 'Index', 'Video');?>" + '/' +id_video);
-
-    }
-    $(document).ready(function(){
-        $('#menuVideo').addClass("active");
-        $('.content').addClass("videoContent");
-    });
-    </script>
-
-
+    </div>
 <?php $this->content->end() ?>
-
-<?php
-    function getEmbedCode($url) {
-        $step1=explode('v=', $url);
-        $step2 =explode('&',$step1[1]);
-        $vedio_id = $step2[0];
-
-        $embedCode = '<iframe width="100%" height="100%" src="http://www.youtube.com/embed/'. $vedio_id.'" frameborder="0"></iframe>';
-        return $embedCode;
-    }
-
-    function getClass($first, $last) {
-        if($first == 1) return "first top left left-phone";
-        elseif($first == $last) return "last";
-        elseif($first % 2 == 0) return "top left";
-        else return "left left";
-    }
-?>
