@@ -1,0 +1,40 @@
+<?php $this->content->begin() ?>
+
+<div class="fll left-content">
+    <div class="box-gioithieu">
+        <div class="content-gioithieu">
+            <div class="box-tracuudiem">
+                <div class="box-tracuu">
+                    <img class="pAbs" src="/Content/default/images/img-lichti.jpg">
+                    <h4 class="diemthi">Đăng ký tài khoản</h4>
+                    <form method="post" action="">
+                        <label>Tên đăng nhập: </label><input required type="text" value="" name="username"><br>
+                        <label>Họ tên: </label><input required type="text" value="" name="fullname"><br>
+                        <label>Mật khẩu: </label><input required type="password" id="password" value="" name="password"><br>
+                        <label>Viết lại mật khẩu: </label><input required  id="repassword" type="password" value="" name="repassword"><br>
+                        <label>Email: </label><input type="text" required value="" name="email"><br>
+                        <label>Ngày sinh: </label><input type="text" required value="" placeholder="Nhập dạng: 1990-06-29" name="bithdate"><br>
+                        <label>Giới tính: </label>
+                        <select name="gender">
+                            <option value="1">Nam</option>
+                            <option value="0">Nữ</option>
+                        </select><br>
+                        <input id="submit" type="submit" value="Đăng ký" name="submit" style="width: 100px; height: 40px; float: right; margin-right: 80px;">
+                    </form>
+                    <script>
+                        $(document).ready(function(){
+                            $("#submit").click(function(){
+                                if($("#password").val() !=  $("#repassword").val()){
+                                    alert('Password không giống nhau');
+                                    return false;
+                                }
+                            });
+                        })
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+$this->content->end()?>

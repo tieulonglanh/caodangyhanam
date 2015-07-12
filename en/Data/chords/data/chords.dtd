@@ -1,0 +1,40 @@
+<!ELEMENT app ( capo, fr, f1, f2, f3, f4, s1, s2, s3, s4, s5, s6 ) >
+<!ATTLIST app id NMTOKEN #REQUIRED >
+
+<!ELEMENT apps ( app ) >
+
+<!ELEMENT capo ( str, pos ) >
+
+<!ELEMENT chord ( name, apps ) >
+<!ATTLIST chord id NMTOKEN #REQUIRED >
+
+<!ELEMENT chords ( chord ) >
+
+<!ELEMENT f1 ( str, pos ) >
+
+<!ELEMENT f2 ( str, pos ) >
+
+<!ELEMENT f3 ( str, pos ) >
+
+<!ELEMENT f4 ( str, pos ) >
+
+<!ELEMENT fr ( #PCDATA ) >
+
+<!ELEMENT name ( #PCDATA ) >
+
+<!ELEMENT pos ( #PCDATA ) >
+
+<!ELEMENT s1 ( #PCDATA ) >
+
+<!ELEMENT s2 ( #PCDATA ) >
+
+<!ELEMENT s3 ( #PCDATA ) >
+
+<!ELEMENT s4 ( #PCDATA ) >
+
+<!ELEMENT s5 ( #PCDATA ) >
+
+<!ELEMENT s6 ( #PCDATA ) >
+
+<!ELEMENT str ( #PCDATA ) >
+

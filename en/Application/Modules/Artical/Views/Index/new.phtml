@@ -1,0 +1,33 @@
+<?php $this->content->begin()?>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "129e998b-a6d5-43b1-bc41-2b8d6d708477", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<div class="fll left-content">
+                <div class="box-daotao">
+                    <ul class="lstTab spr pRel">
+                        <li class="fll"><span><?php echo $category->name ?></span></li>
+                        <span class="pAbs navi-dt"><a href="<?php echo $this->url->action('index','Index',""); ?>">Trang chủ</a> <a href="<?php echo $this->url->action('list','Index',"Artical", array('id'=>$category->id, 'title'=>$category->seo_url))?>"><?php echo $category->name ?></a></span>
+                    </ul>
+                    <div class="box-daotaox">
+                        <div class="tuyensinh-content">
+                            <h1>
+                                <?php echo $detail->title; ?>
+                            </h1>
+                            <p style="font-weight: bold; margin-bottom: 20px; margin-top: 20px;"><?php echo $detail->description; ?></p>
+                            <?php echo $detail->content; ?>
+                            <p style="text-align: right; font-weight: bold;">
+                                Ngày đăng: <?php echo $detail->created_date; ?>
+                            </p>
+                            <p style="text-align: right;">                                
+                                <span class='st_sharethis_large' displayText='ShareThis'></span>
+                                <span class='st_facebook_large' displayText='Facebook'></span>
+                                <span class='st_twitter_large' displayText='Tweet'></span>
+                                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                                <span class='st_pinterest_large' displayText='Pinterest'></span>
+                                <span class='st_email_large' displayText='Email'></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php $this->content->end()?>

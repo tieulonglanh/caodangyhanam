@@ -1,0 +1,178 @@
+<?php $this->content->begin(); ?>
+<div class="fll left-content">
+    <div class="box-tinmoi pRel cf">
+        <?php if(isset($newestArtical)): ?>
+        <div class="tin1 fll">
+            <a href="<?php echo $this->url->action("new", "Index", "Artical", array('id'=>$newestArtical[0]->id, 'title'=>$newestArtical[0]->seo_url))?>" class="img-tin1"><img src="/Thumb/phpThumb.php?src=<?php echo empty($newestArtical[0]->image) ? "/Content/default/images/news1.png" : $newestArtical[0]->image;?>&w=458&h=285&zc=1"></a>
+            <div class="rs title">
+                <a href="<?php echo $this->url->action("new", "Index", "Artical", array('id'=>$newestArtical[0]->id, 'title'=>$newestArtical[0]->seo_url))?>">
+                <?php echo $newestArtical[0]->title; ?>
+                </a>
+            </div>
+            <p>
+                <?php echo $newestArtical[0]->description; ?>
+            </p>
+        </div>
+        <div class="box-tm fll">
+            <div class="bg-tinmoi">Tin mới</div>
+            
+            <?php foreach($newestArtical as $key => $artical): ?>
+            <?php if($key > 0): ?>
+            <div class="newline">
+                <a href="<?php echo $this->url->action("new", "Index", "Artical", array('id'=>$artical->id, 'title'=>$artical->seo_url))?>"><?php echo XPHP_String::shortenText($artical->title); ?></a>
+            </div>
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    </div><!--box tin mới -->
+    <div class="box-tab cf">
+        <ul class="lstTab spr" id="ulList">
+            <li data-id="default" class="fll"><span>Học sinh - sinh viên</span></li>
+            <!--<li class="fll "><a href="#" class="active" data-id="tuyensinh">Tuyển sinh</a></span></li>-->
+            <!--<li class="fll "><a href="#" data-id="tkb">Thời khóa biểu</a></li>-->
+            <!--<li class="fll"><a href="#"  data-id="lichthi">Lịch thi</a></li>-->
+            <!--<li class="fll" data-id="ketqua"><a href="javascript:void(0)" >Kết quả học tập</a></li> -->
+            <li class="fll" data-id="diendan"><a target="blank" href="http://diendan.cyh.edu.vn/index.php" >Diễn đàn</a></li>
+        </ul>
+        <div class="tab-content box-tracuudiem" style="display: block; opacity: 1; height: 250px;" id="default">
+            <div class="box-tracuu">
+                <img class="pAbs" src="/Content/default/images/img-lichti.jpg">
+                <?php if(!isset($_SESSION['username'])): ?>
+                <h4 class="diemthi">Đăng nhập</h4>
+                
+                <form method="post" action="<?php echo $this->url->action('login','Index',"NormalUser"); ?>">
+                    <label>Tài khoản</label><input type="text" value="" name="username"><br>
+                    <label>Mật khẩu</label><input type="password" value="" name="password"><br>
+                    <?php if(isset($_SESSION['error'])): ?>
+                    <span style="color: red; font-size: 12px;"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
+                    </span>
+                    <?php endif; ?> <br />
+                    <a style="font-size: 12px;" href="<?php echo $this->url->action('register', 'Index','NormalUser') ?>">Đăng ký tài khoản</a>
+                    <input style="height: 30px; float: right; margin-right: 19px; width: 150px;" type="submit" value="Đăng nhập" name="login" />
+                </form>
+                <?php else: ?>
+                <h4 class="diemthi">Đăng nhập thành công</h4>
+                <span>Xin chào: <?php echo $_SESSION['fullname']; ?></span> <br />
+                Bạn có quyền xem: <br />
+                <?php if($_SESSION['role_id'] == 1): ?>
+                - <a style="font-size: 12px;" href="/trang-tin/trang-tin-noi-bo.5.html">Trang tin nội bộ</a> <br />
+                - <a style="font-size: 12px;" href="<?php echo $this->url->action('index','Index','Document'); ?>">Tài liệu</a> <br />
+                <?php else: ?>
+                - <a style="font-size: 12px;" href="<?php echo $this->url->action('index','Index','Document'); ?>">Tài liệu</a> <br />
+                <?php endif; ?>
+                <a style="font-size: 12px;" href="<?php echo $this->url->action('logout','Index','NormalUser') ?>">Thoát</a>
+                <?php endif; ?>
+
+            </div>
+        </div>
+        <div class="tab-content" id="tuyensinh">
+            <div id="scrollbar1">
+                <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+                <div class="viewport">
+                    <div class="overview">
+                        <h3>Magnis dis parturient montes</h3>
+                        <img src="<?php echo $this->url->content("Content/default/images/anh.jpg") ?>">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content" id="tkb">
+            <form class="tkb">
+                <label>MÃ LỚP</label>
+                <input type="text" name="maloptkb">
+                <label>HỌC KỲ</label>
+                <select>
+                    <option value="hk1">Học kỳ 1 năm học 2012- 2013</option>
+                    <option value="hk2">Học kỳ 2</option>
+                    <option value="hk3">Học kỳ 3</option>
+                    <option value="hk4">Học kỳ 4</option>
+                </select>
+            </form>
+        </div>
+        <div class="tab-content" id="lichthi">
+            <div class="box-tracuu">
+                <img src="<?php echo $this->url->content("Content/default/images/img-lichti.jpg") ?>" class="pAbs">
+                <h4>TRA CỨU LỊCH THI</h4>
+                <form>
+                    <label>MÃ SV</label><input type="text" name="masv" value=""><br>
+                    <label>Họ tên</label><input type="text" name="hoten" value=""><br>
+                    <label>Môn</label><input type="text" name="mon" value="">
+                </form>
+
+            </div>
+        </div>
+        <div class="tab-content" id="ketqua">
+            <table>
+                <tr>
+                    <td class="stt">STT</td>
+                    <td class="mamon">MÃ MÔN</td>
+                    <td class="tenmon">TÊN MÔN</td>
+                    <td class="diem">ĐIỂM</td>
+                    <td class="diemtp">ĐIỂM TP</td>
+                </tr>
+                <tr class="title-tr">
+                    <td colspan="5">học kỳ 1 năm 2014- 2015</td>
+                </tr>
+                <tr>
+                    <td class="stt">1</td>
+                    <td class="mamon"></td>
+                    <td class="tenmon"></td>
+                    <td class="diem"></td>
+                    <td class="diemtp"><a href="#">Xem</a></td>
+                </tr>
+                <tr>
+                    <td class="stt">1</td>
+                    <td class="mamon"></td>
+                    <td class="tenmon"></td>
+                    <td class="diem"></td>
+                    <td class="diemtp"><a href="#">Xem</a></td>
+                </tr>
+            </table>
+        </div>
+        <!--<div class="tab-content" id="diendan">
+            <a href="#" class="linkdd">Diễn đàn học sinh - sinh viên Cao Đẳng Y Tế Hà Nam</a>
+        </div>-->
+    </div><!--box tab-->
+    <div class="box-video">
+        <ul class="lstTab spr pRel">
+            <li class="fll"><span>Video - Hình ảnh</span></li>
+            <a href="<?php echo $this->url->action('index','Index',"Video")?>" class="pAbs more-video">Xem thêm</a>
+        </ul>
+    </div><!--box-video-->
+    <div class="tab-video-img cf">
+        <div class="fll video1">
+            <iframe width="460" height="275" src="<?php $v = explode("?v=",$latestVideos[0]->url); echo "https://www.youtube.com/embed/".$v[1] ?>" frameborder="0" allowfullscreen></iframe>
+            <h4>
+                <a href="<?php echo $this->url->action("detail", "Index", "Video", array('id'=>$latestVideos[0]->id, 'title'=>$latestVideos[0]->seo_url))?>"><?php echo XPHP_String::shortenText($latestVideos[0]->title, 100); ?></a>
+            </h4>
+            <p>
+                <?php echo $latestVideos[0]->description ?>
+            </p>
+        </div>
+        <div class="fll video2">
+            <?php foreach($latestVideos as $key=>$video): ?>
+            <?php if($key > 0): ?>
+            <div class="item-video">
+                <a href="<?php echo $this->url->action("detail", "Index", "Video", array('id'=>$video->id, 'title'=>$video->seo_url))?>" class="img-tin1">
+                    <img src="/Thumb/phpThumb.php?src=<?php echo empty($video->avatar) ? "/Content/default/images/news1.png" : $video->avatar;?>&w=216&h=143&zc=1">
+                </a>
+                <a href="<?php echo $this->url->action("detail", "Index", "Video", array('id'=>$video->id, 'title'=>$video->seo_url))?>">
+                    <?php echo XPHP_String::shortenText($video->title); ?>
+                </a>
+            </div>
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+
+<?php $this->content->end(); ?>

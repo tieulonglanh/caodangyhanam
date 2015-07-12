@@ -1,0 +1,15 @@
+<?php $this->content->begin(); ?>
+<div class="fll left-content">
+    <div class="box-gioithieu">
+<?php if(strtolower($fileType) == 'pdf'): ?>
+<iframe src="http://docs.google.com/gview?url=<?php echo $url; ?>&embedded=true" style="width:680px; height:500px;" frameborder="0"></iframe>
+<?php else: ?>
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=<?php echo $url; ?>' width='680px' height='500px' frameborder='0'></iframe>
+<?php endif; ?>
+<br />
+<br />
+<a style="font-size: 12px;" href="<?php echo $this->url->action('index','Index','Document'); ?>" > << Quay trở lại</a>
+    </div>
+</div>
+
+<?php $this->content->end(); ?>

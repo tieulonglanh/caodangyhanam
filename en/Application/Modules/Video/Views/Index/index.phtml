@@ -1,0 +1,30 @@
+<?php $this->content->begin() ?>
+   <div class="fll left-content">
+        <div class="box-daotao">
+            <ul class="lstTab spr pRel">
+                <li class="fll"><span>VIDEOS</span></li>
+                <span class="pAbs navi-dt"><a href="/">Trang chủ</a> VIDEOS</span>
+            </ul>
+            <div class="box-daotaox">
+                <div class="tuyensinh-content">
+                    <?php foreach ($lastestVideos as $artical): ?>
+                    <div class="item-ts pRel">
+                        <a href="<?php echo $this->url->action('detail','Index','Video', array('title' => $artical->seo_url, 'id' => $artical->id)) ?>" class="pAbs img-tuyensinh">
+                            <img src="/Thumb/phpThumb.php?src=<?php echo empty($artical->avatar) ? "/Content/default/images/tuyensinh.jpg" : $artical->avatar;?>&w=100&h=107&zc=1">
+                        </a>
+                        <h4 class="rs"><a href="<?php echo $this->url->action("detail", "Index", "Video", array('id'=>$artical->id, 'title'=>$artical->seo_url))?>"><?php echo XPHP_String::shortenText($artical->title); ?></a></h4>
+                        
+                    </div>
+                    <?php endforeach; ?>
+                    <ul class="box-page rs cf">
+                        <?php if ($page > 2): ?><li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page - 2) ?>" class="active"><?php echo $page - 2; ?></a></li><?php endif; ?>
+                        <?php if ($page > 1): ?><li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page - 1) ?>" class="active"><?php echo $page - 1; ?></a></li><?php endif; ?>
+                        <li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page) ?>"><?php echo $page ?></a></li>
+                        <?php if (($page + 1) * $limit <= $count || (($page + 1) * $limit > $count && $page * $limit <= $count)): ?><li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page + 1) ?>"><?php echo $page + 1 ?></a></li> <?php endif; ?>
+                        <?php if (($page + 2) * $limit <= $count || (($page + 2) * $limit > $count && ($page + 1) * $limit <= $count)): ?><li class="fll"><a href="<?php echo $this->url->action('index', 'Index', 'Video', array('title' => $category->seo_url, 'id' => $category->id)) . "?page=" . ($page + 2) ?>"><?php echo $page + 2 ?></a></li><?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php $this->content->end() ?>

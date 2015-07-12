@@ -1,0 +1,81 @@
+<?php $this->content->begin() ?>
+
+<div class="fll left-content">
+    <div class="box-gioithieu">
+        <ul class="tabgt spr pRel">
+            <li class="fll"><span>Điểm Thi <?php if ($fullname) echo $fullname; ?></span></li>
+            <span class="pAbs navi-dt"><a href="<?php echo $this->url->action('index', "Index", "") ?>">Trang chủ</a> </span>
+        </ul>
+        <div class="content-gioithieu">
+        <div class="box-tracuudiem">
+            <div class="box-tracuu">
+                <img class="pAbs" src="/Content/default/images/img-lichti.jpg">
+                <h4 class="diemthi">TRA CỨU ĐIỂM THI</h4>
+                <form method="post" action="<?php echo $this->url->action('index','Index','ExamResults'); ?>">
+                    <label>MÃ SV</label><input type="text" value="<?php if ($student_id) echo $student_id; ?>" name="masv"><br>
+                    <label>Họ tên</label><input type="text" value="<?php if ($fullname) echo $fullname; ?>" name="hoten"><br>
+                    <label>Mã môn học</label><input type="text" value="<?php if ($subject_id) echo $subject_id; ?>" name="mon"><br>
+                    <input type="submit" value="Tìm kiếm" name="submit" style="width: 100px; height: 40px; float: right; margin-right: 80px;">
+                </form>
+
+            </div>
+        </div>
+<?php if(!empty($info)): ?>
+            
+            <?php foreach ($info as $value): ?>
+                <h3>Điểm Thi môn <?php echo $value->subject_id; ?>: </h3>
+                <table>
+                    <tr>
+                        <td>Mã sinh viên:</td>
+                        <td><?php echo $value->student_id; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Họ và tên:</td>
+                        <td><?php echo $value->fullname; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Ngày sinh:</td>
+                        <td><?php echo $value->date_of_bith; ?></td>
+                    </tr>
+                    <tr>
+                        <td>DQT:</td>
+                        <td><?php echo $value->dqt; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Thi lần 1:</td>
+                        <td><?php echo $value->exam_round; ?></td>
+                    </tr>
+                    <tr>
+                        <td>DTB1:</td>
+                        <td><?php echo $value->dtb1; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Thi lần 2:</td>
+                        <td><?php echo $value->exam_round_2; ?></td>
+                    </tr>
+                    <tr>
+                        <td>DTK:</td>
+                        <td><?php echo $value->dtk; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Ghi chú:</td>
+                        <td><?php echo $value->note; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Mã môn:</td>
+                        <td><?php echo $value->subject_id; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Ngày thi:</td>
+                        <td><?php echo $value->exam_date; ?></td>
+                    </tr>
+                </table>
+<?php endforeach; ?>
+<?php else: ?>
+    <h3>Không tìm thấy dữ liệu nào phù hợp</h3>
+<?php endif; ?>
+            </div>
+        </div>
+    </div>
+<?php
+$this->content->end()?>

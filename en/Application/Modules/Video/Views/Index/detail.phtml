@@ -1,0 +1,48 @@
+<?php $this->content->begin() ?>
+<div class="fll left-content">
+                <div class="box-daotao">
+                    <ul class="lstTab spr pRel">
+                        <li class="fll"><span>Chi tiết Video</span></li>
+                        <span class="pAbs navi-dt"><a href="<?php echo $this->url->action('index','Index',""); ?>">Trang chủ</a> <a href="<?php echo $this->url->action('index','Index',"Video")?>">Danh sách Video</a></span>
+                    </ul>
+                    <div class="box-daotaox">
+                        <div class="tuyensinh-content">
+                            <h1 class="video-content">
+                                <?php echo $video->title; ?>
+                            </h1>
+                            <p style="font-weight: bold; margin-bottom: 20px; margin-top: 20px;"><?php echo $detail->description; ?></p>
+                            <iframe width="660" height="380" src="<?php $v = explode("?v=",$video->url); echo "https://www.youtube.com/embed/".$v[1] ?>" frameborder="0" allowfullscreen></iframe>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php $this->html->loadJs('Assets/jwplayer/jwplayer.js')?>
+<script type="text/javascript">
+    jwplayer("video-content").setup({
+        file: $("#video-content").data('file'),
+        image: $("#video-content").data('image'),
+        width: 642,
+        height: 368
+    });
+    function openShareBox()
+    {
+        $('#share_box').slideToggle();
+    }
+    function plusFav(e){
+        e = $(e);
+        $.ajax({
+            url:    e.data('url'),
+            data: {
+                id: e.data('id')
+            },
+            type: 'post',
+            dataType: 'json',
+            success: function(res){
+                $('#fav_count').html(res.count);
+                alert(res.message);
+            }
+        });
+    }
+</script>
+<?php $this->content->end()?>

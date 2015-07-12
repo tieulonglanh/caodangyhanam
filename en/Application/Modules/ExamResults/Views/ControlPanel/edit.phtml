@@ -1,0 +1,118 @@
+<?php $this->content->begin()?>
+<div class="widget">
+    <div class="header">
+        <span><span class="ico gray document"></span> Sửa trang nội dung</span>
+    </div><!-- End header -->
+    <div class="content">
+        <div class="formEl_b">
+            <?php
+            $ajaxOption['begin'] = "begin";
+            $ajaxOption['success'] = "success";
+            $this->form->beginAjax($ajaxOption, "Create");
+            ?>
+            <?php $this->form->hiddenFor("id")?>
+            <?php $this->form->hiddenFor("created_date")?>
+            <fieldset>
+                <legend><?php echo $this->model->fullname?></legend>
+                
+                <div class="section ">
+                    <?php $this->form->labelFor("student_id")?>
+                    <div>
+                        <?php $this->form->textboxFor("student_id", array('class' => 'medium'))?>                        
+                    </div>
+                </div>                
+                <div class="section">
+                    <?php $this->form->labelFor("fullname")?>
+                    <div>
+                        <?php $this->form->textboxFor("fullname", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("date_of_bith")?>
+                    <div>
+                        <?php $this->form->textboxFor("date_of_bith", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("dqt")?>
+                    <div>
+                        <?php $this->form->textboxFor("dqt", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("exam_round")?>
+                    <div>
+                        <?php $this->form->textboxFor("exam_round", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("dtb1")?>
+                    <div>
+                        <?php $this->form->textboxFor("dtb1", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("exam_round_2")?>
+                    <div>
+                        <?php $this->form->textboxFor("exam_round_2", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("dtk")?>
+                    <div>
+                        <?php $this->form->textboxFor("dtk", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("note")?>
+                    <div>
+                        <?php $this->form->textboxFor("note", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section">
+                    <?php $this->form->labelFor("subject_id")?>
+                    <div>
+                        <?php $this->form->textboxFor("subject_id", array('class' => 'medium'))?>
+                    </div>
+                </div>                
+                <div class="section">
+                    <?php $this->form->labelFor("exam_date")?>
+                    <div>
+                        <?php $this->form->textboxFor("exam_date", array('class' => 'medium'))?>
+                    </div>
+                </div>
+                <div class="section last">
+                    <div>
+                        <input type="hidden" name="saveType" value="0" id="saveType" />
+                        <input class="uibutton icon add" id="submit" type="submit" value="Sửa">
+                        <input class="uibutton icon add" id="submit2" type="submit" value="Sửa và đóng" onclick="$('#saveType').val('1');">
+                        <input class="uibutton special icon edit" type="reset" value="Nhập lại">
+                        <a class="uibutton confirm icon answer" href="<?php echo $this->url->action("index")?>">Trang nội dung</a>
+                    </div>
+                </div>
+                <?php $this->form->end()?>
+        </div>
+    </div>
+</div>
+<?php $this->content->end()?>
+<?php $this->section->begin('stylesheets')?>
+<style type="text/css">
+    .cleditorMain{
+        height: 180px !important;
+    }
+</style>
+<?php $this->section->end()?>
+<?php $this->section->begin("scripts")?>
+<?php
+//Load js
+$this->html->loadJs(array('Content/XMin/components/validationEngine/jquery.validationEngine.js',
+                          'Content/XMin/components/validationEngine/jquery.validationEngine-en.js',
+                          'Content/XMin/components/editor/jquery.cleditor.js',
+                          'Content/XMin/components/elfinder/js/elfinder.full.js',
+                          'Scripts/jquery.unobtrusive-ajax.min.js',
+                          'Assets/tiny_mce/tiny_mce.js',
+                          'Assets/tiny_mce/plugins/imagemanager/js/mcimagemanager.js',
+                          'Application/Modules/Page/Assets/js/tinymce.js',
+                          'Application/Modules/ControlPanel/Assets/js/controlpanel.js'));
+?>
+<?php $this->section->end()?>

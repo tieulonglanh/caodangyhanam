@@ -1,0 +1,41 @@
+<?php if(isset($this->session->member) && isset($this->session->memberInfo)):?>
+<div class="register">
+    <a href="#" style="text-transform: uppercase"><?php if(!empty($this->session->memberInfo->fullname)) echo $this->session->memberInfo->fullname; else echo $this->session->member->username;?></a>
+</div>
+<div class="login-panel">
+    <a href="<?php echo $this->url->action('logout')?>" class="logout-text">[Đăng xuất]</a>
+</div>
+<?php else:?>
+<div class="register">
+    <a href="<?php echo $this->url->action('register')?>">ĐĂNG KÝ</a>
+</div>
+<div class="login-panel">
+    <?php $this->form->begin('loginForm', array('action' => $this->url->action('login')))?>
+    <div class="wp wp-username">
+        <?php $this->form->textboxFor('username', array('class' => 'txt username', 'placeholder' => 'Tên đăng nhập'))?>
+    </div>
+    <div class="wp wp-password">
+        <?php $this->form->passwordFor('password', array('class' => 'txt password', 'placeholder' => 'Mật khẩu'))?>
+    </div>
+    <div class="btnsmt">
+        <input type="submit" value="Đăng nhập" />
+    </div>
+    <div class="cl"></div>
+    <?php $this->form->end()?>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $('#loginForm').submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: $('#loginForm').attr('action'),
+                data: $('#loginForm').serialize(),
+                type: "POST",
+                success: function(res){
+                    $('.sub-user-panel').html(res);
+                }
+            });
+        });
+    });
+</script>
+<?php endif?>

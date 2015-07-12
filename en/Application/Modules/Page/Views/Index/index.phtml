@@ -1,0 +1,20 @@
+<?php $this->content->begin()?>
+<div class="fll left-content">
+                <div class="box-gioithieu">
+                    <ul class="tabgt spr pRel">
+                        <li class="fll"><span>Giới thiệu</span></li>
+                        <span class="pAbs navi-dt"><a href="<?php echo $this->url->action('index',"Index","") ?>">Trang chủ</a>  Giới thiệu</span>
+                    </ul>
+                    <div class="content-gioithieu">
+                        <?php foreach($articals as $art): ?>
+                        <div class="item-gt pRel">
+                            <a class="pAbs img-thumbgt" href="<?php echo $this->url->action("detail", "Index", "Page", array('id'=>$art->id, 'title'=>$art->seo_url))?>" class="img-tin1"><img src="/Thumb/phpThumb.php?src=<?php echo empty($art->avatar) ? "/Content/default/images/news1.png" : $art->avatar;?>&w=344&h=228&zc=1"></a>
+                            <h4>
+                                <a href="<?php echo $this->url->action("detail", "Index", "Page", array('id'=>$art->id, 'title'=>$art->seo_url))?>"><?php echo XPHP_String::shortenText($art->title); ?></a>
+                            </h4>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+<?php $this->content->end()?>

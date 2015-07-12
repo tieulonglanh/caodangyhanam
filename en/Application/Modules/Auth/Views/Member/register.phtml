@@ -1,0 +1,109 @@
+<?php $this->content->begin()?>
+<div class="content fullwidth">
+    <div class="login-page register-page">
+        <div class="login-form">
+            <div class="title-none-bg no-margin">Đăng ký</div>
+            <div class="login-form-f">
+                <?php $this->form->begin('registerFormSVC', array('action' => $this->url->action('register')))?>
+                <input type="hidden" name="url" value="<?php echo $url?>" id="url" />
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td><?php $this->form->labelFor('register_username')?></td>
+                        <td>
+                            <?php $this->form->textboxFor('register_username', array('class' => 'inputtxt', 'placeholder' => 'Tên đăng nhập'))?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><?php $this->form->labelFor('register_password')?></td>
+                        <td>
+                            <?php $this->form->passwordFor('register_password', array('class' => 'inputtxt', 'placeholder' => 'Mật khẩu'))?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><?php $this->form->labelFor('register_repassword')?></td>
+                        <td>
+                            <?php $this->form->passwordFor('register_repassword', array('class' => 'inputtxt', 'placeholder' => 'Nhập lại mật khẩu'))?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><?php $this->form->labelFor('register_email')?></td>
+                        <td><?php $this->form->textboxFor('register_email', array('class' => 'inputtxt', 'placeholder' => 'Email'))?></td>
+                    </tr>
+                    <tr>
+                        <td><?php $this->form->labelFor('register_fullname')?></td>
+                        <td>
+                            <?php $this->form->textboxFor('register_fullname', array('class' => 'inputtxt', 'placeholder' => 'Họ và tên'))?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><?php $this->form->labelFor('register_phone')?></td>
+                        <td>
+                            <?php $this->form->textboxFor('register_phone', array('class' => 'inputtxt', 'placeholder' => 'Số điện thoại'))?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="captcha">Nhập lại mã:</label></td>
+                        <td valign="top">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <td>
+                                    <img src="<?php echo $this->url->action('captcha', 'Assets', '')?>" alt="captcha">
+                                </td>
+                                <td><input type="text" placeholder="Nhập đúng mã xác nhận" class="inputtxt captcha" id="captcha" name="captcha" style="padding-left: 15px; margin: 0" /></td>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td><input type="checkbox" name="agree" id="agree" value="1" /></td>
+                                    <td>
+                                        <label for="agree" class="agree">Tôi đã đọc và đồng ý với các <a href="#">quy định sử dụng</a> của LNTguitar</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="right">
+                            <p class="error" style="color: red; font-size: 12px; margin-top: 15px; display: none"></p>
+                            <p class="loading" style="margin-top: 15px; display: none"><img src="<?php echo $this->url->content('Content/LNGuitar/images/login_loading.gif')?>" /></p>
+                            <input type="submit" value="Đăng nhập" class="submit" name="btnSMRegister" />
+                        </td>
+                    </tr>
+                </table>
+                <?php $this->form->end()?>
+            </div>
+        </div>
+        <div class="login-facebook">
+            <div class="title-none-bg no-margin">Đăng ký tài khoản facebook</div>
+            <p>Bạn có thể đăng ký tài khoản mới bằng tài khoản Facebook của mình</p>
+            <a href="#" class="btn-login-facebook">Đăng nhập với facebook</a>
+        </div>
+    </div>
+    <div class="cl"></div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $('#registerFormSVC').submit(function(e){
+            e.preventDefault();
+            $('.loading').show();
+            $.ajax({
+                url: $('#registerFormSVC').attr('action'),
+                data: $('#registerFormSVC').serialize(),
+                type: "POST",
+                success: function(res){
+                    $('.loading').hide();
+                    if(res.success)
+                        window.location.href = res.url;
+                    else
+                    {
+                        $('.error').html(res.message).show();
+                    }
+                }
+            });
+        });
+    });
+</script>
+<?php $this->content->end()?>

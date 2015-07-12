@@ -1,0 +1,19 @@
+<?php $this->content->begin()?>
+<div class="fll left-content">
+                <div class="box-daotao">
+                    <ul class="lstTab spr pRel">
+                        <li class="fll"><span>Giới thiệu</span></li>
+                        <span class="pAbs navi-dt"><a href="<?php echo $this->url->action('index','Index',""); ?>">Trang chủ</a> Giới thiệu </span>
+                    </ul>
+                    <div class="box-daotaox">
+                        <div class="tuyensinh-content">
+                            <h1>
+                                <?php echo $detail->title; ?>
+                            </h1>
+                            <p style="font-weight: bold; margin-bottom: 20px; margin-top: 20px;"><?php echo $detail->headline; ?></p>
+                            <?php echo $detail->content; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php $this->content->end()?>

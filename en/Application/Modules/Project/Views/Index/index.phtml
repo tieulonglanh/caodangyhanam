@@ -1,0 +1,74 @@
+<?php $this->content->begin()?>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#menuProject').addClass("active");
+            $('.content').addClass("projectContent");
+            $('.partnerLink').remove();
+            
+
+            function loadData(page, type){
+                $.ajax
+                ({
+                    type: "POST",
+                    url: "<?php echo $this->url->action('moreProject','Index','Project')?>",
+                    data: "page="+page+"&type="+type,
+                    success: function(msg)
+                    {
+                        $(".newsList").ajaxComplete(function(event, request, settings)
+                        {
+                            $(".newsList").html(msg);
+                        });
+                    }
+                });
+            }
+            loadData(1, $('#typeDisplay').val());  // For first time page load default results
+            $('.newsList .pageNav a').live('click',function(){
+                var type = $('input[type=hidden]').val();
+                var page = $(this).attr('p');
+                loadData(page, type);
+
+            });
+
+            $('.titleControl a.blog').live('click',function(){
+                $('input[type=hidden]').val('blog');
+                var classContent = $('.content');
+
+                classContent.addClass('projectContent');
+                classContent.removeClass('documentContent documentContent2');
+
+                $('#blockContent').hide();
+                $('#listProjects').show();
+            });
+
+            $('.titleControl a.list').live('click',function(){
+                $('input[type=hidden]').val('list');
+                var classContent = $('.content');
+
+                classContent.addClass('documentContent documentContent2');
+                classContent.removeClass('projectContent');
+
+                $('#listProjects').hide();
+                $('#blockContent').show();
+            });
+
+        });
+    </script>
+
+    <input type="hidden" id="typeDisplay" value="blog"/>
+
+    <div class="firstContent">
+        <div class="blockTitle">
+            <span><a href="<?php echo $this->url->action('index','Index','') ?>" >Trang chủ </a> - <a href="<?php echo $this->url->action('index','Index','Project') ?>" >Các dự án </a></span>
+            <div class="titleControl">
+                <a class="list" href="#" class="prev"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/social-icon1.png")?>" /></a>
+                <a class="blog" href="#" class="next"><img src="<?php echo $this->url->content("Content/VNCPC/images/icons/menu-icon.png")?>" /></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="newsList"></div>
+    </div>
+    <div class="clearfix"></div>
+
+<?php $this->content->end()?>
