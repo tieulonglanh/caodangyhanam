@@ -36,7 +36,7 @@
                      <div class="section">
                          <?php $this->form->labelFor("title")?>
                          <div>
-                             <?php $this->form->textboxFor("title", array('class' => "medium"))?>
+                             <?php $this->form->textboxFor("title", array('class' => "medium",'onkeyup' => "updateSeoUrl(this, '#seo_url')"))?>
                              <label class="red">*</label>
                          </div>
                      </div>

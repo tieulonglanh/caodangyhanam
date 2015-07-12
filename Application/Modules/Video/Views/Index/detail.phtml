@@ -10,9 +10,11 @@
                             <h1 class="video-content">
                                 <?php echo $video->title; ?>
                             </h1>
-                            <p style="font-weight: bold; margin-bottom: 20px; margin-top: 20px;"><?php echo $detail->description; ?></p>
+                            <p style="font-weight: bold; margin-bottom: 20px; margin-top: 20px;"><?php echo $video->description; ?></p>
                             <iframe width="660" height="380" src="<?php $v = explode("?v=",$video->url); echo "https://www.youtube.com/embed/".$v[1] ?>" frameborder="0" allowfullscreen></iframe>
-            
+                            <p>
+                                <?php echo $video->lyric; ?>
+                            </p>
                         </div>
                     </div>
                 </div>
